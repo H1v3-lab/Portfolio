@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dmod — Dominique-Savio SAKOI</title>
+<meta name="description" content="Portfolio cybersécurité de Dominique-Savio SAKOI (Dmod) — étudiant en cybersécurité offensive, pentest, CTF.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: fixed left navigation rail + scrolling main column on a faint grid; rail becomes a bottom bar on phones */
+:root{
+  --bg:#030303; --panel:#0a0a0b; --panel-2:#111113; --line:#1c1c20; --line-2:#2a2a30;
+  --fg:#f5f5f7; --muted:#9a9aa3; --dim:#5e5e67; --ok:#7ee2a8;
+  --display:"Inter Tight",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--display);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:40px 40px;opacity:.3;
+  mask-image:radial-gradient(ellipse 75% 65% at 55% 45%,#000 25%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 55% 45%,#000 25%,transparent 100%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 32% 36%,rgba(255,255,255,.05),transparent 42%)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--fg);outline-offset:3px;border-radius:6px}
+
+/* ---------- rail ---------- */
+.rail{position:fixed;left:20px;top:50%;transform:translateY(-50%);width:212px;display:flex;flex-direction:column;gap:12px;z-index:10;max-height:calc(100vh - 40px)}
+.box{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:16px 14px}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim)}
+.brand b{display:block;font-size:16px;margin-top:12px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.brand > span{font-size:12px;color:var(--muted)}
+.nav{display:flex;flex-direction:column;gap:2px;overflow-y:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav .eyebrow{margin:10px 6px 6px}
+.nav .eyebrow:first-child{margin-top:0}
+.nav a{display:flex;align-items:center;gap:12px;padding:6px;border-radius:12px;transition:background .2s}
+.nav a:hover,.nav a.on{background:rgba(255,255,255,.04)}
+.ic{width:36px;height:36px;flex:none;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--muted);transition:color .2s,border-color .2s}
+.nav a:hover .ic,.nav a.on .ic{color:var(--fg);border-color:var(--line-2)}
+.ic svg{width:16px;height:16px}
+.nav .t{display:flex;flex-direction:column;line-height:1.25}
+.nav .t span:first-child{font-size:13.5px;color:#d9d9de}
+.nav .t span:last-child{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;color:var(--dim);text-transform:uppercase;margin-top:2px}
+.lang{margin-top:12px;font-family:var(--mono);font-size:13px;background:var(--bg);color:var(--fg);border:1px solid var(--line-2);border-radius:999px;width:42px;height:34px;cursor:pointer}
+.lang:hover{border-color:var(--muted)}
+
+/* ---------- main ---------- */
+main{position:relative;z-index:1;margin-left:252px;padding-inline:clamp(16px,5vw,72px)}
+section{max-width:980px;margin:0 auto;padding-block:96px}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:120px 80px}
+.prompt{display:inline-flex;gap:14px;align-items:center;font-family:var(--mono);font-size:14px;padding:9px 18px;background:#121214;border:1px solid var(--line-2);border-radius:4px;color:#e6e6ea}
+.prompt i{font-style:normal;color:var(--muted)}
+h1{font-size:clamp(34px,4.6vw,52px);font-weight:700;letter-spacing:-.065em;line-height:1.08;margin:44px 0 0;text-wrap:balance;min-height:1.1em}
+.caret{display:inline-block;width:3px;height:.9em;background:var(--muted);margin-left:10px;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.quote{font-style:italic;color:var(--muted);font-size:clamp(17px,1.6vw,20px);margin:30px 0 0}
+.ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:52px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 30px;border-radius:999px;font-size:16px;font-weight:500;border:1px solid var(--line-2);background:transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn:hover{border-color:var(--muted);transform:translateY(-1px)}
+.btn.solid{background:var(--fg);color:#000;border-color:var(--fg)}
+.btn.solid:hover{background:#d8d8dc}
+.btn svg{width:17px;height:17px}
+.boot{margin-top:84px;font-family:var(--mono);font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:6px;letter-spacing:.02em}
+.boot div{opacity:0;animation:in .5s ease forwards}
+.boot div:nth-child(1){animation-delay:.3s}
+.boot div:nth-child(2){animation-delay:1s}
+.boot div:nth-child(3){animation-delay:1.7s;color:var(--fg)}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.05em;line-height:1.1;margin:0}
+.lead{color:var(--muted);max-width:62ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.card h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-family:var(--mono);font-size:11px;color:#c9c9cf;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px}
+.kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.about .card p{font-size:15px;line-height:1.7}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14px;margin:0}
+.kv dt{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);padding-top:3px}
+.kv dd{margin:0;color:#dcdce0}
+
+.term{font-family:var(--mono);font-size:13px;background:#08080a;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.term .bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.term .bar span{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.term pre{margin:0;padding:16px 18px;overflow-x:auto;color:#cfcfd4;line-height:1.75}
+.term .p{color:var(--ok)}
+
+.timeline{display:flex;flex-direction:column;border-left:1px solid var(--line-2);margin-left:6px}
+.tl{position:relative;padding:0 0 32px 28px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-5px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
+.tl .when{font-family:var(--mono);font-size:12px;color:var(--dim)}
+.tl h3{margin:4px 0 2px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.tl .org{font-size:13.5px;color:#cfcfd4;margin-bottom:6px}
+.tl p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+
+.stat{font-size:40px;font-weight:700;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.contact{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.mail{font-family:var(--mono);font-size:clamp(15px,2.4vw,20px);padding:14px 22px;border:1px solid var(--line-2);border-radius:14px;background:var(--panel);user-select:all;word-break:break-all}
+footer{max-width:980px;margin:0 auto;padding-block:40px 60px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.shown{opacity:1;transform:none}
+
+/* ---------- chat ---------- */
+.fab{position:fixed;right:22px;bottom:22px;z-index:20;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--panel-2);border:1px solid var(--line-2);color:var(--fg);cursor:pointer;transition:border-color .2s,transform .2s}
+.fab:hover{border-color:var(--muted);transform:scale(1.04)}
+.fab svg{width:22px;height:22px}
+.chat{position:fixed;right:22px;bottom:92px;z-index:25;width:min(380px,calc(100vw - 32px));height:min(540px,calc(100svh - 130px));display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-2);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;transition:opacity .2s,transform .2s}
+.chat.open{opacity:1;transform:none;pointer-events:auto}
+.chat-h{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.chat-h b{display:block;font-size:14px;font-weight:600}
+.chat-x{background:none;border:1px solid var(--line-2);border-radius:999px;width:30px;height:30px;cursor:pointer;color:var(--muted)}
+.chat-x:hover{color:var(--fg);border-color:var(--muted)}
+.chat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-line}
+.msg.bot{background:var(--panel-2);border:1px solid var(--line);color:#dcdce0;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--fg);color:#000;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.typing{color:var(--dim);font-family:var(--mono)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
+.chip{font-family:var(--mono);font-size:11px;border:1px solid var(--line-2);border-radius:999px;padding:5px 10px;background:transparent;cursor:pointer;color:#c9c9cf}
+.chip:hover{border-color:var(--muted);color:var(--fg)}
+.chat-f{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-f input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line-2);border-radius:999px;padding:0 14px;height:40px;color:var(--fg);font:inherit;font-size:14px}
+.chat-f input:focus{outline:none;border-color:var(--muted)}
+.chat-f button{width:40px;height:40px;border-radius:50%;border:none;background:var(--fg);color:#000;cursor:pointer;display:grid;place-items:center}
+.chat-f button svg{width:16px;height:16px}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);font-family:var(--mono);font-size:12px;background:var(--fg);color:#000;padding:8px 14px;border-radius:999px;z-index:30}
+
+@media (max-width:1100px){
+  .rail{width:70px}
+  .rail .brand > *,.nav .t,.nav .eyebrow,.rail .controls .eyebrow{display:none}
+  .rail .box{padding:10px 8px;display:flex;flex-direction:column;align-items:center}
+  .rail .brand::after{content:"0_0";font-family:var(--mono);font-size:12px;color:var(--bg);background:var(--fg);border-radius:8px;padding:3px 7px}
+  .nav a{padding:4px}
+  .lang{margin-top:0}
+  main{margin-left:100px}
+}
+@media (max-width:720px){
+  .rail{top:auto;bottom:calc(10px + env(safe-area-inset-bottom,0px));left:10px;right:10px;transform:none;width:auto;flex-direction:row;gap:8px}
+  .rail .brand{display:none}
+  .rail .box{flex-direction:row;padding:6px;border-radius:18px}
+  .nav{flex-direction:row;flex:1;justify-content:space-between;overflow-x:auto}
+  .nav a{padding:3px}
+  .ic{width:34px;height:34px}
+  main{margin-left:0;padding-bottom:90px}
+  .about{grid-template-columns:1fr}
+  .fab{bottom:calc(84px + env(safe-area-inset-bottom,0px));width:50px;height:50px}
+  .chat{bottom:calc(144px + env(safe-area-inset-bottom,0px));right:16px;height:min(480px,calc(100svh - 180px))}
+  section{padding-block:64px}
+  .hero{padding-block:72px 48px;min-height:auto}
+  .btn{height:44px;padding:0 22px;font-size:15px}
+  .boot{margin-top:56px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.boot div,.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<aside class="rail" aria-label="Navigation">
+  <div class="box brand">
+    <div class="eyebrow">Navigation rail</div>
+    <b>Dmod</b>
+    <span data-i18n="brandsub">Portfolio cybersécurité</span>
+  </div>
+  <nav class="box nav">
+    <div class="eyebrow">Explore</div>
+    <a href="#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
+    <a href="#skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
+    <div class="eyebrow">Work</div>
+    <a href="#projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
+    <a href="#ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
+    <a href="#certifications"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="t"><span>Certifications</span><span>Certifications</span></span></a>
+    <div class="eyebrow">Journey</div>
+    <a href="#education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
+    <a href="#experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
+    <a href="#contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="box controls">
+    <div class="eyebrow">Controls</div>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">EN</button>
+  </div>
+</aside>
+
+<main>
+  <section class="hero" id="top">
+    <div class="prompt"><i>&gt;_</i>$ whoami</div>
+    <h1><span id="typed"></span><span class="caret" aria-hidden="true"></span></h1>
+    <p class="quote" data-i18n="quote">“Chaque système raconte une histoire. Je lis entre les lignes.”</p>
+    <div class="ctas">
+      <a class="btn solid" href="#projects" data-i18n="c_projects">Voir mes projets</a>
+      <a class="btn" href="#certifications">Certifications</a>
+      <a class="btn" href="#contact">Contact</a>
+      <button class="btn solid" type="button" data-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span data-i18n="c_chat">Chat en direct avec l'IA</span></button>
+    </div>
+    <div class="boot" aria-hidden="true">
+      <div>&gt; Initializing system...</div>
+      <div>&gt; Loading security modules...</div>
+      <div>&gt; System operational ✓</div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="head"><span class="eyebrow">01 · About</span><h2 data-i18n="h_about">À propos</h2></div>
+    <div class="about">
+      <div class="card">
+        <p data-i18n="about1">Je suis Dominique-Savio SAKOI, alias Dmod. Étudiant en Licence 3 Cybersécurité à IPNET Institute (Lomé) et consultant indépendant, je me concentre sur la sécurité offensive : tests d'intrusion web, exploitation, cryptanalyse appliquée et forensique.</p>
+        <p data-i18n="about2">Je m'entraîne en CTF presque chaque semaine, je construis mes propres labs vulnérables, et j'applique ce que j'apprends à des projets réels, du paiement mobile à la sûreté aéroportuaire.</p>
+        <span class="status" data-i18n="avail">Disponible pour stages et missions</span>
+      </div>
+      <div class="card">
+        <dl class="kv">
+          <dt>Handle</dt><dd>Dmod</dd>
+          <dt data-i18n="k_loc">Base</dt><dd>Lomé, Togo</dd>
+          <dt data-i18n="k_school">École</dt><dd>IPNET Institute · L3</dd>
+          <dt>Team</dt><dd>n0_m3rcy</dd>
+          <dt>Env</dt><dd>Kali Linux</dd>
+          <dt data-i18n="k_lang">Langues</dt><dd>Français · English</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="head"><span class="eyebrow">02 · Skills</span><h2 data-i18n="h_skills">Compétences</h2><p class="lead" data-i18n="l_skills">Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.</p></div>
+    <div class="grid">
+      <div class="card"><span class="kind">Web</span><h3>Exploitation web</h3><p>SQLi UNION avec contournement de WAF, SSRF (gopher → Redis), JWT (alg:none, confusion RS256/HS256), SSTI, XXE, IDOR, prototype pollution, NoSQLi.</p><div class="tags"><span class="tag">Burp Suite</span><span class="tag">ffuf</span><span class="tag">sqlmap</span></div></div>
+      <div class="card"><span class="kind">Crypto</span><h3>Cryptanalyse</h3><p>Attaques RSA (Håstad, module commun), réutilisation de nonce ECDSA, AES-CTR nonce reuse, SPN custom en clair choisi.</p><div class="tags"><span class="tag">Python</span><span class="tag">SageMath</span><span class="tag">pwntools</span></div></div>
+      <div class="card"><span class="kind">Forensics</span><h3>Forensique & stégano</h3><p>Analyse PCAP, exfiltration DNS, carving ext4, historique Chrome SQLite, core dumps, chunks PNG, LSB, stegsnow.</p><div class="tags"><span class="tag">Wireshark</span><span class="tag">Sleuth Kit</span><span class="tag">binwalk</span></div></div>
+      <div class="card"><span class="kind">Reverse</span><h3>Reverse engineering</h3><p>ELF packés UPX, VM custom à 16 opcodes, APK Android, librairies natives .so, crackmes Root-Me.</p><div class="tags"><span class="tag">Ghidra</span><span class="tag">jadx</span><span class="tag">gdb</span></div></div>
+      <div class="card"><span class="kind">Infra</span><h3>Systèmes & réseau</h3><p>Pivot SSH, élévation de privilèges Linux, hijacking de librairies, conteneurisation et reverse proxy.</p><div class="tags"><span class="tag">Docker</span><span class="tag">NGINX</span><span class="tag">nmap</span></div></div>
+      <div class="card"><span class="kind">Dev</span><h3>Développement</h3><p>Conception de challenges full-stack en PHP, Node.js, Flask et Java ; automatisation et outillage en Python.</p><div class="tags"><span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">Flask</span></div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="head"><span class="eyebrow">03 · Projects</span><h2 data-i18n="h_projects">Projets</h2></div>
+    <div class="grid">
+      <div class="card"><span class="kind">Lab · Docker</span><h3>VulnLab</h3><p>Lab web volontairement vulnérable : 15 challenges couvrant l'OWASP Top 10 (SQLi, XSS, SSTI, JWT, SSRF, XXE, CSRF, LFI, upload, IDOR…), multi-langages derrière un reverse proxy NGINX.</p><div class="tags"><span class="tag">Docker</span><span class="tag">OWASP</span><span class="tag">NGINX</span></div></div>
+      <div class="card"><span class="kind">Startup · Fintech</span><h3>KoudiPay</h3><p>Co-fondateur et responsable cybersécurité d'un agrégateur de paiement Mobile Money (Flooz, Mixx by Yas) pour les PME togolaises.</p><div class="tags"><span class="tag">Mobile Money</span><span class="tag">Sécurité applicative</span></div></div>
+      <div class="card"><span class="kind">Concours ANAC · AVSEC 2026</span><h3>SENTINEL-AVSEC</h3><p>Cybersurveillance des équipements connectés d'un poste de sûreté aéroportuaire, pilotée par un agent IA.</p><div class="tags"><span class="tag">IoT</span><span class="tag">IA</span><span class="tag">Détection</span></div></div>
+      <div class="card"><span class="kind">Hackathon AI4YOUTH 2026</span><h3>BloodLogic</h3><p>Projet d'équipe présenté au hackathon AI4YOUTH organisé par Neuractif à Lomé.</p><div class="tags"><span class="tag">IA</span><span class="tag">Santé</span></div></div>
+    </div>
+  </section>
+
+  <section id="ctf" class="reveal">
+    <div class="head"><span class="eyebrow">04 · CTF</span><h2>Capture the flag</h2><p class="lead" data-i18n="l_ctf">Compétitions régionales et plateformes d'entraînement. Writeups signés Dmod.</p></div>
+    <div class="grid" style="margin-bottom:14px">
+      <div class="card"><span class="kind">IPNET Cyber Battle 2026</span><div class="stat">2<sup style="font-size:18px">e</sup> / 10</div><p>Équipe n0_m3rcy, finale des 22–23 août 2026.</p></div>
+      <div class="card"><span class="kind">Compétitions</span><p style="color:#dcdce0">EcowasCTF · brCTF · boroCTF · ESIG Tech Arena · NEXUS CORE · Virtuoso Arena</p></div>
+    </div>
+    <div class="term">
+      <div class="bar"><span></span><span></span><span></span></div>
+<pre><span class="p">dmod@Deamon</span>:~$ cat writeups/highlights.log
+[web]    JWT RS256 → HS256 algorithm confusion via exposed JWKS
+[web]    SSRF gopher:// → Redis → FTP creds → SSH pivot
+[web]    UNION SQLi in HTTP headers, WAF bypass with hex literals
+[crypto] ECDSA repeated nonce → private key recovery
+[crypto] AES-128-CTR nonce reuse on shared keystream
+[rev]    UPX ELF hiding a 16-opcode VM running a reduced AES
+[net]    DNS tunneling exfil decoded from base32 subdomains</pre>
+    </div>
+  </section>
+
+  <section id="certifications" class="reveal">
+    <div class="head"><span class="eyebrow">05 · Certifications</span><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours d'entraînement suivis et certifications.</p></div>
+    <div class="grid">
+      <!-- Ajoute tes certifications ici, sur le même modèle :
+      <div class="card"><span class="kind">Organisme · Année</span><h3>Nom de la certification</h3><p>Description courte.</p><div class="tags"><span class="tag">Domaine</span></div></div>
+      -->
+      <div class="card"><span class="kind">TryHackMe</span><h3>Parcours offensifs</h3><p>Rooms et learning paths en pentest web, réseau et élévation de privilèges.</p><div class="tags"><span class="tag">Pentest</span></div></div>
+      <div class="card"><span class="kind">Root-Me</span><h3>Challenges</h3><p>Web-serveur, cracking, cryptanalyse, forensique et stéganographie.</p><div class="tags"><span class="tag">CTF</span></div></div>
+      <div class="card"><span class="kind">picoCTF · pwn.college</span><h3>Exploitation & bas niveau</h3><p>Binary exploitation, reverse engineering et fondamentaux Linux.</p><div class="tags"><span class="tag">Pwn</span><span class="tag">Reverse</span></div></div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="head"><span class="eyebrow">06 · Education</span><h2 data-i18n="h_edu">Formation</h2></div>
+    <div class="timeline">
+      <div class="tl"><span class="when">2025 — 2026</span><h3>Licence 3 Cybersécurité</h3><div class="org">IPNET Institute · Lomé</div><p>Tests de sécurité, investigation numérique et sécurité réseau.</p></div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="head"><span class="eyebrow">07 · Experience</span><h2 data-i18n="h_exp">Expérience</h2></div>
+    <div class="timeline">
+      <div class="tl"><span class="when">2026</span><h3 data-i18n="t_consult">Consultant cybersécurité indépendant</h3><div class="org">Freelance</div><p>Missions de test d'intrusion autorisées, dont l'audit d'une plateforme web d'IPNET Institute.</p></div>
+      <div class="tl"><span class="when">2026</span><h3>Co-fondateur · Responsable cybersécurité</h3><div class="org">KoudiPay</div><p>Sécurité applicative d'un agrégateur de paiement Mobile Money pour les PME togolaises.</p></div>
+      <div class="tl"><span class="when">2026</span><h3>PyCon Togo 2026</h3><div class="org">OZZONS</div><p>Représentant d'OZZONS lors de l'événement.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="head"><span class="eyebrow">08 · Contact</span><h2 data-i18n="h_contact">Travaillons ensemble</h2><p class="lead" data-i18n="l_contact">Pentest, audit, formation ou équipe CTF : écris-moi.</p></div>
+    <div class="contact">
+      <span class="mail" id="mail">domqsavio@gmail.com</span>
+      <button class="btn solid" id="copy" type="button" data-i18n="copy">Copier l'adresse</button>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Dominique-Savio SAKOI · Dmod</span><span>Lomé, TG · UTC+0</span></footer>
+</main>
+
+<button class="fab" type="button" data-chat aria-label="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg></button>
+
+<div class="chat" id="chat" role="dialog" aria-label="Assistant IA" aria-hidden="true">
+  <div class="chat-h">
+    <div><span class="eyebrow">Assistant</span><b data-i18n="chat_title">Demande-moi n'importe quoi sur Dmod</b></div>
+    <button class="chat-x" id="chat-x" type="button" aria-label="Fermer">✕</button>
+  </div>
+  <div class="chat-log" id="chat-log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="chat-f" id="chat-f" autocomplete="off">
+    <input id="chat-in" type="text" data-i18n-ph="chat_ph" placeholder="Pose ta question…" aria-label="Message">
+    <button type="submit" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+</div>
+
+<script>
+const T={
+  fr:{brandsub:"Portfolio cybersécurité",n_about:"À propos",n_skills:"Compétences",n_projects:"Projets",n_edu:"Formation",n_exp:"Expérience",quote:"“Chaque système raconte une histoire. Je lis entre les lignes.”",c_projects:"Voir mes projets",c_chat:"Chat en direct avec l'IA",h_about:"À propos",about1:"Je suis Dominique-Savio SAKOI, alias Dmod. Étudiant en Licence 3 Cybersécurité à IPNET Institute (Lomé) et consultant indépendant, je me concentre sur la sécurité offensive : tests d'intrusion web, exploitation, cryptanalyse appliquée et forensique.",about2:"Je m'entraîne en CTF presque chaque semaine, je construis mes propres labs vulnérables, et j'applique ce que j'apprends à des projets réels, du paiement mobile à la sûreté aéroportuaire.",avail:"Disponible pour stages et missions",h_skills:"Compétences",l_skills:"Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.",h_projects:"Projets",l_ctf:"Compétitions régionales et plateformes d'entraînement. Writeups signés Dmod.",l_certs:"Parcours d'entraînement suivis et certifications.",h_edu:"Formation",h_exp:"Expérience",t_consult:"Consultant cybersécurité indépendant",h_contact:"Travaillons ensemble",l_contact:"Pentest, audit, formation ou équipe CTF : écris-moi.",copy:"Copier l'adresse",k_loc:"Base",k_school:"École",k_lang:"Langues",chat_title:"Demande-moi n'importe quoi sur Dmod",chat_ph:"Pose ta question…"},
+  en:{brandsub:"Cybersecurity portfolio",n_about:"About",n_skills:"Skills",n_projects:"Projects",n_edu:"Education",n_exp:"Experience",quote:"“Every system tells a story. I read between the lines.”",c_projects:"See my projects",c_chat:"Live chat with the AI",h_about:"About",about1:"I'm Dominique-Savio SAKOI, aka Dmod. A third-year Cybersecurity student at IPNET Institute (Lomé) and an independent consultant, I focus on offensive security: web penetration testing, exploitation, applied cryptanalysis and forensics.",about2:"I play CTFs almost every week, build my own vulnerable labs, and apply what I learn to real projects, from mobile payments to airport security.",avail:"Open to internships and engagements",h_skills:"Skills",l_skills:"What I've practiced for real, in competitions or authorized engagements.",h_projects:"Projects",l_ctf:"Regional competitions and training platforms. Writeups signed Dmod.",l_certs:"Training paths and certifications.",h_edu:"Education",h_exp:"Experience",t_consult:"Independent cybersecurity consultant",h_contact:"Let's work together",l_contact:"Pentest, audit, training or a CTF team: get in touch.",copy:"Copy address",k_loc:"Based in",k_school:"School",k_lang:"Languages",chat_title:"Ask me anything about Dmod",chat_ph:"Ask a question…"}
+};
+const titles={fr:"Étudiant en Cybersécurité Offensive",en:"Offensive Security Student"};
+let lang="fr";try{lang=localStorage.getItem("lang")||"fr"}catch(e){}
+const typed=document.getElementById("typed");let timer;
+function type(text){clearTimeout(timer);let i=0;typed.textContent="";
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches){typed.textContent=text;return}
+  (function step(){typed.textContent=text.slice(0,++i);if(i<text.length)timer=setTimeout(step,55)})()}
+function apply(l){lang=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[l][el.dataset.i18n];if(v)el.textContent=v});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{el.placeholder=T[l][el.dataset.i18nPh]});
+  document.getElementById("lang").textContent=l==="fr"?"EN":"FR";type(titles[l]);renderChips();
+  try{localStorage.setItem("lang",l)}catch(e){}}
+document.getElementById("lang").addEventListener("click",()=>apply(lang==="fr"?"en":"fr"));
+
+document.getElementById("copy").addEventListener("click",async()=>{
+  const txt=document.getElementById("mail").textContent;let ok=true;
+  try{await navigator.clipboard.writeText(txt)}catch(e){ok=false;const r=document.createRange();r.selectNodeContents(document.getElementById("mail"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+  const t=document.createElement("div");t.className="toast";t.textContent=ok?(lang==="fr"?"Adresse copiée":"Address copied"):(lang==="fr"?"Adresse sélectionnée":"Address selected");document.body.appendChild(t);setTimeout(()=>t.remove(),1800)});
+
+/* active rail link + scroll reveal */
+const links=[...document.querySelectorAll(".nav a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("shown");rv.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(s=>rv.observe(s));
+
+/* ---------- chat assistant (local knowledge base, no server needed) ---------- */
+const KB=[
+  {k:["qui","who","toi","you","dmod","présente","presente","about","propos"],fr:"Dmod, c'est Dominique-Savio SAKOI : étudiant en L3 Cybersécurité à IPNET Institute (Lomé) et consultant indépendant, spécialisé en sécurité offensive (pentest web, exploitation, cryptanalyse, forensique).",en:"Dmod is Dominique-Savio SAKOI: a third-year Cybersecurity student at IPNET Institute (Lomé) and independent consultant, focused on offensive security (web pentest, exploitation, cryptanalysis, forensics)."},
+  {k:["compétence","competence","skill","sait","know","outil","tool","stack"],fr:"Domaines de Dmod : exploitation web (SQLi, SSRF, JWT, SSTI, XXE…), cryptanalyse (RSA, ECDSA, AES-CTR), forensique & stégano, reverse engineering (Ghidra, jadx), systèmes & réseau, et dev Python/Node.js/Flask.",en:"Dmod's areas: web exploitation (SQLi, SSRF, JWT, SSTI, XXE…), cryptanalysis (RSA, ECDSA, AES-CTR), forensics & stego, reverse engineering (Ghidra, jadx), systems & networking, and Python/Node.js/Flask dev."},
+  {k:["projet","project","vulnlab","koudipay","sentinel","bloodlogic","réalis"],fr:"Projets phares :\n• VulnLab — lab Docker de 15 challenges OWASP Top 10\n• KoudiPay — agrégateur Mobile Money (co-fondateur, resp. cybersécurité)\n• SENTINEL-AVSEC — cybersurveillance aéroportuaire pilotée par IA (ANAC 2026)\n• BloodLogic — hackathon AI4YOUTH 2026",en:"Key projects:\n• VulnLab — Docker lab with 15 OWASP Top 10 challenges\n• KoudiPay — Mobile Money aggregator (co-founder, security lead)\n• SENTINEL-AVSEC — AI-driven airport security monitoring (ANAC 2026)\n• BloodLogic — AI4YOUTH 2026 hackathon"},
+  {k:["ctf","flag","compétition","competition","classement","rank","n0_m3rcy","team","équipe"],fr:"Dmod joue en CTF avec l'équipe n0_m3rcy : 2e sur 10 à l'IPNET Cyber Battle 2026. Également à EcowasCTF, brCTF, boroCTF, ESIG Tech Arena, NEXUS CORE et Virtuoso Arena.",en:"Dmod plays CTFs with team n0_m3rcy: 2nd out of 10 at IPNET Cyber Battle 2026. Also EcowasCTF, brCTF, boroCTF, ESIG Tech Arena, NEXUS CORE and Virtuoso Arena."},
+  {k:["certif","diplôme","diplome","degree","formation","education","école","ecole","school","étude","study"],fr:"Formation de Dmod : Licence 3 Cybersécurité à IPNET Institute (2025–2026). Entraînement sur TryHackMe, Root-Me, picoCTF et pwn.college.",en:"Dmod's education: 3rd-year Bachelor in Cybersecurity at IPNET Institute (2025–2026). Training on TryHackMe, Root-Me, picoCTF and pwn.college."},
+  {k:["expérience","experience","travail","work","job","mission","consult","audit","pentest","stage","intern","dispo","available","hire","recrut"],fr:"Dmod est consultant cybersécurité indépendant (tests d'intrusion autorisés, dont l'audit d'une plateforme d'IPNET Institute) et est disponible pour stages, missions de pentest et audits.",en:"Dmod is an independent security consultant (authorized pentests, including an audit of an IPNET Institute platform) and open to internships, pentest engagements and audits."},
+  {k:["contact","mail","email","joindre","reach","écrire","write"],fr:"Le plus simple : domqsavio@gmail.com. Tu peux aussi copier l'adresse depuis la section Contact.",en:"Easiest way: domqsavio@gmail.com. You can also copy it from the Contact section."},
+  {k:["où","ou ","where","lomé","lome","togo","pays","country","based"],fr:"Dmod est basé à Lomé, au Togo (UTC+0), et travaille en français et en anglais.",en:"Dmod is based in Lomé, Togo (UTC+0), and works in French and English."},
+  {k:["bonjour","salut","hello","hi","hey","coucou"],fr:"Salut ! 👋 Je peux te parler de son parcours, ses compétences, ses projets ou ses CTF.",en:"Hi! 👋 I can tell you about Dmod's background, skills, projects or CTFs."}
+];
+const CHIPS={fr:["Qui est Dmod ?","Projets","Compétences","Résultats CTF","Contact"],en:["Who is Dmod?","Projects","Skills","CTF results","Get in touch"]};
+const chat=document.getElementById("chat"),log=document.getElementById("chat-log"),inp=document.getElementById("chat-in");
+function add(text,who){const d=document.createElement("div");d.className="msg "+who;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function answer(q){const s=q.toLowerCase();let best=null,score=0;
+  KB.forEach(e=>{const n=e.k.filter(k=>s.includes(k)).length;if(n>score){score=n;best=e}});
+  return best?best[lang]:(lang==="fr"?"Je n'ai pas cette info. Le mieux est d'écrire directement à Dmod : domqsavio@gmail.com":"I don't have that info. Best to email Dmod directly: domqsavio@gmail.com")}
+function ask(q){if(!q.trim())return;add(q,"me");const t=add("…","bot typing");
+  setTimeout(()=>{t.classList.remove("typing");t.textContent=answer(q);log.scrollTop=log.scrollHeight},500+Math.random()*400)}
+function renderChips(){const c=document.getElementById("chips");c.innerHTML="";
+  CHIPS[lang].forEach(q=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=q;b.onclick=()=>ask(q);c.appendChild(b)})}
+function toggleChat(open){chat.classList.toggle("open",open);chat.setAttribute("aria-hidden",!open);
+  if(open){if(!log.children.length)add(lang==="fr"?"Salut ! Je suis l'assistant de Dmod. Pose-moi une question sur son parcours, ses projets ou ses compétences.":"Hi! I'm Dmod's assistant. Ask me about Dmod's background, projects or skills.","bot");setTimeout(()=>inp.focus(),150)}}
+document.querySelectorAll("[data-chat]").forEach(b=>b.addEventListener("click",()=>toggleChat(!chat.classList.contains("open"))));
+document.getElementById("chat-x").addEventListener("click",()=>toggleChat(false));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")toggleChat(false)});
+document.getElementById("chat-f").addEventListener("submit",e=>{e.preventDefault();ask(inp.value);inp.value=""});
+
+apply(lang);
+</script>
+</body>
+</html>
