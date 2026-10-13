@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/fx.css">
-<noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal{opacity:1;transform:none}</style></noscript>
+<noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 <div class="loader" id="loader" aria-hidden="true">
@@ -81,59 +81,136 @@
   </div></div>
 
   <section id="about" class="reveal">
-    <div class="head"><span class="eyebrow">01 · About</span><h2 data-i18n="h_about">À propos</h2></div>
-    <div class="about">
-      <div class="card">
-        <p data-i18n="about1">Je suis Dominique-Savio SAKOI, alias Dmod. Étudiant en Licence 3 Cybersécurité à IPNET Institute (Lomé) et consultant indépendant, je me concentre sur la sécurité offensive : tests d'intrusion web, exploitation, cryptanalyse appliquée et forensique.</p>
-        <p data-i18n="about2">Je m'entraîne en CTF presque chaque semaine, je construis mes propres labs vulnérables, et j'applique ce que j'apprends à des projets réels, du paiement mobile à la sûreté aéroportuaire.</p>
+    <div class="head"><h2 data-i18n="h_about">À propos</h2></div>
+    <div class="about2">
+      <div class="about-text">
+        <p data-i18n="about1">Étudiant passionné en cybersécurité offensive, je me spécialise dans l'identification et l'exploitation de vulnérabilités : tests d'intrusion web, exploitation, cryptanalyse appliquée et forensique.</p>
+        <p data-i18n="about2">Je m'entraîne en CTF presque chaque semaine avec l'équipe n0_m3rcy, je construis mes propres labs vulnérables, et j'applique ce que j'apprends à des projets réels, du paiement mobile à la sûreté aéroportuaire.</p>
         <span class="status" data-i18n="avail">Disponible pour stages et missions</span>
       </div>
-      <div class="card">
-        <dl class="kv">
-          <dt>Handle</dt><dd>Dmod</dd>
-          <dt data-i18n="k_loc">Base</dt><dd>Lomé, Togo</dd>
-          <dt data-i18n="k_school">École</dt><dd>IPNET Institute · L3</dd>
-          <dt>Team</dt><dd>n0_m3rcy</dd>
-          <dt>Env</dt><dd>Kali Linux</dd>
-          <dt data-i18n="k_lang">Langues</dt><dd>Français · English</dd>
-        </dl>
-      </div>
+      <dl class="facts">
+        <dt data-i18n="f_id">Identité</dt><dd>Dominique-Savio SAKOI · <span class="mono">Dmod</span></dd>
+        <dt data-i18n="f_status">Statut</dt><dd data-i18n="f_status_v">Consultant cybersécurité indépendant · Co-fondateur de KoudiPay</dd>
+        <dt data-i18n="f_edu">Formation</dt><dd>Licence 3 Cybersécurité — IPNET Institute<small>2025 — 2026 · Lomé, Togo</small></dd>
+        <dt data-i18n="f_domains">Domaines d'expertise</dt>
+        <dd><ul>
+          <li data-i18n="d1">Tests d'intrusion web</li>
+          <li data-i18n="d2">Cryptanalyse</li>
+          <li data-i18n="d3">Forensique & stéganographie</li>
+          <li data-i18n="d4">Reverse engineering</li>
+          <li>Capture the flag</li>
+        </ul></dd>
+      </dl>
     </div>
     <div class="stats">
       <div class="card"><div class="stat"><span data-count="2">0</span><sup>e</sup></div><p data-i18n="s1">IPNET Cyber Battle 2026</p></div>
       <div class="card"><div class="stat"><span data-count="15">0</span></div><p data-i18n="s2">Challenges dans VulnLab</p></div>
       <div class="card"><div class="stat"><span data-count="7">0</span>+</div><p data-i18n="s3">Compétitions CTF</p></div>
-      <div class="card"><div class="stat"><span data-count="4">0</span></div><p data-i18n="s4">Projets menés</p></div>
+      <div class="card"><div class="stat"><span data-count="5">0</span></div><p data-i18n="s4">Projets menés</p></div>
     </div>
   </section>
 
   <section id="skills" class="reveal">
-    <div class="head"><span class="eyebrow">02 · Skills</span><h2 data-i18n="h_skills">Compétences</h2><p class="lead" data-i18n="l_skills">Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.</p></div>
-    <div class="grid">
-      <div class="card"><span class="kind">Web</span><h3>Exploitation web</h3><p>SQLi UNION avec contournement de WAF, SSRF (gopher → Redis), JWT (alg:none, confusion RS256/HS256), SSTI, XXE, IDOR, prototype pollution, NoSQLi.</p><div class="tags"><span class="tag">Burp Suite</span><span class="tag">ffuf</span><span class="tag">sqlmap</span></div></div>
-      <div class="card"><span class="kind">Crypto</span><h3>Cryptanalyse</h3><p>Attaques RSA (Håstad, module commun), réutilisation de nonce ECDSA, AES-CTR nonce reuse, SPN custom en clair choisi.</p><div class="tags"><span class="tag">Python</span><span class="tag">SageMath</span><span class="tag">pwntools</span></div></div>
-      <div class="card"><span class="kind">Forensics</span><h3>Forensique & stégano</h3><p>Analyse PCAP, exfiltration DNS, carving ext4, historique Chrome SQLite, core dumps, chunks PNG, LSB, stegsnow.</p><div class="tags"><span class="tag">Wireshark</span><span class="tag">Sleuth Kit</span><span class="tag">binwalk</span></div></div>
-      <div class="card"><span class="kind">Reverse</span><h3>Reverse engineering</h3><p>ELF packés UPX, VM custom à 16 opcodes, APK Android, librairies natives .so, crackmes Root-Me.</p><div class="tags"><span class="tag">Ghidra</span><span class="tag">jadx</span><span class="tag">gdb</span></div></div>
-      <div class="card"><span class="kind">Infra</span><h3>Systèmes & réseau</h3><p>Pivot SSH, élévation de privilèges Linux, hijacking de librairies, conteneurisation et reverse proxy.</p><div class="tags"><span class="tag">Docker</span><span class="tag">NGINX</span><span class="tag">nmap</span></div></div>
-      <div class="card"><span class="kind">Dev</span><h3>Développement</h3><p>Conception de challenges full-stack en PHP, Node.js, Flask et Java ; automatisation et outillage en Python.</p><div class="tags"><span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">Flask</span></div></div>
+    <div class="head"><h2 data-i18n="h_skills">Compétences</h2><p class="lead" data-i18n="l_skills">Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.</p></div>
+    <div class="acc">
+      <div class="acc-item open">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8l4 4-4 4M12 16h7"/></svg></span><span class="acc-t"><b>Systèmes d'exploitation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Linux · administration</span><span class="tag">Linux · élévation de privilèges</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="acc-t"><b>Cybersécurité (Pentest & Exploitation)</b><small data-i18n="methodo">Aperçu de méthodologie</small></span><span class="badge">Méthodo</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><ol class="steps">
+          <li><b>01 · Reconnaissance</b><span>Cartographie de la surface d'attaque, énumération de services et de contenus.</span><div class="tags"><span class="tag">nmap</span><span class="tag">ffuf</span></div></li>
+          <li><b>02 · Exploitation</b><span>Validation manuelle des vulnérabilités, contournement de protections.</span><div class="tags"><span class="tag">Burp Suite</span><span class="tag">sqlmap</span></div></li>
+          <li><b>03 · Post-exploitation</b><span>Pivot, élévation de privilèges, mesure de l'impact réel.</span><div class="tags"><span class="tag">SSH pivot</span><span class="tag">privesc</span></div></li>
+          <li><b>04 · Rapport</b><span>Preuves, criticité et recommandations de remédiation actionnables.</span><div class="tags"><span class="tag">Writeups</span></div></li>
+        </ol></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"/></svg></span><span class="acc-t"><b>Exploitation web</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">SQLi UNION + bypass WAF</span><span class="tag">SSRF (gopher → Redis)</span><span class="tag">JWT alg:none / RS256→HS256</span><span class="tag">SSTI</span><span class="tag">XXE</span><span class="tag">IDOR</span><span class="tag">Prototype pollution</span><span class="tag">NoSQLi</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="acc-t"><b>Cryptanalyse</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">RSA · Håstad</span><span class="tag">RSA · module commun</span><span class="tag">ECDSA · nonce réutilisé</span><span class="tag">AES-CTR · nonce reuse</span><span class="tag">SPN custom · clair choisi</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span><span class="acc-t"><b>Forensique & stéganographie</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Analyse PCAP</span><span class="tag">Exfiltration DNS</span><span class="tag">Carving ext4</span><span class="tag">Chrome SQLite</span><span class="tag">Core dumps</span><span class="tag">Chunks PNG</span><span class="tag">LSB</span><span class="tag">stegsnow</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><span class="acc-t"><b>Reverse engineering</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Ghidra</span><span class="tag">jadx</span><span class="tag">gdb</span><span class="tag">ELF packés UPX</span><span class="tag">VM custom 16 opcodes</span><span class="tag">APK Android</span><span class="tag">Librairies natives .so</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></svg></span><span class="acc-t"><b>Langages de programmation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Python</span><span class="tag">JavaScript · Node.js</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">Flask</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span><span class="acc-t"><b>Réseau & Infrastructure</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Docker</span><span class="tag">NGINX · reverse proxy</span><span class="tag">nmap</span><span class="tag">Wireshark</span><span class="tag">Pivot SSH</span><span class="tag">Hijacking de librairies</span></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5z"/></svg></span><span class="acc-t"><b data-i18n="tools">Outils offensifs</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Burp Suite</span><span class="tag">ffuf</span><span class="tag">sqlmap</span><span class="tag">pwntools</span><span class="tag">SageMath</span><span class="tag">binwalk</span><span class="tag">Sleuth Kit</span></div></div></div>
+      </div>
     </div>
   </section>
 
   <section id="projects" class="reveal">
-    <div class="head"><span class="eyebrow">03 · Projects</span><h2 data-i18n="h_projects">Projets</h2></div>
-    <div class="grid">
-      <div class="card"><span class="kind">Lab · Docker</span><h3>VulnLab</h3><p>Lab web volontairement vulnérable : 15 challenges couvrant l'OWASP Top 10 (SQLi, XSS, SSTI, JWT, SSRF, XXE, CSRF, LFI, upload, IDOR…), multi-langages derrière un reverse proxy NGINX.</p><div class="tags"><span class="tag">Docker</span><span class="tag">OWASP</span><span class="tag">NGINX</span></div></div>
-      <div class="card"><span class="kind">Startup · Fintech</span><h3>KoudiPay</h3><p>Co-fondateur et responsable cybersécurité d'un agrégateur de paiement Mobile Money (Flooz, Mixx by Yas) pour les PME togolaises.</p><div class="tags"><span class="tag">Mobile Money</span><span class="tag">Sécurité applicative</span></div></div>
-      <div class="card"><span class="kind">Concours ANAC · AVSEC 2026</span><h3>SENTINEL-AVSEC</h3><p>Cybersurveillance des équipements connectés d'un poste de sûreté aéroportuaire, pilotée par un agent IA.</p><div class="tags"><span class="tag">IoT</span><span class="tag">IA</span><span class="tag">Détection</span></div></div>
-      <div class="card"><span class="kind">Hackathon AI4YOUTH 2026</span><h3>BloodLogic</h3><p>Projet d'équipe présenté au hackathon AI4YOUTH organisé par Neuractif à Lomé.</p><div class="tags"><span class="tag">IA</span><span class="tag">Santé</span></div></div>
+    <div class="head"><h2 data-i18n="h_projects">Projets</h2><p class="lead" data-i18n="l_projects">Sélection de projets en cybersécurité offensive et de produits sur lesquels je travaille.</p></div>
+    <div class="projects">
+      <article class="card proj wide">
+        <span class="chip">Lab vulnérable</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 8V6a4 4 0 0 1 8 0v2M5 13H2M22 13h-3M6 19l-2 2M18 19l2 2M6 8h12v6a6 6 0 0 1-12 0z"/></svg></span>
+        <h3>VulnLab</h3>
+        <span class="proj-sub">(15 challenges · OWASP Top 10)</span>
+        <p>Lab web volontairement vulnérable pour s'entraîner à l'exploitation : SQLi, XSS, SSTI, JWT, SSRF, XXE, CSRF, LFI, upload, IDOR… Chaque challenge tourne dans son propre conteneur, en PHP, Node.js, Flask ou Java, derrière un reverse proxy NGINX.</p>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">NGINX</span><span class="tag">OWASP Top 10</span><span class="tag">PHP</span><span class="tag">Node.js</span><span class="tag">Flask</span><span class="tag">Java</span></div>
+      </article>
+      <article class="card proj wide">
+        <span class="chip">Fintech</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg></span>
+        <h3>KoudiPay</h3>
+        <span class="proj-sub">(agrégateur de paiement Mobile Money)</span>
+        <p>Agrégateur de paiement Mobile Money (Flooz, Mixx by Yas) pour les PME togolaises. Co-fondateur et responsable cybersécurité : sécurité applicative, protection des flux de paiement et des données clients.</p>
+        <div class="tags"><span class="tag">Mobile Money</span><span class="tag">Sécurité applicative</span><span class="tag">Paiement</span></div>
+      </article>
+      <article class="card proj">
+        <span class="chip">IoT · IA</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></span>
+        <h3>SENTINEL-AVSEC</h3>
+        <p>Cybersurveillance des équipements connectés d'un poste de sûreté aéroportuaire, pilotée par un agent IA qui détecte les comportements anormaux.</p>
+        <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 6h3v2a3 3 0 0 1-3 3M7 6H4v2a3 3 0 0 0 3 3"/></svg><span data-i18n="n_anac">Projet présenté au concours ANAC · AVSEC 2026.</span></div>
+        <div class="tags"><span class="tag">IoT</span><span class="tag">IA</span><span class="tag">Détection</span></div>
+      </article>
+      <article class="card proj">
+        <span class="chip">Hackathon</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3.5 4.5 6 7.7 6 11a6 6 0 0 1-12 0c0-3.3 2.5-6.5 6-11z"/></svg></span>
+        <h3>BloodLogic</h3>
+        <p>Projet d'équipe présenté au hackathon AI4YOUTH organisé par Neuractif à Lomé, à la croisée de l'IA et de la santé.</p>
+        <div class="tags"><span class="tag">IA</span><span class="tag">Santé</span><span class="tag">AI4YOUTH 2026</span></div>
+      </article>
+      <article class="card proj">
+        <span class="chip">Portfolio</span>
+        <span class="proj-ic mono">0_0</span>
+        <h3 data-i18n="p_portfolio">Portfolio personnel</h3>
+        <p data-i18n="p_portfolio_d">Ce site : globe 3D rendu à la main sur canvas, animations, assistant intégré et bilingue FR/EN — sans aucune dépendance.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas 3D</span></div>
+      </article>
     </div>
   </section>
 
   <section id="ctf" class="reveal">
-    <div class="head"><span class="eyebrow">04 · CTF</span><h2>Capture the flag</h2><p class="lead" data-i18n="l_ctf">Compétitions régionales et plateformes d'entraînement. Writeups signés Dmod.</p></div>
-    <div class="grid" style="margin-bottom:14px">
-      <div class="card"><span class="kind">IPNET Cyber Battle 2026</span><div class="stat"><span data-count="2">0</span><sup>e</sup> / 10</div><p>Équipe n0_m3rcy, finale des 22–23 août 2026.</p></div>
-      <div class="card"><span class="kind">Compétitions</span><p style="color:#dcdce0">EcowasCTF · brCTF · boroCTF · ESIG Tech Arena · NEXUS CORE · Virtuoso Arena</p></div>
+    <div class="head"><h2>CTF</h2><p class="lead" data-i18n="l_ctf">Compétitions régionales et plateformes d'entraînement, avec l'équipe n0_m3rcy. Writeups signés Dmod.</p></div>
+    <div class="ctf-grid">
+      <div class="card ctf"><span class="ctf-logo">IP</span><div><h3>IPNET Cyber Battle 2026</h3><p data-i18n="c_final">Finale · 22–23 août 2026</p></div><span class="score"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span><span data-count="2">0</span>e / 10</span></span></div>
+      <div class="card ctf"><span class="ctf-logo">EC</span><div><h3>EcowasCTF</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
+      <div class="card ctf"><span class="ctf-logo">br</span><div><h3>brCTF</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
+      <div class="card ctf"><span class="ctf-logo">bo</span><div><h3>boroCTF</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
+      <div class="card ctf"><span class="ctf-logo">ES</span><div><h3>ESIG Tech Arena</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
+      <div class="card ctf"><span class="ctf-logo">NX</span><div><h3>NEXUS CORE</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
+      <div class="card ctf"><span class="ctf-logo">VA</span><div><h3>Virtuoso Arena</h3><p>n0_m3rcy</p></div><span class="score muted" data-i18n="c_part">Participant</span></div>
     </div>
     <div class="term">
       <div class="bar"><span></span><span></span><span></span></div>
@@ -149,7 +226,7 @@
   </section>
 
   <section id="certifications" class="reveal">
-    <div class="head"><span class="eyebrow">05 · Certifications</span><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours d'entraînement suivis et certifications.</p></div>
+    <div class="head"><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours d'entraînement suivis et certifications.</p></div>
     <div class="grid">
       <!-- Ajoute tes certifications ici, sur le même modèle :
       <div class="card"><span class="kind">Organisme · Année</span><h3>Nom de la certification</h3><p>Description courte.</p><div class="tags"><span class="tag">Domaine</span></div></div>
@@ -161,14 +238,14 @@
   </section>
 
   <section id="education" class="reveal">
-    <div class="head"><span class="eyebrow">06 · Education</span><h2 data-i18n="h_edu">Formation</h2></div>
+    <div class="head"><h2 data-i18n="h_edu">Formation</h2></div>
     <div class="timeline">
       <div class="tl"><span class="when">2025 — 2026</span><h3>Licence 3 Cybersécurité</h3><div class="org">IPNET Institute · Lomé</div><p>Tests de sécurité, investigation numérique et sécurité réseau.</p></div>
     </div>
   </section>
 
   <section id="experience" class="reveal">
-    <div class="head"><span class="eyebrow">07 · Experience</span><h2 data-i18n="h_exp">Expérience</h2></div>
+    <div class="head"><h2 data-i18n="h_exp">Expérience</h2></div>
     <div class="timeline">
       <div class="tl"><span class="when">2026</span><h3 data-i18n="t_consult">Consultant cybersécurité indépendant</h3><div class="org">Freelance</div><p>Missions de test d'intrusion autorisées, dont l'audit d'une plateforme web d'IPNET Institute.</p></div>
       <div class="tl"><span class="when">2026</span><h3>Co-fondateur · Responsable cybersécurité</h3><div class="org">KoudiPay</div><p>Sécurité applicative d'un agrégateur de paiement Mobile Money pour les PME togolaises.</p></div>
@@ -177,7 +254,7 @@
   </section>
 
   <section id="contact" class="reveal">
-    <div class="head"><span class="eyebrow">08 · Contact</span><h2 data-i18n="h_contact">Travaillons ensemble</h2><p class="lead" data-i18n="l_contact">Pentest, audit, formation ou équipe CTF : écris-moi.</p></div>
+    <div class="head"><h2 data-i18n="h_contact">Travaillons ensemble</h2><p class="lead" data-i18n="l_contact">Pentest, audit, formation ou équipe CTF : écris-moi.</p></div>
     <div class="contact">
       <span class="mail" id="mail">domqsavio@gmail.com</span>
       <button class="btn solid" id="copy" type="button" data-i18n="copy">Copier l'adresse</button>
