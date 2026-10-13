@@ -1,0 +1,36 @@
+{
+  "ctfs": [
+    {
+      "slug": "esig-tech-arena-2026",
+      "name": "ESIG Tech Arena 2026",
+      "team": "Smile 0_0 (capitaine)",
+      "result": "Champion",
+      "tier": "gold",
+      "logo": "assets/img/logos/esig-techsphere.webp",
+      "writeups": []
+    },
+    {
+      "slug": "nctf-togo",
+      "name": "CTF National Togo (NCTF)",
+      "team": "APT17 (2024) · DarkPayload (2025)",
+      "result": "Finaliste ×2",
+      "tier": "final",
+      "logo": "assets/img/logos/ancy.webp",
+      "writeups": []
+    },
+    {
+      "slug": "ipnet-cyber-battle-2026",
+      "name": "IPNET Cyber Battle 2026",
+      "team": "n0_m3rcy",
+      "result": "2e / 10",
+      "tier": "silver",
+      "logo": "assets/img/logos/ipnet-ctf.webp",
+      "writeups": []
+    },
+    { "slug": "ecowasctf", "name": "EcowasCTF", "team": "n0_m3rcy", "result": "Participant", "logo": "assets/img/logos/ecowas.webp", "writeups": [] },
+    { "slug": "brctf", "name": "brCTF", "team": "n0_m3rcy", "result": "Participant", "logo": "assets/img/logos/brctf.webp", "writeups": [] },
+    { "slug": "boroctf", "name": "boroCTF", "team": "n0_m3rcy", "result": "Participant", "logo": "assets/img/logos/boroctf.webp", "writeups": [] },
+    { "slug": "nexus-core", "name": "NEXUS CORE", "team": "n0_m3rcy", "result": "Participant", "writeups": [] },
+    { "slug": "virtuoso-arena", "name": "Virtuoso Arena", "team": "n0_m3rcy", "result": "Participant", "writeups": [] }
+  ]
+}

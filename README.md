@@ -32,4 +32,11 @@ GitHub Pages : Settings → Pages → Source « Deploy from a branch » → `mai
 - **Assistant IA** : réponses dans le tableau `KB` de `assets/js/main.js`.
 - **Textes FR/EN** : objet `T` dans `assets/js/main.js` (les éléments avec `data-i18n`).
 - **Logos** : fichiers dans `assets/img/logos/`. Pour remplacer un logo (meilleure qualité) ou en ajouter un, dépose le fichier officiel avec le même nom ; si un fichier manque, les initiales s'affichent automatiquement (`data-fb`).
+- **Writeups** : page `writeups.html`, alimentée par `writeups/index.json`. Pour publier un writeup :
+  1. copie `writeups/_modele.md` vers `writeups/<slug-du-ctf>/<nom>.md` et rédige-le en Markdown ;
+  2. ajoute-le dans la liste `writeups` du bon CTF dans `writeups/index.json` :
+     `{ "title": "JWT confusion", "category": "web", "difficulty": "moyen", "file": "writeups/esig-tech-arena-2026/jwt-confusion.md" }`
+  3. un writeup hébergé ailleurs (GitHub, Medium…) s'ajoute avec `"url": "https://…"` au lieu de `"file"`.
+  Le nombre de writeups s'affiche automatiquement sur chaque carte CTF.
+- **Couleurs** : classes `tier-gold`, `tier-silver`, `tier-bronze` (1er, 2e, 3e) sur une carte ; chaque compétence et projet a sa couleur via `style="--c:#hex"`.
 - Toutes les animations sont coupées automatiquement si le visiteur a activé « réduire les animations ».
