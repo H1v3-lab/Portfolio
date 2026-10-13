@@ -31,4 +31,5 @@ GitHub Pages : Settings → Pages → Source « Deploy from a branch » → `mai
 - **Certifications** : section `#certifications` dans `index.html` (un modèle de carte est en commentaire).
 - **Assistant IA** : réponses dans le tableau `KB` de `assets/js/main.js`.
 - **Textes FR/EN** : objet `T` dans `assets/js/main.js` (les éléments avec `data-i18n`).
+- **Logos** : fichiers dans `assets/img/logos/`. Pour remplacer un logo (meilleure qualité) ou en ajouter un, dépose le fichier officiel avec le même nom ; si un fichier manque, les initiales s'affichent automatiquement (`data-fb`).
 - Toutes les animations sont coupées automatiquement si le visiteur a activé « réduire les animations ».
