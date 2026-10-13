@@ -43,12 +43,12 @@ main{z-index:1}
 .card.tilt{transition:border-color .2s,transform .12s ease-out}
 
 /* staggered reveal of grid children */
-.reveal .card,.reveal .tl,.reveal .term{opacity:0;transform:translateY(24px) rotateX(-8deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-.reveal.shown .card,.reveal.shown .tl,.reveal.shown .term{opacity:1;transform:none}
+.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item{opacity:0;transform:translateY(24px) rotateX(-8deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.shown .card,.reveal.shown .tl,.reveal.shown .term,.reveal.shown .acc-item{opacity:1;transform:none}
 .reveal.shown .card.tilt{transition:border-color .2s,transform .12s ease-out,opacity .7s ease}
 
 /* ---------- stats ---------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
 .stats .card{align-items:flex-start}
 .stat sup{font-size:.45em;margin-left:2px}
 
@@ -91,7 +91,7 @@ h2[data-scramble]{font-variant-ligatures:none}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){
   .loader{display:none}
-  .reveal .card,.reveal .tl,.reveal .term{opacity:1;transform:none}
+  .reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item{opacity:1;transform:none}
   .timeline::before{transform:none}
   #globe{display:none}
 }

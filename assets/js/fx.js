@@ -124,7 +124,7 @@ function ready(){root.classList.remove("loading");document.getElementById("loade
 document.querySelectorAll(".card").forEach(c=>{
   c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
     c.style.setProperty("--mx",px*100+"%");c.style.setProperty("--my",py*100+"%");
-    if(fine&&!reduced){c.classList.add("tilt");c.style.transform=`rotateX(${(.5-py)*10}deg) rotateY(${(px-.5)*12}deg) translateZ(6px)`}});
+    if(fine&&!reduced){c.classList.add("tilt");const k=Math.min(1,380/r.width);c.style.transform=`rotateX(${(.5-py)*10*k}deg) rotateY(${(px-.5)*12*k}deg) translateZ(6px)`}});
   c.addEventListener("pointerleave",()=>{c.style.transform=""});
 });
 
@@ -155,7 +155,7 @@ if(!reduced){
     if(t.matches("h2"))scramble(t);else if(t.dataset.count)count(t);else if(t.id==="term")typeTerm(t)}),{threshold:.4});
   document.querySelectorAll("main h2,[data-count],#term").forEach(el=>io.observe(el));
   // stagger children inside revealed sections
-  document.querySelectorAll(".reveal").forEach(s=>s.querySelectorAll(".card,.tl").forEach((c,i)=>c.style.transitionDelay=Math.min(i,8)*70+"ms"));
+  document.querySelectorAll(".reveal").forEach(s=>s.querySelectorAll(".card,.tl,.acc-item").forEach((c,i)=>c.style.transitionDelay=Math.min(i,8)*70+"ms"));
   // clear the stagger once revealed so hover/tilt stay snappy
   document.addEventListener("transitionend",e=>{if(e.propertyName==="opacity"&&e.target.style.transitionDelay)e.target.style.transitionDelay=""});
 }else document.querySelectorAll("[data-count]").forEach(el=>el.textContent=el.dataset.count);
