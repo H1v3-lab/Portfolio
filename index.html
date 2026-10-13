@@ -56,6 +56,15 @@ button{font:inherit;color:inherit}
 main{position:relative;z-index:1;margin-left:252px;padding-inline:clamp(16px,5vw,72px)}
 section{max-width:980px;margin:0 auto;padding-block:96px}
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-block:120px 80px}
+/* ---------- animated 0_0 logo: two stadium "eyes" with moving pupils + an underscore mouth ---------- */
+.logo{--w:52px;--h:76px;--b:9px;display:flex;align-items:flex-end;gap:8px;margin-bottom:34px;cursor:default}
+.eye{position:relative;width:var(--w);height:var(--h);border:var(--b) solid var(--fg);border-radius:999px;transition:transform .09s ease-in}
+.eye.blink{transform:scaleY(.08)}
+.pupil{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--fg);transition:transform .18s ease-out}
+.mouth{width:44px;height:var(--b);background:var(--fg);border-radius:1px}
+.logo:hover .mouth{animation:smile .6s ease}
+@keyframes smile{50%{transform:scaleX(1.25)}}
+@media (max-width:720px){.logo{--w:40px;--h:58px;--b:7px;gap:6px}.mouth{width:34px}.pupil{width:9px;height:9px;margin:-4.5px 0 0 -4.5px}}
 .prompt{display:inline-flex;gap:14px;align-items:center;font-family:var(--mono);font-size:14px;padding:9px 18px;background:#121214;border:1px solid var(--line-2);border-radius:4px;color:#e6e6ea}
 .prompt i{font-style:normal;color:var(--muted)}
 h1{font-size:clamp(34px,4.6vw,52px);font-weight:700;letter-spacing:-.065em;line-height:1.08;margin:44px 0 0;text-wrap:balance;min-height:1.1em}
@@ -202,6 +211,7 @@ footer{max-width:980px;margin:0 auto;padding-block:40px 60px;border-top:1px soli
 
 <main>
   <section class="hero" id="top">
+    <div class="logo" id="logo" role="img" aria-label="Logo Dmod 0_0"><span class="eye"><span class="pupil"></span></span><span class="mouth"></span><span class="eye"><span class="pupil"></span></span></div>
     <div class="prompt"><i>&gt;_</i>$ whoami</div>
     <h1><span id="typed"></span><span class="caret" aria-hidden="true"></span></h1>
     <p class="quote" data-i18n="quote">“Chaque système raconte une histoire. Je lis entre les lignes.”</p>
@@ -392,6 +402,26 @@ document.querySelectorAll("[data-chat]").forEach(b=>b.addEventListener("click",(
 document.getElementById("chat-x").addEventListener("click",()=>toggleChat(false));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")toggleChat(false)});
 document.getElementById("chat-f").addEventListener("submit",e=>{e.preventDefault();ask(inp.value);inp.value=""});
+
+/* ---------- logo eyes: follow the cursor, look around when idle, blink ---------- */
+(function(){
+  const eyes=[...document.querySelectorAll("#logo .eye")],pupils=eyes.map(e=>e.firstElementChild);
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  let idle;
+  function look(dx,dy){pupils.forEach(p=>{const e=p.parentElement,mx=(e.clientWidth-p.offsetWidth)/2-2,my=(e.clientHeight-p.offsetHeight)/2-3;
+    p.style.transform=`translate(${dx*mx}px,${dy*my}px)`})}
+  function wander(){const spots=[[0,0],[-1,0],[1,0],[-.7,-.7],[.7,-.7],[0,.8],[.8,.5],[-.8,.5]],s=spots[Math.floor(Math.random()*spots.length)];
+    look(s[0],s[1]);idle=setTimeout(wander,900+Math.random()*1600)}
+  addEventListener("pointermove",ev=>{clearTimeout(idle);
+    const r=eyes[0].parentElement.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,
+      dx=ev.clientX-cx,dy=ev.clientY-cy,d=Math.hypot(dx,dy)||1,k=Math.min(1,d/220);
+    look(dx/d*k,dy/d*k);idle=setTimeout(wander,2500)});
+  function blink(){eyes.forEach(e=>e.classList.add("blink"));setTimeout(()=>eyes.forEach(e=>e.classList.remove("blink")),140);
+    if(Math.random()<.25)setTimeout(()=>{eyes.forEach(e=>e.classList.add("blink"));setTimeout(()=>eyes.forEach(e=>e.classList.remove("blink")),140)},300);
+    setTimeout(blink,2500+Math.random()*3500)}
+  document.getElementById("logo").addEventListener("click",()=>{eyes.forEach(e=>e.classList.add("blink"));setTimeout(()=>eyes.forEach(e=>e.classList.remove("blink")),140)});
+  wander();setTimeout(blink,1800);
+})();
 
 apply(lang);
 </script>
