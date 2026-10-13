@@ -226,42 +226,116 @@
   </section>
 
   <section id="certifications" class="reveal">
-    <div class="head"><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours d'entraînement suivis et certifications.</p></div>
-    <div class="grid">
-      <!-- Ajoute tes certifications ici, sur le même modèle :
-      <div class="card"><span class="kind">Organisme · Année</span><h3>Nom de la certification</h3><p>Description courte.</p><div class="tags"><span class="tag">Domaine</span></div></div>
-      -->
-      <div class="card"><span class="kind">TryHackMe</span><h3>Parcours offensifs</h3><p>Rooms et learning paths en pentest web, réseau et élévation de privilèges.</p><div class="tags"><span class="tag">Pentest</span></div></div>
-      <div class="card"><span class="kind">Root-Me</span><h3>Challenges</h3><p>Web-serveur, cracking, cryptanalyse, forensique et stéganographie.</p><div class="tags"><span class="tag">CTF</span></div></div>
-      <div class="card"><span class="kind">picoCTF · pwn.college</span><h3>Exploitation & bas niveau</h3><p>Binary exploitation, reverse engineering et fondamentaux Linux.</p><div class="tags"><span class="tag">Pwn</span><span class="tag">Reverse</span></div></div>
+    <div class="head"><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours de certifications et d'entraînement.</p></div>
+    <div class="carousel" id="certs">
+      <div class="car-nav"><button type="button" class="car-btn" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="car-btn" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="car-track">
+        <!-- Ajoute une certification obtenue en copiant ce bloc :
+        <article class="card cert">
+          <div class="cert-top"><span class="cert-badge">eJPT</span><div class="cert-id"><h3>eJPTv2 <small>Junior Penetration Tester</small></h3><span class="cert-org">INE Security</span><span class="cert-meta">Obtenu en 2026</span></div><span class="pill ok">Obtenu</span></div>
+          <p class="cert-lead">Description courte.</p>
+          <div class="cert-links"><a class="lnk" href="https://…" target="_blank" rel="noopener">Lien de vérification</a></div>
+        </article>
+        -->
+        <article class="card cert">
+          <div class="cert-top"><span class="cert-badge">THM</span><div class="cert-id"><h3>TryHackMe <small>Learning paths offensifs</small></h3><span class="cert-org">TryHackMe</span><span class="cert-meta" data-i18n="cm_ongoing">Entraînement continu</span></div><span class="pill run" data-i18n="p_ongoing">En cours</span></div>
+          <p class="cert-lead">Rooms et parcours en pentest web, réseau et élévation de privilèges.</p>
+          <p class="cert-body">Base de pratique régulière : énumération, exploitation de services, post-exploitation Linux et Windows, sur des machines conçues pour reproduire des environnements réels.</p>
+        </article>
+        <article class="card cert">
+          <div class="cert-top"><span class="cert-badge">RM</span><div class="cert-id"><h3>Root-Me <small>Challenges</small></h3><span class="cert-org">Root-Me</span><span class="cert-meta" data-i18n="cm_ongoing">Entraînement continu</span></div><span class="pill run" data-i18n="p_ongoing">En cours</span></div>
+          <p class="cert-lead">Web-serveur, cracking, cryptanalyse, forensique et stéganographie.</p>
+          <p class="cert-body">Challenges ciblés qui complètent les CTF : crackmes, attaques cryptographiques classiques, analyse de captures et de fichiers.</p>
+        </article>
+        <article class="card cert">
+          <div class="cert-top"><span class="cert-badge">pwn</span><div class="cert-id"><h3>picoCTF · pwn.college <small>Bas niveau</small></h3><span class="cert-org">Carnegie Mellon · Arizona State University</span><span class="cert-meta" data-i18n="cm_ongoing">Entraînement continu</span></div><span class="pill run" data-i18n="p_ongoing">En cours</span></div>
+          <p class="cert-lead">Binary exploitation, reverse engineering et fondamentaux Linux.</p>
+          <p class="cert-body">Exploitation mémoire, assembleur, débogage avec gdb et analyse de binaires, du niveau débutant à intermédiaire.</p>
+        </article>
+      </div>
     </div>
   </section>
 
   <section id="education" class="reveal">
     <div class="head"><h2 data-i18n="h_edu">Formation</h2></div>
-    <div class="timeline">
-      <div class="tl"><span class="when">2025 — 2026</span><h3>Licence 3 Cybersécurité</h3><div class="org">IPNET Institute · Lomé</div><p>Tests de sécurité, investigation numérique et sécurité réseau.</p></div>
-    </div>
+    <ol class="edu">
+      <!-- Ajoute un diplôme en copiant un <li> ci-dessous -->
+      <li class="edu-item current">
+        <span class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>
+        <div class="edu-card">
+          <div class="edu-h"><h3>Licence 3 Cybersécurité</h3><span class="pill">2025 - 2026</span></div>
+          <p class="edu-sub">IPNET Institute · Lomé, Togo</p>
+          <p class="edu-desc">Tests de sécurité, investigation numérique et sécurité réseau.</p>
+          <p class="edu-st"><span data-i18n="st">Statut</span> : <span data-i18n="st_now">En cours</span></p>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <section id="experience" class="reveal">
-    <div class="head"><h2 data-i18n="h_exp">Expérience</h2></div>
-    <div class="timeline">
-      <div class="tl"><span class="when">2026</span><h3 data-i18n="t_consult">Consultant cybersécurité indépendant</h3><div class="org">Freelance</div><p>Missions de test d'intrusion autorisées, dont l'audit d'une plateforme web d'IPNET Institute.</p></div>
-      <div class="tl"><span class="when">2026</span><h3>Co-fondateur · Responsable cybersécurité</h3><div class="org">KoudiPay</div><p>Sécurité applicative d'un agrégateur de paiement Mobile Money pour les PME togolaises.</p></div>
-      <div class="tl"><span class="when">2026</span><h3>PyCon Togo 2026</h3><div class="org">OZZONS</div><p>Représentant d'OZZONS lors de l'événement.</p></div>
+    <div class="head"><h2 data-i18n="h_exp">Expérience</h2><p class="lead" data-i18n="l_exp">Expériences et contexte professionnel.</p></div>
+    <div class="xp-box">
+      <div class="xp-bar"><span class="kicker" data-i18n="xp_pick">Frise — sélectionner une année</span><div class="years" id="years"></div></div>
+      <div class="xp-list" id="xp">
+        <article class="xp" data-years="2026" data-cat="Entreprise">
+          <div class="xp-logo">KP</div>
+          <div class="xp-main">
+            <div class="xp-h"><h3>KoudiPay</h3><span class="pill ok" data-i18n="now">Actuellement</span><span class="pill">2026 → <span data-i18n="today">Aujourd'hui</span></span></div>
+            <p class="xp-sub">Agrégateur de paiement Mobile Money pour les PME togolaises.</p>
+            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Co-fondateur · Resp. cybersécurité</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M8 8h3M8 12h3M8 16h3"/></svg>Startup (TG)</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg>Security-first</span></div>
+            <div class="xp-desc">
+              <p>KoudiPay agrège les paiements Mobile Money (Flooz, Mixx by Yas) pour permettre aux PME togolaises d'encaisser simplement en ligne.</p>
+              <p>En tant que co-fondateur et responsable cybersécurité, je porte la sécurité applicative de la plateforme : protection des flux de paiement, des données clients et des accès.</p>
+            </div>
+          </div>
+        </article>
+        <article class="xp" data-years="2026" data-cat="Indépendant">
+          <div class="xp-logo">0_0</div>
+          <div class="xp-main">
+            <div class="xp-h"><h3 data-i18n="t_consult">Consultant cybersécurité indépendant</h3><span class="pill ok" data-i18n="now">Actuellement</span><span class="pill">2026 → <span data-i18n="today">Aujourd'hui</span></span></div>
+            <p class="xp-sub">Tests d'intrusion et audits de sécurité autorisés.</p>
+            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Pentester</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg>Security-first</span></div>
+            <div class="xp-desc">
+              <p>Missions de test d'intrusion réalisées dans un cadre autorisé, dont l'audit d'une plateforme web d'IPNET Institute : identification, exploitation contrôlée et rapport de remédiation.</p>
+            </div>
+          </div>
+        </article>
+        <article class="xp" data-years="2026" data-cat="Événement">
+          <div class="xp-logo">Py</div>
+          <div class="xp-main">
+            <div class="xp-h"><h3>PyCon Togo 2026</h3><span class="pill">2026</span></div>
+            <p class="xp-sub">Conférence de la communauté Python au Togo.</p>
+            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Représentant d'OZZONS</span></div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
   <section id="contact" class="reveal">
-    <div class="head"><h2 data-i18n="h_contact">Travaillons ensemble</h2><p class="lead" data-i18n="l_contact">Pentest, audit, formation ou équipe CTF : écris-moi.</p></div>
-    <div class="contact">
-      <span class="mail" id="mail">domqsavio@gmail.com</span>
-      <button class="btn solid" id="copy" type="button" data-i18n="copy">Copier l'adresse</button>
+    <div class="head head-row"><div><h2>Contact</h2><p class="lead" data-i18n="l_contact">Discutons de votre prochain projet de sécurité.</p></div><button class="btn sm" type="button" data-chat><span data-i18n="ai_help">Assistance IA</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></button></div>
+    <div class="contact2">
+      <div>
+        <span class="kicker" data-i18n="quick">Liens rapides</span>
+        <ul class="quick">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:domqsavio@gmail.com" id="mail">domqsavio@gmail.com</a><button class="copy" id="copy" type="button" aria-label="Copier l'adresse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><a href="https://www.linkedin.com/in/dominique-savio-sakoi-b607b333a" target="_blank" rel="noopener">linkedin.com/in/dominique-savio-sakoi</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Lomé, Togo · UTC+0</span></li>
+        </ul>
+        <div class="status-box"><span class="mono">$ status</span><p data-i18n="status_txt">Disponible pour stages, missions de pentest et d'audit autorisées, et discussions techniques sur la cybersécurité.</p></div>
+      </div>
+      <form class="cform" id="cform" novalidate>
+        <span class="kicker" data-i18n="send_msg">Envoyer un message</span>
+        <label><span data-i18n="f_name">Nom</span><input name="name" required autocomplete="name" data-i18n-ph="ph_name" placeholder="Votre nom"></label>
+        <label><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="votre@email.com"></label>
+        <label><span>Message</span><textarea name="message" rows="6" required data-i18n-ph="ph_msg" placeholder="Votre message…"></textarea></label>
+        <button class="btn solid send" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span data-i18n="send">Envoyer le message</span></button>
+        <p class="form-hint" id="form-hint" data-i18n="form_hint">Le message s'ouvre dans votre messagerie, prêt à être envoyé.</p>
+      </form>
     </div>
   </section>
 
-  <footer><span>© 2026 Dominique-Savio SAKOI · Dmod</span><span>Lomé, TG · UTC+0</span></footer>
+  <footer>© 2026 Dmod · Dominique-Savio SAKOI — <span data-i18n="rights">tous droits réservés.</span></footer>
 </main>
 
 <button class="fab" type="button" data-chat aria-label="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg></button>
