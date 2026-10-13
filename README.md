@@ -1,8 +1,34 @@
 # Portfolio — Dmod
 
-Portfolio cybersécurité de Dominique-Savio SAKOI (Dmod). Site statique en un seul fichier : `index.html`.
+Portfolio cybersécurité de Dominique-Savio SAKOI (Dmod). Site 100 % statique : aucun framework, aucune dépendance, aucun build.
 
-- Ouvrir `index.html` dans un navigateur pour le voir en local.
-- Déploiement : GitHub Pages (Settings → Pages → branche `main`, dossier `/`).
-- Certifications : ajouter tes cartes dans la section `#certifications` (un modèle est en commentaire).
-- Assistant IA : réponses définies dans le tableau `KB` du script (aucun serveur requis).
+## Structure
+
+```
+index.html          page principale (contenu)
+404.html            page d'erreur
+robots.txt
+assets/css/style.css   mise en page, rail, sections, chat
+assets/css/fx.css      effets : loader, curseur, tilt 3D, glitch, marquee…
+assets/js/main.js      langue FR/EN, titre tapé, navigation, assistant IA, logo 0_0
+assets/js/fx.js        globe 3D (canvas), parallax, curseur, cartes 3D, compteurs, terminal…
+assets/img/og.png      image d'aperçu quand on partage le lien
+```
+
+## Voir en local
+
+```
+python3 -m http.server 8000
+```
+puis ouvrir http://localhost:8000
+
+## Mettre en ligne (gratuit)
+
+GitHub Pages : Settings → Pages → Source « Deploy from a branch » → `main` / `/ (root)`.
+
+## Modifier
+
+- **Certifications** : section `#certifications` dans `index.html` (un modèle de carte est en commentaire).
+- **Assistant IA** : réponses dans le tableau `KB` de `assets/js/main.js`.
+- **Textes FR/EN** : objet `T` dans `assets/js/main.js` (les éléments avec `data-i18n`).
+- Toutes les animations sont coupées automatiquement si le visiteur a activé « réduire les animations ».

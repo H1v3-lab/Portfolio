@@ -1,0 +1,97 @@
+/* Effects layer: preloader, 3D globe canvas, custom cursor, scroll progress, tilt cards, glitch, marquee */
+
+/* ---------- preloader ---------- */
+.loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+.loader.done{opacity:0;visibility:hidden}
+.loader-in{width:min(420px,calc(100vw - 48px));display:flex;flex-direction:column;align-items:center;gap:22px}
+.loader-logo{font-family:var(--mono);font-size:54px;font-weight:500;letter-spacing:-.04em;line-height:1;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
+.loader-log{margin:0;align-self:stretch;min-height:7.2em;font-family:var(--mono);font-size:12px;line-height:1.8;color:var(--muted);white-space:pre-wrap}
+.loader-log b{color:var(--ok);font-weight:400}
+.loader-bar{align-self:stretch;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.loader-bar span{display:block;height:100%;width:0;background:var(--fg);transition:width .15s linear}
+html.loading .boot div{animation-play-state:paused}
+html.loading body{overflow:hidden}
+
+/* ---------- 3D globe background ---------- */
+#globe{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{z-index:1}
+.hero{position:relative}
+.hero-in{display:flex;flex-direction:column;align-items:center;will-change:transform,opacity}
+
+/* ---------- scroll progress ---------- */
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;z-index:60;background:linear-gradient(90deg,var(--muted),var(--fg));transform-origin:0 50%;transform:scaleX(0)}
+
+/* ---------- custom cursor (fine pointers only) ---------- */
+.cursor,.cursor-dot{display:none}
+@media (pointer:fine){
+  html.has-cursor,html.has-cursor *{cursor:none!important}
+  html.has-cursor input{cursor:text!important}
+  .cursor,.cursor-dot{display:block;position:fixed;left:0;top:0;z-index:90;pointer-events:none;border-radius:50%}
+  .cursor{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(255,255,255,.55);mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s,border-color .25s}
+  .cursor.hover{width:64px;height:64px;margin:-32px 0 0 -32px;background:#fff;border-color:#fff}
+  .cursor.down{width:24px;height:24px;margin:-12px 0 0 -12px}
+  .cursor-dot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:#fff;mix-blend-mode:difference}
+}
+
+/* ---------- 3D tilt cards with light spot ---------- */
+.grid,.stats,.about{perspective:1000px}
+.card{position:relative;transform-style:preserve-3d;will-change:transform}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.09),transparent 45%)}
+.card:hover::after{opacity:1}
+.card.tilt{transition:border-color .2s,transform .12s ease-out}
+
+/* staggered reveal of grid children */
+.reveal .card,.reveal .tl,.reveal .term{opacity:0;transform:translateY(24px) rotateX(-8deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.shown .card,.reveal.shown .tl,.reveal.shown .term{opacity:1;transform:none}
+.reveal.shown .card.tilt{transition:border-color .2s,transform .12s ease-out,opacity .7s ease}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.stats .card{align-items:flex-start}
+.stat sup{font-size:.45em;margin-left:2px}
+
+/* ---------- glitch title ---------- */
+h1.glitch{position:relative}
+h1.glitch::before,h1.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
+h1.glitch::before{color:#7ee2ff;transform:translate(-3px,0);clip-path:inset(10% 0 55% 0);mix-blend-mode:screen;animation:gl1 .35s steps(2) infinite}
+h1.glitch::after{color:#ff5c8a;transform:translate(3px,0);clip-path:inset(60% 0 8% 0);mix-blend-mode:screen;animation:gl2 .35s steps(2) infinite}
+@keyframes gl1{0%{clip-path:inset(10% 0 55% 0)}50%{clip-path:inset(40% 0 30% 0)}100%{clip-path:inset(70% 0 5% 0)}}
+@keyframes gl2{0%{clip-path:inset(60% 0 8% 0)}50%{clip-path:inset(15% 0 70% 0)}100%{clip-path:inset(35% 0 40% 0)}}
+
+/* scramble headings keep their width while decoding */
+h2[data-scramble]{font-variant-ligatures:none}
+
+/* ---------- marquee ---------- */
+.marquee{position:relative;z-index:1;max-width:980px;margin:0 auto;overflow:hidden;border-block:1px solid var(--line);padding:18px 0;
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marquee 32s linear infinite}
+.marquee span{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.marquee span::before{content:"◆";margin-right:48px;color:var(--line-2)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- timeline draws itself ---------- */
+.timeline{border-left-color:transparent;position:relative}
+.timeline::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:1px;background:var(--line-2);transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.reveal.shown .timeline::before{transform:scaleY(1)}
+.tl::before{transition:background .4s,box-shadow .4s}
+.tl:hover::before{background:var(--fg);box-shadow:0 0 12px rgba(255,255,255,.6)}
+
+/* terminal caret while typing */
+#term .cur{display:inline-block;width:8px;height:1.1em;background:var(--ok);vertical-align:-.2em;animation:blink 1s steps(1) infinite}
+
+/* nav active indicator */
+.nav a{position:relative}
+.nav a::before{content:"";position:absolute;left:-8px;top:50%;width:2px;height:0;background:var(--fg);border-radius:2px;transform:translateY(-50%);transition:height .3s}
+.nav a.on::before{height:22px}
+
+@media (max-width:1100px){.nav a::before{display:none}}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){
+  .loader{display:none}
+  .reveal .card,.reveal .tl,.reveal .term{opacity:1;transform:none}
+  .timeline::before{transform:none}
+  #globe{display:none}
+}
