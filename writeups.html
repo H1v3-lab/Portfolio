@@ -66,7 +66,7 @@ section{padding-block:40px 80px}
 </head>
 <body>
 <div class="wbar">
-  <a href="./#ctf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg><span data-l="back">Retour au portfolio</span></a>
+  <a href="ctf.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg><span data-l="back">Retour aux CTF</span></a>
   <span class="wlogo" aria-label="Dmod">0_0</span>
 </div>
 <main>
@@ -86,8 +86,8 @@ section{padding-block:40px 80px}
 /* Writeups are listed in writeups/index.json. A writeup is either a local Markdown
    file ("file") rendered here, or an external link ("url") opened in a new tab.
    Routes: #<ctf-slug> scrolls to that CTF, #<ctf-slug>/<file-name> opens a writeup. */
-const L={fr:{back:"Retour au portfolio",lead:"Mes solutions de challenges CTF, compétition par compétition.",all:"Tous les writeups",soon:"Writeups à venir pour cette compétition.",every:"Tout",err:"Impossible de charger ce writeup."},
-         en:{back:"Back to portfolio",lead:"My CTF challenge solutions, competition by competition.",all:"All writeups",soon:"Writeups for this competition are coming soon.",every:"All",err:"Could not load this writeup."}};
+const L={fr:{back:"Retour aux CTF",lead:"Mes solutions de challenges CTF, compétition par compétition.",all:"Tous les writeups",soon:"Writeups à venir pour cette compétition.",every:"Tout",err:"Impossible de charger ce writeup."},
+         en:{back:"Back to CTFs",lead:"My CTF challenge solutions, competition by competition.",all:"All writeups",soon:"Writeups for this competition are coming soon.",every:"All",err:"Could not load this writeup."}};
 let lang="fr";try{lang=localStorage.getItem("lang")||"fr"}catch(e){}
 document.documentElement.lang=lang;
 const t=k=>L[lang][k]||L.fr[k];

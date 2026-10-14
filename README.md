@@ -5,15 +5,25 @@ Portfolio cybersécurité de Dominique-Savio SAKOI (Dmod). Site 100 % statique :
 ## Structure
 
 ```
-index.html          page principale (contenu)
-404.html            page d'erreur
-robots.txt
-assets/css/style.css   mise en page, rail, sections, chat
-assets/css/fx.css      effets : loader, curseur, tilt 3D, glitch, marquee…
-assets/js/main.js      langue FR/EN, titre tapé, navigation, assistant IA, logo 0_0
-assets/js/fx.js        globe 3D (canvas), parallax, curseur, cartes 3D, compteurs, terminal…
-assets/img/og.png      image d'aperçu quand on partage le lien
+index.html            accueil : logo, titre, À propos, et cartes « Explorer » vers chaque page
+competences.html      compétences
+projets.html          projets
+ctf.html              CTF (liens vers les writeups)
+certifications.html   certifications
+formation.html        formation
+experience.html       expérience
+contact.html          contact (email, LinkedIn, GitHub, formulaire)
+writeups.html         lecteur de writeups (writeups/index.json)
+404.html              page d'erreur
+assets/css/style.css  mise en page et styles
+assets/css/fx.css     effets (loader, curseur, tilt 3D, glitch…)
+assets/js/main.js     langue FR/EN, navigation, assistant IA, logo 0_0, formulaires
+assets/js/fx.js       globe 3D, parallax, transitions au défilement, compteurs…
+assets/js/models.js   personnages 3D (three.js)
 ```
+
+Chaque page contient le même menu de gauche, l'assistant et les mêmes scripts : une modification du menu se fait dans tous les fichiers `.html`.
+Les résumés de la page d'accueil (section `#explore` de `index.html`) sont à mettre à jour quand une page change beaucoup.
 
 ## Voir en local
 
@@ -34,7 +44,7 @@ Le fichier `.nojekyll` désactive Jekyll pour que tous les fichiers soient servi
 
 ## Modifier
 
-- **Certifications** : section `#certifications` dans `index.html` (un modèle de carte est en commentaire).
+- **Certifications** : `certifications.html` (un modèle de carte est en commentaire).
 - **Assistant IA** : réponses dans le tableau `KB` de `assets/js/main.js`.
 - **Textes FR/EN** : objet `T` dans `assets/js/main.js` (les éléments avec `data-i18n`).
 - **Logos** : fichiers dans `assets/img/logos/`. Pour remplacer un logo (meilleure qualité) ou en ajouter un, dépose le fichier officiel avec le même nom ; si un fichier manque, les initiales s'affichent automatiquement (`data-fb`).
