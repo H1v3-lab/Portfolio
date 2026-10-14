@@ -75,7 +75,7 @@ function ready(){root.classList.remove("loading");document.getElementById("loade
     ctx.clearRect(0,0,W,H);
     // soft halo
     const g=ctx.createRadialGradient(cx,cy,R*.2,cx,cy,R*1.6);
-    g.addColorStop(0,`rgba(255,255,255,${.035*alpha})`);g.addColorStop(1,"rgba(255,255,255,0)");
+    g.addColorStop(0,`rgba(255,255,255,${.02*alpha})`);g.addColorStop(1,"rgba(255,255,255,0)");
     ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
     const S=P.map(v=>project(v,sx,cxr,sy,cyr));
     // mesh
