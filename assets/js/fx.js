@@ -160,6 +160,34 @@ if(!reduced){
   document.addEventListener("transitionend",e=>{if(e.propertyName==="opacity"&&e.target.style.transitionDelay)e.target.style.transitionDelay=""});
 }else document.querySelectorAll("[data-count]").forEach(el=>el.textContent=el.dataset.count);
 
+/* ---------- section handoff on scroll ----------
+   A section only appears once the previous one is ending: while a section's top travels
+   from 68% to 28% of the viewport it fades/rises/sharpens in, and while its bottom travels
+   from 70% to 20% it fades/rises/shrinks out. Neighbours therefore cross over briefly
+   instead of both being visible, without adding any empty space between them. */
+(function(){
+  if(reduced)return;
+  const secs=[...document.querySelectorAll("main > section:not(.hero)")];
+  secs.forEach(s=>s.classList.add("sx"));
+  const clamp=v=>v<0?0:v>1?1:v,ease=t=>t*t*(3-2*t);
+  let tick=false;
+  function upd(){tick=false;const H=innerHeight;
+    for(const s of secs){const r=s.getBoundingClientRect();
+      if(r.bottom<-H*.2||r.top>H*1.2){s.style.opacity=0;continue}
+      const inP=ease(clamp((H*.68-r.top)/(H*.4)));         // 0 → 1 while entering
+      const outP=ease(clamp((H*.7-r.bottom)/(H*.5)));      // 0 → 1 while leaving
+      const o=Math.min(inP,1-outP);
+      const ty=(1-inP)*70-outP*50, sc=1-(1-inP)*.035-outP*.04, bl=(1-inP)*6+outP*4;
+      s.style.opacity=o.toFixed(3);
+      s.style.transform=`translate3d(0,${ty.toFixed(1)}px,0) scale(${sc.toFixed(4)})`;
+      s.style.filter=bl>.3?`blur(${bl.toFixed(1)}px)`:"none";
+      s.style.pointerEvents=o<.15?"none":"";
+      if(inP>.05&&!s.classList.contains("shown"))s.classList.add("shown");
+    }}
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  addEventListener("resize",upd);upd();
+})();
+
 /* ---------- glitch on the hero title ---------- */
 (function(){
   if(reduced)return;const h=document.querySelector(".hero h1"),typed=document.getElementById("typed");
