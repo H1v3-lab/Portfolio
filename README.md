@@ -13,6 +13,7 @@ certifications.html   certifications
 formation.html        formation
 experience.html       expérience
 contact.html          contact (email, LinkedIn, GitHub, formulaire)
+hydra.html            dossier Hydra (affiche docs/hydra.md + schéma d'architecture)
 writeups.html         lecteur de writeups (writeups/index.json)
 404.html              page d'erreur
 assets/css/style.css  mise en page et styles
