@@ -63,7 +63,7 @@ function ready(){root.classList.remove("loading");document.getElementById("loade
   function frame(now){
     const dt=Math.min(.05,(now-last)/1000);last=now;
     // scroll: globe drifts right, shrinks and dims once past the hero
-    const target=Math.min(1,scrollY/(innerHeight*.9));scrollK+=(target-scrollK)*.08;
+    const target=document.body.dataset.page&&document.body.dataset.page!=="home"?1:Math.min(1,scrollY/(innerHeight*.9));scrollK+=(target-scrollK)*.08;
     const left=main.offsetLeft,area=W-left;
     R=Math.min(area,H)*(small?.42:.36)*(1-scrollK*.25);
     cx=left+area/2+scrollK*area*(small?0:.28);cy=H*.5+(small?-H*.08:0);
@@ -106,7 +106,7 @@ function ready(){root.classList.remove("loading");document.getElementById("loade
   const bar=document.getElementById("progress"),hero=document.getElementById("hero-in");let tick=false;
   function upd(){tick=false;const max=document.documentElement.scrollHeight-innerHeight,y=scrollY;
     bar.style.transform=`scaleX(${max>0?y/max:0})`;
-    if(!reduced&&y<innerHeight*1.2){hero.style.transform=`translateY(${y*.35}px) scale(${1-y/innerHeight*.08})`;hero.style.opacity=Math.max(0,1-y/(innerHeight*.75))}}
+    if(hero&&!reduced&&y<innerHeight*1.2){hero.style.transform=`translateY(${y*.35}px) scale(${1-y/innerHeight*.08})`;hero.style.opacity=Math.max(0,1-y/(innerHeight*.75))}}
   addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
 })();
 
@@ -190,7 +190,7 @@ if(!reduced){
 
 /* ---------- glitch on the hero title ---------- */
 (function(){
-  if(reduced)return;const h=document.querySelector(".hero h1"),typed=document.getElementById("typed");
+  const h=document.querySelector(".hero h1"),typed=document.getElementById("typed");if(reduced||!h||!typed)return;
   (function loop(){setTimeout(()=>{if(scrollY<innerHeight&&typed.textContent){h.dataset.text=typed.textContent;h.classList.add("glitch");setTimeout(()=>h.classList.remove("glitch"),260)}loop()},3500+Math.random()*3500)})();
 })();
 })();

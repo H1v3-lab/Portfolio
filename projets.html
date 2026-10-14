@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projets — Dmod</title>
+<meta name="description" content="Projets de Dmod : VulnLab, KoudiPay, plateforme de défense autonome, SENTINEL-AVSEC, BloodLogic.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projets — Dmod">
+<meta property="og:description" content="Étudiant en cybersécurité offensive · Pentest web, CTF, cryptanalyse, forensique.">
+<meta property="og:url" content="https://sakoi-cyber.me/projets.html">
+<meta property="og:image" content="https://sakoi-cyber.me/assets/img/og.png">
+<link rel="canonical" href="https://sakoi-cyber.me/projets.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/fx.css">
+<noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body data-page="projects">
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-logo">0_0</div>
+    <pre class="loader-log" id="loader-log"></pre>
+    <div class="loader-bar"><span id="loader-bar"></span></div>
+  </div>
+</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div><div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<canvas id="globe" aria-hidden="true"></canvas>
+
+<aside class="rail" aria-label="Navigation">
+  <a class="box brand" href="index.html">
+    <div class="eyebrow">Navigation rail</div>
+    <b>Dmod</b>
+    <span data-i18n="brandsub">Portfolio cybersécurité</span>
+  </a>
+  <nav class="box nav">
+    <div class="eyebrow">Explore</div>
+    <a href="index.html#about" data-page="about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
+    <a href="competences.html" data-page="skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
+    <div class="eyebrow">Work</div>
+    <a href="projets.html" data-page="projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
+    <a href="ctf.html" data-page="ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
+    <a href="certifications.html" data-page="certifications"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="t"><span>Certifications</span><span>Certifications</span></span></a>
+    <div class="eyebrow">Journey</div>
+    <a href="formation.html" data-page="education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
+    <a href="experience.html" data-page="experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
+    <a href="contact.html" data-page="contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="box controls">
+    <div class="eyebrow">Controls</div>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">EN</button>
+  </div>
+</aside>
+
+<main>
+  <div class="crumb"><a href="index.html" data-i18n="pn_home">Accueil</a><span>/</span><span data-i18n="n_projects">Projets</span></div>
+  <section id="projects" class="reveal page-sec">
+    <div class="head"><h2 data-i18n="h_projects">Projets</h2><p class="lead" data-i18n="l_projects">Sélection de projets en cybersécurité offensive et de produits sur lesquels je travaille.</p></div>
+    <div class="projects">
+      <article class="card proj wide" style="--c:#a855f7">
+        <span class="chip">Lab vulnérable</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 8V6a4 4 0 0 1 8 0v2M5 13H2M22 13h-3M6 19l-2 2M18 19l2 2M6 8h12v6a6 6 0 0 1-12 0z"/></svg></span>
+        <h3>VulnLab</h3>
+        <span class="proj-sub">(15 challenges · OWASP Top 10)</span>
+        <p>Lab web volontairement vulnérable pour s'entraîner à l'exploitation : SQLi, XSS, SSTI, JWT, SSRF, XXE, CSRF, LFI, upload, IDOR… Chaque challenge tourne dans son propre conteneur, en PHP, Node.js, Flask ou Java, derrière un reverse proxy NGINX.</p>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">NGINX</span><span class="tag">OWASP Top 10</span><span class="tag">PHP</span><span class="tag">Node.js</span><span class="tag">Flask</span><span class="tag">Java</span></div>
+      </article>
+      <article class="card proj wide" style="--c:#f59e0b">
+        <span class="chip">Fintech</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg></span>
+        <h3>KoudiPay</h3>
+        <span class="proj-sub">(agrégateur de paiement Mobile Money)</span>
+        <p>Agrégateur de paiement Mobile Money (Flooz, Mixx by Yas) pour les PME togolaises. Co-fondateur et responsable cybersécurité : sécurité applicative, protection des flux de paiement et des données clients.</p>
+        <div class="tags"><span class="tag">Mobile Money</span><span class="tag">Sécurité applicative</span><span class="tag">Paiement</span></div>
+      </article>
+      <article class="card proj wide" style="--c:#3b82f6">
+        <span class="chip">Blue team</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span>
+        <h3 data-i18n="p_def">Plateforme de défense autonome</h3>
+        <span class="proj-sub" data-i18n="p_def_sub">(totale, autonome et immersive)</span>
+        <p data-i18n="p_def_d">Plateforme de défense conçue pour automatiser la réponse aux incidents : détection, corrélation et remédiation pilotées de bout en bout, avec une interface immersive pour suivre l'état de l'infrastructure.</p>
+        <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9.5 17H2.5z"/><path d="M12 10v4M12 17v.01"/></svg><span data-i18n="n_dev">Projet actuellement en développement.</span></div>
+        <div class="tags"><span class="tag">Réponse à incident</span><span class="tag">Automatisation</span><span class="tag">SOC</span></div>
+      </article>
+      <article class="card proj" style="--c:#06b6d4">
+        <span class="chip">IoT · IA</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></span>
+        <h3>SENTINEL-AVSEC</h3>
+        <p>Cybersurveillance des équipements connectés d'un poste de sûreté aéroportuaire, pilotée par un agent IA qui détecte les comportements anormaux.</p>
+        <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 6h3v2a3 3 0 0 1-3 3M7 6H4v2a3 3 0 0 0 3 3"/></svg><span data-i18n="n_anac">Projet présenté au concours ANAC · AVSEC 2026.</span></div>
+        <div class="tags"><span class="tag">IoT</span><span class="tag">IA</span><span class="tag">Détection</span></div>
+      </article>
+      <article class="card proj" style="--c:#ef4444">
+        <span class="chip">Hackathon</span>
+        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3.5 4.5 6 7.7 6 11a6 6 0 0 1-12 0c0-3.3 2.5-6.5 6-11z"/></svg></span>
+        <h3>BloodLogic</h3>
+        <p>Projet d'équipe présenté au hackathon AI4YOUTH organisé par Neuractif à Lomé, à la croisée de l'IA et de la santé.</p>
+        <div class="tags"><span class="tag">IA</span><span class="tag">Santé</span><span class="tag">AI4YOUTH 2026</span></div>
+      </article>
+      <article class="card proj" style="--c:#7ee2a8">
+        <span class="chip">Portfolio</span>
+        <span class="proj-ic mono">0_0</span>
+        <h3 data-i18n="p_portfolio">Portfolio personnel</h3>
+        <p data-i18n="p_portfolio_d">Ce site : globe 3D rendu à la main sur canvas, animations, assistant intégré et bilingue FR/EN — sans aucune dépendance.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas 3D</span></div>
+      </article>
+    </div>
+  </section>
+  <nav class="pnav" aria-label="Pages"><a class="pn prev" href="competences.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span><small data-i18n="pn_prev">Précédent</small><b data-i18n="n_skills">Compétences</b></span></a><a class="pn next" href="ctf.html"><span><small data-i18n="pn_next">Suivant</small><b>CTF</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav>
+  <footer>© 2026 Dmod · Dominique-Savio SAKOI — <span data-i18n="rights">tous droits réservés.</span></footer>
+</main>
+
+<button class="fab" type="button" data-chat aria-label="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg></button>
+
+<div class="chat" id="chat" role="dialog" aria-label="Assistant IA" aria-hidden="true">
+  <div class="chat-h">
+    <div><span class="eyebrow">Assistant</span><b data-i18n="chat_title">Demande-moi n'importe quoi sur Dmod</b></div>
+    <button class="chat-x" id="chat-x" type="button" aria-label="Fermer">✕</button>
+  </div>
+  <div class="chat-log" id="chat-log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="chat-f" id="chat-f" autocomplete="off">
+    <input id="chat-in" type="text" data-i18n-ph="chat_ph" placeholder="Pose ta question…" aria-label="Message">
+    <button type="submit" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/fx.js"></script>
+<script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js"}}</script>
+<script type="module" src="assets/js/models.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compétences — Dmod</title>
+<meta name="description" content="Compétences en sécurité offensive et défensive de Dmod : pentest web, défense réseau, cryptanalyse, forensique, reverse engineering.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compétences — Dmod">
+<meta property="og:description" content="Étudiant en cybersécurité offensive · Pentest web, CTF, cryptanalyse, forensique.">
+<meta property="og:url" content="https://sakoi-cyber.me/competences.html">
+<meta property="og:image" content="https://sakoi-cyber.me/assets/img/og.png">
+<link rel="canonical" href="https://sakoi-cyber.me/competences.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/fx.css">
+<noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body data-page="skills">
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-logo">0_0</div>
+    <pre class="loader-log" id="loader-log"></pre>
+    <div class="loader-bar"><span id="loader-bar"></span></div>
+  </div>
+</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div><div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<canvas id="globe" aria-hidden="true"></canvas>
+
+<aside class="rail" aria-label="Navigation">
+  <a class="box brand" href="index.html">
+    <div class="eyebrow">Navigation rail</div>
+    <b>Dmod</b>
+    <span data-i18n="brandsub">Portfolio cybersécurité</span>
+  </a>
+  <nav class="box nav">
+    <div class="eyebrow">Explore</div>
+    <a href="index.html#about" data-page="about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
+    <a href="competences.html" data-page="skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
+    <div class="eyebrow">Work</div>
+    <a href="projets.html" data-page="projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
+    <a href="ctf.html" data-page="ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
+    <a href="certifications.html" data-page="certifications"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="t"><span>Certifications</span><span>Certifications</span></span></a>
+    <div class="eyebrow">Journey</div>
+    <a href="formation.html" data-page="education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
+    <a href="experience.html" data-page="experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
+    <a href="contact.html" data-page="contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
+  </nav>
+  <div class="box controls">
+    <div class="eyebrow">Controls</div>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">EN</button>
+  </div>
+</aside>
+
+<main>
+  <div class="crumb"><a href="index.html" data-i18n="pn_home">Accueil</a><span>/</span><span data-i18n="n_skills">Compétences</span></div>
+  <section id="skills" class="reveal page-sec">
+    <div class="head"><h2 data-i18n="h_skills">Compétences</h2><p class="lead" data-i18n="l_skills">Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.</p></div>
+    <div class="acc">
+      <div class="acc-item open" style="--c:#a3e635">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8l4 4-4 4M12 16h7"/></svg></span><span class="acc-t"><b>Systèmes d'exploitation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Linux · administration</span><span class="tag">Linux · élévation de privilèges</span><span class="tag">Windows Server</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#60a5fa">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5M7 14h4M7 17h7"/></svg></span><span class="acc-t"><b data-i18n="sk_def">Défense réseau & durcissement</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">FortiGate 7.4</span><span class="tag">OPNsense</span><span class="tag">UTM</span><span class="tag">IPS / IDS</span><span class="tag">Filtrage web</span><span class="tag">Tunnels VPN</span><span class="tag">Active Directory</span><span class="tag">GPO · durcissement</span><span class="tag">Moindre privilège</span><span class="tag">Audits de conformité</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#f87171">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="acc-t"><b>Cybersécurité (Pentest & Exploitation)</b><small data-i18n="methodo">Aperçu de méthodologie</small></span><span class="badge">Méthodo</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><ol class="steps">
+          <li><b>01 · Reconnaissance</b><span>Cartographie de la surface d'attaque, énumération de services et de contenus.</span><div class="tags"><span class="tag">nmap</span><span class="tag">ffuf</span></div></li>
+          <li><b>02 · Exploitation</b><span>Validation manuelle des vulnérabilités, contournement de protections.</span><div class="tags"><span class="tag">Burp Suite</span><span class="tag">sqlmap</span></div></li>
+          <li><b>03 · Post-exploitation</b><span>Pivot, élévation de privilèges, mesure de l'impact réel.</span><div class="tags"><span class="tag">SSH pivot</span><span class="tag">privesc</span></div></li>
+          <li><b>04 · Rapport</b><span>Preuves, criticité et recommandations de remédiation actionnables.</span><div class="tags"><span class="tag">Writeups</span></div></li>
+        </ol></div></div>
+      </div>
+      <div class="acc-item" style="--c:#a78bfa">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"/></svg></span><span class="acc-t"><b>Exploitation web</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">SQLi UNION + bypass WAF</span><span class="tag">SSRF (gopher → Redis)</span><span class="tag">JWT alg:none / RS256→HS256</span><span class="tag">SSTI</span><span class="tag">XXE</span><span class="tag">IDOR</span><span class="tag">Prototype pollution</span><span class="tag">NoSQLi</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#fbbf24">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="acc-t"><b>Cryptanalyse</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">RSA · Håstad</span><span class="tag">RSA · module commun</span><span class="tag">ECDSA · nonce réutilisé</span><span class="tag">AES-CTR · nonce reuse</span><span class="tag">SPN custom · clair choisi</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#34d399">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span><span class="acc-t"><b>Forensique & stéganographie</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Analyse PCAP</span><span class="tag">Exfiltration DNS</span><span class="tag">Carving ext4</span><span class="tag">Chrome SQLite</span><span class="tag">Core dumps</span><span class="tag">Chunks PNG</span><span class="tag">LSB</span><span class="tag">stegsnow</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#f472b6">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><span class="acc-t"><b>Reverse engineering</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Ghidra</span><span class="tag">jadx</span><span class="tag">gdb</span><span class="tag">ELF packés UPX</span><span class="tag">VM custom 16 opcodes</span><span class="tag">APK Android</span><span class="tag">Librairies natives .so</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#22d3ee">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></svg></span><span class="acc-t"><b>Langages de programmation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Python</span><span class="tag">JavaScript · Node.js</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">Flask</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#2dd4bf">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span><span class="acc-t"><b>Réseau & Infrastructure</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Docker</span><span class="tag">NGINX · reverse proxy</span><span class="tag">nmap</span><span class="tag">Wireshark</span><span class="tag">Pivot SSH</span><span class="tag">Hijacking de librairies</span></div></div></div>
+      </div>
+      <div class="acc-item" style="--c:#fb923c">
+        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5z"/></svg></span><span class="acc-t"><b data-i18n="tools">Outils offensifs</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="acc-b"><div><div class="tags"><span class="tag">Burp Suite</span><span class="tag">ffuf</span><span class="tag">sqlmap</span><span class="tag">pwntools</span><span class="tag">SageMath</span><span class="tag">binwalk</span><span class="tag">Sleuth Kit</span></div></div></div>
+      </div>
+    </div>
+  </section>
+  <nav class="pnav" aria-label="Pages"><a class="pn prev" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span><small data-i18n="pn_prev">Précédent</small><b data-i18n="pn_home">Accueil</b></span></a><a class="pn next" href="projets.html"><span><small data-i18n="pn_next">Suivant</small><b data-i18n="n_projects">Projets</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav>
+  <footer>© 2026 Dmod · Dominique-Savio SAKOI — <span data-i18n="rights">tous droits réservés.</span></footer>
+</main>
+
+<button class="fab" type="button" data-chat aria-label="Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg></button>
+
+<div class="chat" id="chat" role="dialog" aria-label="Assistant IA" aria-hidden="true">
+  <div class="chat-h">
+    <div><span class="eyebrow">Assistant</span><b data-i18n="chat_title">Demande-moi n'importe quoi sur Dmod</b></div>
+    <button class="chat-x" id="chat-x" type="button" aria-label="Fermer">✕</button>
+  </div>
+  <div class="chat-log" id="chat-log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="chat-f" id="chat-f" autocomplete="off">
+    <input id="chat-in" type="text" data-i18n-ph="chat_ph" placeholder="Pose ta question…" aria-label="Message">
+    <button type="submit" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/fx.js"></script>
+<script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js"}}</script>
+<script type="module" src="assets/js/models.js"></script>
+</body>
+</html>

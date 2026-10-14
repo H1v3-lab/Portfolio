@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="assets/css/fx.css">
 <noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
 </head>
-<body>
+<body data-page="home">
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader-in">
     <div class="loader-logo">0_0</div>
@@ -34,23 +34,23 @@
 <canvas id="globe" aria-hidden="true"></canvas>
 
 <aside class="rail" aria-label="Navigation">
-  <div class="box brand">
+  <a class="box brand" href="index.html">
     <div class="eyebrow">Navigation rail</div>
     <b>Dmod</b>
     <span data-i18n="brandsub">Portfolio cybersécurité</span>
-  </div>
+  </a>
   <nav class="box nav">
     <div class="eyebrow">Explore</div>
-    <a href="#about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
-    <a href="#skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
+    <a href="index.html#about" data-page="about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
+    <a href="competences.html" data-page="skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
     <div class="eyebrow">Work</div>
-    <a href="#projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
-    <a href="#ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
-    <a href="#certifications"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="t"><span>Certifications</span><span>Certifications</span></span></a>
+    <a href="projets.html" data-page="projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
+    <a href="ctf.html" data-page="ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
+    <a href="certifications.html" data-page="certifications"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="t"><span>Certifications</span><span>Certifications</span></span></a>
     <div class="eyebrow">Journey</div>
-    <a href="#education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
-    <a href="#experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
-    <a href="#contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
+    <a href="formation.html" data-page="education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
+    <a href="experience.html" data-page="experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
+    <a href="contact.html" data-page="contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
   </nav>
   <div class="box controls">
     <div class="eyebrow">Controls</div>
@@ -65,9 +65,9 @@
     <h1><span id="typed"></span><span class="caret" aria-hidden="true"></span></h1>
     <p class="quote" data-i18n="quote">“Chaque système raconte une histoire. Je lis entre les lignes.”</p>
     <div class="ctas">
-      <a class="btn solid" href="#projects" data-i18n="c_projects">Voir mes projets</a>
-      <a class="btn" href="#certifications">Certifications</a>
-      <a class="btn" href="#contact">Contact</a>
+      <a class="btn solid" href="projets.html" data-i18n="c_projects">Voir mes projets</a>
+      <a class="btn" href="certifications.html">Certifications</a>
+      <a class="btn" href="contact.html">Contact</a>
       <button class="btn solid" type="button" data-chat><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span data-i18n="c_chat">Chat en direct avec l'IA</span></button>
     </div>
     <div class="boot" aria-hidden="true">
@@ -112,304 +112,57 @@
     </div>
   </section>
 
-  <section id="skills" class="reveal">
-    <div class="head"><h2 data-i18n="h_skills">Compétences</h2><p class="lead" data-i18n="l_skills">Ce que j'ai pratiqué en conditions réelles, en compétition ou en mission autorisée.</p></div>
-    <div class="acc">
-      <div class="acc-item open" style="--c:#a3e635">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8l4 4-4 4M12 16h7"/></svg></span><span class="acc-t"><b>Systèmes d'exploitation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Linux · administration</span><span class="tag">Linux · élévation de privilèges</span><span class="tag">Windows Server</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#60a5fa">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5M7 14h4M7 17h7"/></svg></span><span class="acc-t"><b data-i18n="sk_def">Défense réseau & durcissement</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">FortiGate 7.4</span><span class="tag">OPNsense</span><span class="tag">UTM</span><span class="tag">IPS / IDS</span><span class="tag">Filtrage web</span><span class="tag">Tunnels VPN</span><span class="tag">Active Directory</span><span class="tag">GPO · durcissement</span><span class="tag">Moindre privilège</span><span class="tag">Audits de conformité</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#f87171">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span><span class="acc-t"><b>Cybersécurité (Pentest & Exploitation)</b><small data-i18n="methodo">Aperçu de méthodologie</small></span><span class="badge">Méthodo</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><ol class="steps">
-          <li><b>01 · Reconnaissance</b><span>Cartographie de la surface d'attaque, énumération de services et de contenus.</span><div class="tags"><span class="tag">nmap</span><span class="tag">ffuf</span></div></li>
-          <li><b>02 · Exploitation</b><span>Validation manuelle des vulnérabilités, contournement de protections.</span><div class="tags"><span class="tag">Burp Suite</span><span class="tag">sqlmap</span></div></li>
-          <li><b>03 · Post-exploitation</b><span>Pivot, élévation de privilèges, mesure de l'impact réel.</span><div class="tags"><span class="tag">SSH pivot</span><span class="tag">privesc</span></div></li>
-          <li><b>04 · Rapport</b><span>Preuves, criticité et recommandations de remédiation actionnables.</span><div class="tags"><span class="tag">Writeups</span></div></li>
-        </ol></div></div>
-      </div>
-      <div class="acc-item" style="--c:#a78bfa">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"/></svg></span><span class="acc-t"><b>Exploitation web</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">SQLi UNION + bypass WAF</span><span class="tag">SSRF (gopher → Redis)</span><span class="tag">JWT alg:none / RS256→HS256</span><span class="tag">SSTI</span><span class="tag">XXE</span><span class="tag">IDOR</span><span class="tag">Prototype pollution</span><span class="tag">NoSQLi</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#fbbf24">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="acc-t"><b>Cryptanalyse</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">RSA · Håstad</span><span class="tag">RSA · module commun</span><span class="tag">ECDSA · nonce réutilisé</span><span class="tag">AES-CTR · nonce reuse</span><span class="tag">SPN custom · clair choisi</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#34d399">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span><span class="acc-t"><b>Forensique & stéganographie</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Analyse PCAP</span><span class="tag">Exfiltration DNS</span><span class="tag">Carving ext4</span><span class="tag">Chrome SQLite</span><span class="tag">Core dumps</span><span class="tag">Chunks PNG</span><span class="tag">LSB</span><span class="tag">stegsnow</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#f472b6">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><span class="acc-t"><b>Reverse engineering</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Ghidra</span><span class="tag">jadx</span><span class="tag">gdb</span><span class="tag">ELF packés UPX</span><span class="tag">VM custom 16 opcodes</span><span class="tag">APK Android</span><span class="tag">Librairies natives .so</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#22d3ee">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4"/></svg></span><span class="acc-t"><b>Langages de programmation</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Python</span><span class="tag">JavaScript · Node.js</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">Flask</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#2dd4bf">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span><span class="acc-t"><b>Réseau & Infrastructure</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Docker</span><span class="tag">NGINX · reverse proxy</span><span class="tag">nmap</span><span class="tag">Wireshark</span><span class="tag">Pivot SSH</span><span class="tag">Hijacking de librairies</span></div></div></div>
-      </div>
-      <div class="acc-item" style="--c:#fb923c">
-        <button class="acc-h" type="button"><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5z"/></svg></span><span class="acc-t"><b data-i18n="tools">Outils offensifs</b><small class="acc-n"></small></span><span class="badge" data-i18n="b_skills">Compétences</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="acc-b"><div><div class="tags"><span class="tag">Burp Suite</span><span class="tag">ffuf</span><span class="tag">sqlmap</span><span class="tag">pwntools</span><span class="tag">SageMath</span><span class="tag">binwalk</span><span class="tag">Sleuth Kit</span></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="reveal">
-    <div class="head"><h2 data-i18n="h_projects">Projets</h2><p class="lead" data-i18n="l_projects">Sélection de projets en cybersécurité offensive et de produits sur lesquels je travaille.</p></div>
-    <div class="projects">
-      <article class="card proj wide" style="--c:#a855f7">
-        <span class="chip">Lab vulnérable</span>
-        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 8V6a4 4 0 0 1 8 0v2M5 13H2M22 13h-3M6 19l-2 2M18 19l2 2M6 8h12v6a6 6 0 0 1-12 0z"/></svg></span>
-        <h3>VulnLab</h3>
-        <span class="proj-sub">(15 challenges · OWASP Top 10)</span>
-        <p>Lab web volontairement vulnérable pour s'entraîner à l'exploitation : SQLi, XSS, SSTI, JWT, SSRF, XXE, CSRF, LFI, upload, IDOR… Chaque challenge tourne dans son propre conteneur, en PHP, Node.js, Flask ou Java, derrière un reverse proxy NGINX.</p>
-        <div class="tags"><span class="tag">Docker</span><span class="tag">NGINX</span><span class="tag">OWASP Top 10</span><span class="tag">PHP</span><span class="tag">Node.js</span><span class="tag">Flask</span><span class="tag">Java</span></div>
-      </article>
-      <article class="card proj wide" style="--c:#f59e0b">
-        <span class="chip">Fintech</span>
-        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg></span>
-        <h3>KoudiPay</h3>
-        <span class="proj-sub">(agrégateur de paiement Mobile Money)</span>
-        <p>Agrégateur de paiement Mobile Money (Flooz, Mixx by Yas) pour les PME togolaises. Co-fondateur et responsable cybersécurité : sécurité applicative, protection des flux de paiement et des données clients.</p>
-        <div class="tags"><span class="tag">Mobile Money</span><span class="tag">Sécurité applicative</span><span class="tag">Paiement</span></div>
-      </article>
-      <article class="card proj wide" style="--c:#3b82f6">
-        <span class="chip">Blue team</span>
-        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg></span>
-        <h3 data-i18n="p_def">Plateforme de défense autonome</h3>
-        <span class="proj-sub" data-i18n="p_def_sub">(totale, autonome et immersive)</span>
-        <p data-i18n="p_def_d">Plateforme de défense conçue pour automatiser la réponse aux incidents : détection, corrélation et remédiation pilotées de bout en bout, avec une interface immersive pour suivre l'état de l'infrastructure.</p>
-        <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9.5 17H2.5z"/><path d="M12 10v4M12 17v.01"/></svg><span data-i18n="n_dev">Projet actuellement en développement.</span></div>
-        <div class="tags"><span class="tag">Réponse à incident</span><span class="tag">Automatisation</span><span class="tag">SOC</span></div>
-      </article>
-      <article class="card proj" style="--c:#06b6d4">
-        <span class="chip">IoT · IA</span>
-        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/></svg></span>
-        <h3>SENTINEL-AVSEC</h3>
-        <p>Cybersurveillance des équipements connectés d'un poste de sûreté aéroportuaire, pilotée par un agent IA qui détecte les comportements anormaux.</p>
-        <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 6h3v2a3 3 0 0 1-3 3M7 6H4v2a3 3 0 0 0 3 3"/></svg><span data-i18n="n_anac">Projet présenté au concours ANAC · AVSEC 2026.</span></div>
-        <div class="tags"><span class="tag">IoT</span><span class="tag">IA</span><span class="tag">Détection</span></div>
-      </article>
-      <article class="card proj" style="--c:#ef4444">
-        <span class="chip">Hackathon</span>
-        <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3.5 4.5 6 7.7 6 11a6 6 0 0 1-12 0c0-3.3 2.5-6.5 6-11z"/></svg></span>
-        <h3>BloodLogic</h3>
-        <p>Projet d'équipe présenté au hackathon AI4YOUTH organisé par Neuractif à Lomé, à la croisée de l'IA et de la santé.</p>
-        <div class="tags"><span class="tag">IA</span><span class="tag">Santé</span><span class="tag">AI4YOUTH 2026</span></div>
-      </article>
-      <article class="card proj" style="--c:#7ee2a8">
-        <span class="chip">Portfolio</span>
-        <span class="proj-ic mono">0_0</span>
-        <h3 data-i18n="p_portfolio">Portfolio personnel</h3>
-        <p data-i18n="p_portfolio_d">Ce site : globe 3D rendu à la main sur canvas, animations, assistant intégré et bilingue FR/EN — sans aucune dépendance.</p>
-        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas 3D</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section id="ctf" class="reveal">
-    <div class="head"><h2>CTF</h2><p class="lead" data-i18n="l_ctf">Compétitions, distinctions et writeups. Champion de l'ESIG Tech Arena 2026, deux fois finaliste du CTF National du Togo.</p></div>
-    <div class="ctf-grid">
-      <div class="card ctf feat tier-gold" data-ctf="esig-tech-arena-2026"><span class="ctf-logo on-light"><img src="assets/img/logos/esig-techsphere.webp" alt="ESIG TechSphere" data-fb="ES" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>ESIG Tech Arena 2026</h3><p data-i18n="c_esig">Capitaine de la team Smile 0_0 · ESIG Global Success</p><span class="lnks"><a class="lnk" href="https://ctf-resultat.netlify.app/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span data-i18n="c_rank">Classement</span></a><a class="lnk wu" href="writeups.html#esig-tech-arena-2026"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span data-i18n="c_champ">Champion</span></span></div>
-      <div class="card ctf feat tier-final" data-ctf="nctf-togo"><span class="ctf-logo on-light"><img src="assets/img/logos/ancy.webp" alt="ANCy" data-fb="AN" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3 data-i18n="c_nctf">CTF National Togo (NCTF)</h3><p data-i18n="c_nctf_d">ANCy · CERT.tg — finales 2024 (APT17) et 2025 (DarkPayload)</p><span class="lnks"><a class="lnk wu" href="writeups.html#nctf-togo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span data-i18n="c_fin2">Finaliste ×2</span></span></div>
-      <div class="card ctf tier-silver" data-ctf="ipnet-cyber-battle-2026"><span class="ctf-logo on-light"><img src="assets/img/logos/ipnet-ctf.webp" alt="IPNET CTF" data-fb="IP" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>IPNET Cyber Battle 2026</h3><p data-i18n="c_final">Finale · 22–23 août 2026</p><span class="lnks"><a class="lnk wu" href="writeups.html#ipnet-cyber-battle-2026"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span><span data-count="2">0</span>e / 10</span></span></div>
-      <div class="card ctf tier-final"><span class="ctf-logo on-light"><img src="assets/img/logos/cafes-cyber.webp" alt="Cafés de la Cybersécurité" data-fb="CC" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3 data-i18n="c_cafes">Cafés de la Cybersécurité · 10e éd.</h3><p data-i18n="c_cafes_d">Gagnant du jeu « Le plus grand défi d'un SOC » — Cyber Defense Africa · ANCy</p></div><span class="score"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span data-i18n="c_win">Lauréat</span></span></div>
-      <div class="card ctf" data-ctf="ecowasctf"><span class="ctf-logo"><img src="assets/img/logos/ecowas.webp" alt="ECOWAS Regional Hackathon" data-fb="EC" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>EcowasCTF</h3><p>n0_m3rcy</p><span class="lnks"><a class="lnk wu" href="writeups.html#ecowasctf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score muted" data-i18n="c_part">Participant</span></div>
-      <div class="card ctf" data-ctf="brctf"><span class="ctf-logo wide-dark"><img src="assets/img/logos/brctf.webp" alt="brCTF" data-fb="br" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>brCTF</h3><p>n0_m3rcy</p><span class="lnks"><a class="lnk wu" href="writeups.html#brctf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score muted" data-i18n="c_part">Participant</span></div>
-      <div class="card ctf" data-ctf="boroctf"><span class="ctf-logo"><img src="assets/img/logos/boroctf.webp" alt="boroCTF" data-fb="bo" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>boroCTF</h3><p>n0_m3rcy</p><span class="lnks"><a class="lnk wu" href="writeups.html#boroctf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score muted" data-i18n="c_part">Participant</span></div>
-      <div class="card ctf" data-ctf="nexus-core"><span class="ctf-logo">NX</span><div><h3>NEXUS CORE</h3><p>n0_m3rcy</p><span class="lnks"><a class="lnk wu" href="writeups.html#nexus-core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score muted" data-i18n="c_part">Participant</span></div>
-      <div class="card ctf" data-ctf="virtuoso-arena"><span class="ctf-logo">VA</span><div><h3>Virtuoso Arena</h3><p>n0_m3rcy</p><span class="lnks"><a class="lnk wu" href="writeups.html#virtuoso-arena"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg><span data-i18n="c_wu">Writeups</span></a></span></div><span class="score muted" data-i18n="c_part">Participant</span></div>
-    </div>
-    <div class="term">
-      <div class="bar"><span></span><span></span><span></span></div>
-<pre id="term"><span class="p">dmod@Deamon</span>:~$ cat writeups/highlights.log
-[web]    JWT RS256 → HS256 algorithm confusion via exposed JWKS
-[web]    SSRF gopher:// → Redis → FTP creds → SSH pivot
-[web]    UNION SQLi in HTTP headers, WAF bypass with hex literals
-[crypto] ECDSA repeated nonce → private key recovery
-[crypto] AES-128-CTR nonce reuse on shared keystream
-[rev]    UPX ELF hiding a 16-opcode VM running a reduced AES
-[net]    DNS tunneling exfil decoded from base32 subdomains</pre>
-    </div>
-  </section>
-
-  <section id="certifications" class="reveal">
-    <div class="head"><h2>Certifications</h2><p class="lead" data-i18n="l_certs">Parcours de certifications.</p></div>
-    <div class="carousel" id="certs">
-      <div class="car-nav"><button type="button" class="car-btn" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="car-btn" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
-      <div class="car-track">
-        <article class="card cert">
-          <div class="cert-top"><span class="cert-badge"><img src="assets/img/logos/hackviser.webp" alt="Hackviser" data-fb="CAPT" onerror="this.replaceWith(this.dataset.fb)"></span><div class="cert-id"><h3>CAPT <small>Certified Adversary Penetration Tester</small></h3><span class="cert-org">Hackviser</span><span class="cert-meta" data-i18n="cm_capt">Janvier 2026</span></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_ok">Obtenu</span></span></div>
-          <p class="cert-lead" data-i18n="c_capt_l">Certification offensive hands-on : évaluation de vulnérabilités et simulation d'adversaire.</p>
-          <p class="cert-body" data-i18n="c_capt_b">Évaluations de vulnérabilités et simulations d'adversaire dans les labs CAPT de Hackviser pour identifier des failles critiques, puis rédaction de rapports techniques détaillant les techniques d'exploitation et les stratégies de remédiation.</p>
-          <div class="cert-links"><a class="lnk" href="https://hackviser.com/verify?id=HV-CAPT-EU6L19L7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span data-i18n="verify">Lien de vérification</span></a><span class="cert-idv">HV-CAPT-EU6L19L7</span></div>
-        </article>
-        <article class="card cert">
-          <div class="cert-top"><span class="cert-badge"><img src="assets/img/logos/hackviser.webp" alt="Hackviser" data-fb="CWSE" onerror="this.replaceWith(this.dataset.fb)"></span><div class="cert-id"><h3>CWSE <small>Certified Web Security Expert</small></h3><span class="cert-org">Hackviser</span><span class="cert-meta" data-i18n="cm_prep">En préparation</span></div><span class="pill run" data-i18n="p_prep">En préparation</span></div>
-          <p class="cert-lead" data-i18n="c_cwse_l">Approfondissement de la sécurité des applications web.</p>
-          <p class="cert-body" data-i18n="c_cwse_b">Prochaine étape du parcours offensif : vulnérabilités web avancées, chaînes d'exploitation et audit d'applications, dans la continuité du travail mené en CTF et sur VulnLab.</p>
-        </article>
-      </div>
-    </div>
-
-    <span class="kicker cert-cat">Catégorie — Fortinet</span>
-    <div class="cert-grid">
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/fortinet.svg" alt="Fortinet" data-fb="FT" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>FCA <small>FortiGate 7.4 Operator</small></h3><p class="cert-org">Fortinet · Self-Paced</p></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_ok">Obtenu</span></span></article>
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/fortinet.svg" alt="Fortinet" data-fb="FT" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>FCF <small>Introduction to the Threat Landscape 2.0</small></h3><p class="cert-org">Fortinet · Self-Paced</p></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_ok">Obtenu</span></span></article>
-    </div>
-    <span class="kicker cert-cat">Catégorie — Cisco Networking Academy</span>
-    <div class="cert-grid">
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/cisco.svg" alt="Cisco" data-fb="CS" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>Networking Essentials</h3><p class="cert-org">Cisco Networking Academy</p></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_ok">Obtenu</span></span></article>
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/cisco.svg" alt="Cisco" data-fb="CS" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>NDG Linux Essentials</h3><p class="cert-org">Cisco Networking Academy · NDG</p></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_ok">Obtenu</span></span></article>
-    </div>
-    <span class="kicker cert-cat" data-i18n="cat_member">Catégorie — Adhésion & entraînement</span>
-    <div class="cert-grid">
-      <article class="card cert-sm"><span class="ctf-logo on-light"><img src="assets/img/logos/icdfa.webp" alt="ICDFA" data-fb="ICDF" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>ICDFA Associate Member <small>AMICDFA · ICDFA-2026-00085</small></h3><p class="cert-org" data-i18n="c_icdfa">ICDF Academy · membre actif depuis le 16 mars 2026</p></div><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="p_member">Membre</span></span></article>
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/tryhackme.svg" alt="TryHackMe" data-fb="THM" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>TryHackMe</h3><p class="cert-org" data-i18n="cm_ongoing">Entraînement continu</p></div><span class="pill run" data-i18n="p_ongoing">En cours</span></article>
-      <article class="card cert-sm"><span class="ctf-logo"><img src="assets/img/logos/rootme.svg" alt="Root-Me" data-fb="RM" onerror="this.replaceWith(this.dataset.fb)"></span><div><h3>Root-Me</h3><p class="cert-org" data-i18n="cm_ongoing">Entraînement continu</p></div><span class="pill run" data-i18n="p_ongoing">En cours</span></article>
-      <article class="card cert-sm"><span class="ctf-logo">pwn</span><div><h3>picoCTF · pwn.college</h3><p class="cert-org" data-i18n="cm_ongoing">Entraînement continu</p></div><span class="pill run" data-i18n="p_ongoing">En cours</span></article>
-    </div>
-  </section>
-
-  <section id="education" class="reveal">
-    <div class="head"><h2 data-i18n="h_edu">Formation</h2></div>
-    <ol class="edu">
-      <!-- Ajoute un diplôme en copiant un <li> ci-dessous -->
-      <li class="edu-item current">
-        <span class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span>
-        <div class="edu-card">
-          <div class="edu-h"><h3 data-i18n="e_lic">Licence professionnelle Cybersécurité</h3><span class="pill">2023 - 2026</span></div>
-          <p class="edu-sub">IPNET Institute of Technology · Lomé, Togo</p>
-          <p class="edu-desc" data-i18n="e_lic_d">Actuellement en 3e année. Tests de sécurité, investigation numérique, sécurité réseau, Active Directory et défense périmétrique.</p>
-          <p class="edu-st"><span data-i18n="st">Statut</span> : <span data-i18n="st_now">En cours</span></p>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <section id="experience" class="reveal">
-    <div class="head head-row"><div><h2 data-i18n="h_exp">Expérience</h2><p class="lead" data-i18n="l_exp">Expériences et contexte professionnel.</p></div><div class="model3d xp-model" data-model="assets/models/laptop-user.glb" data-rim="#7ee2a8,#3b82f6" role="img" aria-label="Personnage 3D assis avec un ordinateur portable"><span class="model3d-hint" data-i18n="m_hint">Glisser pour tourner</span></div></div>
-    <div class="xp-box">
-      <div class="xp-bar"><span class="kicker" data-i18n="xp_pick">Frise — sélectionner une année</span><div class="years" id="years"></div></div>
-      <div class="xp-list" id="xp">
-        <article class="xp" data-years="2025,2026" data-cat="Entreprise">
-          <div class="xp-logo on-light"><img src="assets/img/logos/miabe.webp" alt="MiabeInnovation" data-fb="MI" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3>MiabeInnovation</h3><span class="pill ok" data-i18n="now">Actuellement</span><span class="pill"><span data-i18n="m_oct25">Oct. 2025</span> → <span data-i18n="today">Aujourd'hui</span></span></div>
-            <p class="xp-sub" data-i18n="x_mi_sub">Agent cybersécurité.</p>
-            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : <span data-i18n="x_mi_role">Agent cybersécurité</span></span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Lomé, Togo</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg>Security-first</span></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2026" data-cat="Entreprise">
-          <div class="xp-logo">KP</div>
-          <div class="xp-main">
-            <div class="xp-h"><h3>KoudiPay</h3><span class="pill ok" data-i18n="now">Actuellement</span><span class="pill">2026 → <span data-i18n="today">Aujourd'hui</span></span></div>
-            <p class="xp-sub">Agrégateur de paiement Mobile Money pour les PME togolaises.</p>
-            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Co-fondateur · Resp. cybersécurité</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M8 8h3M8 12h3M8 16h3"/></svg>Startup (TG)</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg>Security-first</span></div>
-            <div class="xp-desc">
-              <p>KoudiPay agrège les paiements Mobile Money (Flooz, Mixx by Yas) pour permettre aux PME togolaises d'encaisser simplement en ligne.</p>
-              <p>En tant que co-fondateur et responsable cybersécurité, je porte la sécurité applicative de la plateforme : protection des flux de paiement, des données clients et des accès.</p>
-            </div>
-          </div>
-        </article>
-        <article class="xp" data-years="2026" data-cat="Indépendant">
-          <div class="xp-logo">0_0</div>
-          <div class="xp-main">
-            <div class="xp-h"><h3 data-i18n="t_consult">Consultant cybersécurité indépendant</h3><span class="pill ok" data-i18n="now">Actuellement</span><span class="pill">2026 → <span data-i18n="today">Aujourd'hui</span></span></div>
-            <p class="xp-sub">Tests d'intrusion et audits de sécurité autorisés.</p>
-            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Pentester</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/></svg>Security-first</span></div>
-            <div class="xp-desc">
-              <p>Missions de test d'intrusion réalisées dans un cadre autorisé, dont l'audit d'une plateforme web d'IPNET Institute : identification, exploitation contrôlée et rapport de remédiation.</p>
-            </div>
-          </div>
-        </article>
-        <article class="xp" data-years="2025" data-cat="IPNET Institute of Technology">
-          <div class="xp-logo on-light on-ipnet"><img src="assets/img/logos/ipnet.webp" alt="IPNET Institute of Technology" data-fb="IPNET" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3 data-i18n="x_hard">Infrastructure & durcissement système</h3><span class="pill" data-i18n="x_hard_d">Juin — juil. 2025</span></div>
-            <p class="xp-sub">IPNET Institute of Technology · Lomé</p>
-            <div class="xp-desc"><p>Application de benchmarks de sécurité (GPO) pour durcir des environnements Windows Server et Linux et réduire la surface d'attaque.</p><p>Audits de sécurité réguliers pour vérifier la conformité des systèmes aux bonnes pratiques.</p></div>
-            <div class="tags"><span class="tag">GPO</span><span class="tag">Windows Server</span><span class="tag">Linux</span><span class="tag">Audit</span></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2025" data-cat="IPNET Institute of Technology">
-          <div class="xp-logo on-light on-ipnet"><img src="assets/img/logos/ipnet.webp" alt="IPNET Institute of Technology" data-fb="IPNET" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3 data-i18n="x_utm">Défense réseau & UTM</h3><span class="pill" data-i18n="x_utm_d">Avr. — mai 2025</span></div>
-            <p class="xp-sub">IPNET Institute of Technology · Lomé</p>
-            <div class="xp-desc"><p>Configuration et gestion de FortiGate (v7.4) et OPNsense pour une protection périmétrique complète.</p><p>Déploiement d'IPS/IDS, de filtrage web et de tunnels VPN pour un trafic sécurisé et supervisé ; optimisation des règles pour concilier performance et protection.</p></div>
-            <div class="tags"><span class="tag">FortiGate 7.4</span><span class="tag">OPNsense</span><span class="tag">IPS/IDS</span><span class="tag">VPN</span></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2023,2024" data-cat="IPNET Institute of Technology">
-          <div class="xp-logo on-light on-ipnet"><img src="assets/img/logos/ipnet.webp" alt="IPNET Institute of Technology" data-fb="IPNET" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3 data-i18n="x_ad">Sécurité & administration Active Directory</h3><span class="pill" data-i18n="x_ad_d">Déc. 2023 — janv. 2024</span></div>
-            <p class="xp-sub">IPNET Institute of Technology · Lomé</p>
-            <div class="xp-desc"><p>Conception et déploiement d'architectures AD sécurisées, centrées sur la gestion des identités et le contrôle d'accès.</p><p>Application du principe de moindre privilège pour limiter les menaces internes et l'élévation de privilèges.</p></div>
-            <div class="tags"><span class="tag">Active Directory</span><span class="tag">IAM</span><span class="tag">Moindre privilège</span></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2026" data-cat="Communauté">
-          <div class="xp-logo on-light"><img src="assets/img/logos/icdfa.webp" alt="ICDF Academy" data-fb="ICDF" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3>ICDF Academy</h3><span class="pill ok" data-i18n="now">Actuellement</span></div>
-            <p class="xp-sub">Cybersecurity & Digital Forensics Training.</p>
-            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : <span data-i18n="ambassador">Ambassadeur</span></span><span class="pill">AMICDFA · ICDFA-2026-00085</span><a class="pill" href="https://icdfa.edu.ng/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span data-i18n="site">Site officiel</span></a></div>
-            <div class="xp-desc"><p>Ambassadeur d'ICDF Academy, organisme de formation en cybersécurité et investigation numérique : je fais connaître ses programmes et relaie ses formations auprès de la communauté.</p></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2026" data-cat="Événement">
-          <div class="xp-logo on-light"><img src="assets/img/logos/cda.webp" alt="Cyber Defense Africa" data-fb="CDA" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3>Cafés de la Cybersécurité</h3><span class="pill">11 juin 2026</span></div>
-            <p class="xp-sub">10e édition · Siège de Cyber Defense Africa.</p>
-            <div class="xp-meta"><span class="pill ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg><span data-i18n="c_win">Lauréat</span></span></div>
-            <div class="xp-desc"><p>Invité après avoir remporté le jeu « Le plus grand défi d'un SOC » organisé par Cyber Defense Africa et l'ANCy, parmi trois gagnants retenus pour la précision de leurs réponses.</p></div>
-          </div>
-        </article>
-        <article class="xp" data-years="2026" data-cat="Événement">
-          <div class="xp-logo"><img src="assets/img/logos/python.svg" alt="Python" data-fb="Py" onerror="this.replaceWith(this.dataset.fb)"></div>
-          <div class="xp-main">
-            <div class="xp-h"><h3>PyCon Togo 2026</h3><span class="pill">2026</span></div>
-            <p class="xp-sub">Conférence de la communauté Python au Togo.</p>
-            <div class="xp-meta"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="role">Rôle</span> : Représentant d'OZZONS</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="reveal">
-    <div class="head head-row"><div><h2>Contact</h2><p class="lead" data-i18n="l_contact">Discutons de votre prochain projet de sécurité.</p></div><button class="btn sm" type="button" data-chat><span data-i18n="ai_help">Assistance IA</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></button></div>
-    <div class="contact2">
-      <div>
-        <span class="kicker" data-i18n="quick">Liens rapides</span>
-        <ul class="quick">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:domqsavio@gmail.com" id="mail">domqsavio@gmail.com</a><button class="copy" id="copy" type="button" aria-label="Copier l'adresse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><a href="https://www.linkedin.com/in/dominique-savio-sakoi-b607b333a" target="_blank" rel="noopener">linkedin.com/in/dominique-savio-sakoi</a></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Lomé, Togo · UTC+0</span></li>
-        </ul>
-        <div class="status-box"><span class="mono">$ status</span><p data-i18n="status_txt">À la recherche d'un poste de Junior SOC Analyst, Pentester apprenti ou Junior Security Engineer. Ouvert aux missions d'audit autorisées et aux discussions techniques.</p></div>
-        <div class="model3d contact-model" data-model="assets/models/anime-hacker.glb" data-rim="#8b5cf6,#22d3ee" role="img" aria-label="Personnage 3D au travail sur son ordinateur"><span class="model3d-hint" data-i18n="m_hint">Glisser pour tourner</span></div>
-      </div>
-      <form class="cform" id="cform" novalidate>
-        <span class="kicker" data-i18n="send_msg">Envoyer un message</span>
-        <label><span data-i18n="f_name">Nom</span><input name="name" required autocomplete="name" data-i18n-ph="ph_name" placeholder="Votre nom"></label>
-        <label><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="votre@email.com"></label>
-        <label><span>Message</span><textarea name="message" rows="6" required data-i18n-ph="ph_msg" placeholder="Votre message…"></textarea></label>
-        <button class="btn solid send" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span data-i18n="send">Envoyer le message</span></button>
-        <p class="form-hint" id="form-hint" data-i18n="form_hint">Le message s'ouvre dans votre messagerie, prêt à être envoyé.</p>
-      </form>
+  <section id="explore" class="reveal">
+    <div class="head"><h2 data-i18n="h_explore">Explorer</h2><p class="lead" data-i18n="l_explore">Un aperçu de chaque rubrique — clique pour ouvrir la page complète.</p></div>
+    <div class="ov-grid">
+      <a class="card ov ov-wide" href="competences.html" style="--c:#a78bfa">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="ov-n">10</span></div>
+        <h3 data-i18n="n_skills">Compétences</h3>
+        <p data-i18n="ov_skills">Du pentest web au durcissement réseau : 10 domaines pratiqués en compétition et en mission.</p>
+        <div class="ov-chips"><span style="--k:#a3e635">Linux</span><span style="--k:#60a5fa">FortiGate · AD</span><span style="--k:#f87171">Pentest</span><span style="--k:#a78bfa">Web</span><span style="--k:#fbbf24">Crypto</span><span style="--k:#34d399">Forensics</span><span style="--k:#f472b6">Reverse</span></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov" href="projets.html" style="--c:#f59e0b">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="ov-n">6</span></div>
+        <h3 data-i18n="n_projects">Projets</h3>
+        <ul class="ov-list"><li style="--k:#a855f7">VulnLab</li><li style="--k:#f59e0b">KoudiPay</li><li style="--k:#3b82f6" data-i18n="p_def">Plateforme de défense autonome</li><li style="--k:#06b6d4">SENTINEL-AVSEC</li></ul>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov tier-gold" href="ctf.html">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="ov-medal">🥇</span></div>
+        <h3>CTF</h3>
+        <p data-i18n="ov_ctf">Champion ESIG Tech Arena 2026 · finaliste NCTF ×2 · 2e IPNET Cyber Battle.</p>
+        <div class="ov-logos"><span class="lg"><img src="assets/img/logos/esig-techsphere.webp" alt="ESIG" loading="lazy"></span><span class="lg"><img src="assets/img/logos/ancy.webp" alt="ANCy" loading="lazy"></span><span class="lg"><img src="assets/img/logos/ipnet-ctf.webp" alt="IPNET CTF" loading="lazy"></span></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov" href="certifications.html" style="--c:#7ee2a8">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span></div>
+        <h3>Certifications</h3>
+        <p data-i18n="ov_certs">CAPT (Hackviser), Fortinet, Cisco — CWSE en préparation.</p>
+        <div class="ov-logos"><span class="lg dk"><img src="assets/img/logos/hackviser.webp" alt="Hackviser" loading="lazy"></span><span class="lg dk"><img src="assets/img/logos/fortinet.svg" alt="Fortinet" loading="lazy"></span><span class="lg dk"><img src="assets/img/logos/cisco.svg" alt="Cisco" loading="lazy"></span><span class="lg"><img src="assets/img/logos/icdfa.webp" alt="ICDFA" loading="lazy"></span></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov" href="formation.html" style="--c:#60a5fa">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span></div>
+        <h3 data-i18n="n_edu">Formation</h3>
+        <p data-i18n="ov_edu">Licence professionnelle Cybersécurité — IPNET Institute of Technology, depuis 2023.</p>
+        <div class="ov-logos"><span class="lg wide"><img src="assets/img/logos/ipnet.webp" alt="IPNET" loading="lazy"></span></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov" href="experience.html" style="--c:#f97316">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="ov-n">9</span></div>
+        <h3 data-i18n="n_exp">Expérience</h3>
+        <p data-i18n="ov_exp">Agent cybersécurité chez MiabeInnovation, co-fondateur de KoudiPay, ambassadeur ICDF Academy.</p>
+        <div class="ov-logos"><span class="lg wide"><img src="assets/img/logos/miabe.webp" alt="MiabeInnovation" loading="lazy"></span><span class="lg"><img src="assets/img/logos/icdfa.webp" alt="ICDF" loading="lazy"></span></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card ov ov-wide ov-contact" href="contact.html" style="--c:#22d3ee">
+        <div class="ov-top"><span class="ov-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span></div>
+        <h3>Contact</h3>
+        <p data-i18n="ov_contact">Un poste, une mission d'audit ou un CTF en équipe ? Écris-moi.</p>
+        <div class="ov-soc"><svg viewBox="0 0 24 24" class="m"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg><svg viewBox="0 0 24 24" class="l"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><svg viewBox="0 0 24 24" class="g"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+        <span class="ov-go"><span data-i18n="ov_go">Voir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </section>
 

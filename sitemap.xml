@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://sakoi-cyber.me/</loc></url>
+  <url><loc>https://sakoi-cyber.me/competences.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/projets.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/ctf.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/certifications.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/formation.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/experience.html</loc></url>
+  <url><loc>https://sakoi-cyber.me/contact.html</loc></url>
   <url><loc>https://sakoi-cyber.me/writeups.html</loc></url>
 </urlset>
