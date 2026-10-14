@@ -470,3 +470,17 @@ a.pill:hover{border-color:var(--muted);color:var(--fg)}
 /* IPNET logo sits on its own light-blue gradient */
 .on-ipnet{padding:0!important;background:#dfe6ef!important;border-color:#cfd7e0!important}
 .on-ipnet img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover}
+
+/* ---------- 3D model stages ---------- */
+.model3d{position:relative;border-radius:20px;border:1px solid var(--line);background:radial-gradient(70% 60% at 50% 70%,rgba(139,92,246,.10),transparent 70%),linear-gradient(180deg,#0a0a0d,#050506);overflow:hidden;cursor:grab;touch-action:pan-y}
+.model3d.grab{cursor:grabbing}
+.model3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .8s ease}
+.model3d.ready canvas{opacity:1}
+.model3d::before{content:"loading 3D…";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--dim);transition:opacity .4s}
+.model3d.ready::before,.model3d.failed::before{opacity:0}
+.model3d.failed{display:none}
+.model3d-hint{position:absolute;left:14px;bottom:12px;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--dim);pointer-events:none;opacity:0;transition:opacity .4s}
+.model3d.ready:hover .model3d-hint{opacity:1}
+.contact-model{height:330px;margin-top:20px;background:radial-gradient(70% 60% at 50% 72%,rgba(34,211,238,.10),transparent 70%),linear-gradient(180deg,#0a0a0d,#050506)}
+.xp-model{width:230px;height:230px;flex:none;margin:-56px 0 -40px;border-color:transparent;background:radial-gradient(60% 50% at 50% 78%,rgba(126,226,168,.12),transparent 70%)}
+@media (max-width:820px){.xp-model{width:100%;height:240px;margin-top:0}.contact-model{height:280px}}

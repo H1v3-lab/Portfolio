@@ -95,3 +95,6 @@ h2[data-scramble]{font-variant-ligatures:none}
   .timeline::before{transform:none}
   #globe{display:none}
 }
+
+/* sections driven by the scroll handoff (fx.js): no CSS transition, the scroll is the timeline */
+main > section.sx{transition:none!important;transform-origin:50% 30%;will-change:opacity,transform}
