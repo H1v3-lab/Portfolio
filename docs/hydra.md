@@ -29,7 +29,7 @@ Concrètement, Hydra raconte l'histoire complète d'une intrusion, de sa premiè
 
 Les quatre modules de Hydra ne sont pas des outils juxtaposés : ils forment une boucle fermée où chaque attaque nourrit la défense suivante.
 
-&#91;embedded content: architecture de Hydra · 4 modules, 1 bus, 3 interfaces\]
+<div id="hydra-arch"></div>
 
 Tout passe par un bus Redis en publication/abonnement : un module publie un événement (flux suspect, riposte, action de l'attaquant), les autres l'écoutent et réagissent. Les interfaces humaines se branchent sur ce même bus, sans ralentir la boucle automatique.
 
@@ -169,7 +169,7 @@ Le chemin vers le terrain est encore long, et nous le savons. Mais chaque tête 
 Hydra est porté par une équipe de trois :
 
 - **Dominique-Savio SAKOI** : chef de projet et développement IA
-- **Roma****r****i****c** : intégration technique
+- **Romaric** : intégration technique
 - **Emmanuel** : réseau et animation visuelle
 
 Vous êtes une institution, une entreprise ou un chercheur intéressé par un pilote ou une collaboration ? Écrivez-nous.
