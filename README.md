@@ -26,7 +26,7 @@ puis ouvrir http://localhost:8000
 
 1. Settings → Pages → Source « Deploy from a branch » → branche `main`, dossier `/ (root)`.
 2. Le site est publié sur `https://h1v3-lab.github.io/Portfolio/` (ou `https://<compte>.github.io/` si le dépôt s'appelle `<compte>.github.io`).
-3. Nom de domaine perso : Settings → Pages → Custom domain, puis cocher « Enforce HTTPS ». GitHub crée le fichier `CNAME` à la racine.
+3. Nom de domaine : **sakoi-cyber.me** (fichier `CNAME`). Pour le (re)configurer : Settings → Pages → Custom domain, puis cocher « Enforce HTTPS ». GitHub crée le fichier `CNAME` à la racine.
    - domaine racine (`exemple.com`) : 4 enregistrements `A` vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (et `AAAA` `2606:50c0:8000::153` à `8003::153` pour l'IPv6) ;
    - sous-domaine (`www.exemple.com`) : un `CNAME` vers `h1v3-lab.github.io`.
 
