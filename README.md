@@ -56,4 +56,5 @@ Le fichier `.nojekyll` désactive Jekyll pour que tous les fichiers soient servi
   Le nombre de writeups s'affiche automatiquement sur chaque carte CTF.
 - **Couleurs** : classes `tier-gold`, `tier-silver`, `tier-bronze` (1er, 2e, 3e) sur une carte ; chaque compétence et projet a sa couleur via `style="--c:#hex"`.
 - **Modèles 3D** : fichiers `.glb` dans `assets/models/`, affichés par `assets/js/models.js` (three.js 0.160 dans `assets/vendor/three/`, chargé seulement quand un modèle approche de l'écran). Pour en ajouter un : `<div class="model3d" data-model="assets/models/x.glb" data-rim="#couleur1,#couleur2"></div>`. Les modèles d'origine (.3mf) ont été convertis et allégés (~1 Mo chacun) ; un export `.glb` texturé depuis Tripo remplacerait directement le rendu « studio ».
+- **Après une modification d'un fichier CSS ou JS** : lancer `python3 tools/version-assets.py`. Le script ajoute `?v=<empreinte>` aux liens des pages pour que les navigateurs rechargent les nouveaux fichiers au lieu d'une ancienne version en cache.
 - Toutes les animations sont coupées automatiquement si le visiteur a activé « réduire les animations ».
