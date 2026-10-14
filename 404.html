@@ -30,7 +30,12 @@ a:hover{background:#d8d8dc}
   <h1>404 · Page introuvable</h1>
   <pre><b>dmod@Deamon</b>:~$ cd /cette-page
 bash: cd: /cette-page: No such file or directory</pre>
-  <a href="./">cd ~ (retour à l'accueil)</a>
+  <a href="/" id="home">cd ~ (retour à l'accueil)</a>
 </main>
+<script>
+// GitHub Pages serves this page for any missing path. When the site is published as a
+// project site (user.github.io/Portfolio/), the home page lives under the repo folder.
+if(/^\/portfolio(\/|$)/i.test(location.pathname))document.getElementById("home").href="/"+location.pathname.split("/")[1]+"/";
+</script>
 </body>
 </html>
