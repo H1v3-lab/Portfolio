@@ -17,7 +17,12 @@ le score et le temps. Aucune adresse IP, aucun cookie.
 ## Déploiement (tableau de bord Cloudflare, une seule fois)
 
 1. **Base de données** : *Stockage et bases de données → D1 → Créer* → nom `ctf`.
-   Onglet **Console** : coller le contenu de `schema.sql` → **Exécuter**.
+   Onglet **Console** : coller le contenu de `schema.sql` (une seule ligne, sans commentaires) → **Exécuter**.
+   Vérifier avec `PRAGMA table_info(sessions);` : colonnes `id, created, found, attempts, finished`.
+   Attention : `schema.sql` supprime puis recrée les tables (il efface le classement existant).
+
+   Colonnes : `sessions` = identifiant aléatoire, heure du premier flag, flags trouvés `[{n, t}]` (numéro + heure serveur),
+   nombre d'essais, inscrit ou non ; `scores` = pseudo unique, score, temps en secondes.
 2. **Worker** : *Workers & Pages → Créer → Worker* → nom `ctf-api` → **Déployer**, puis **Modifier le code** :
    remplacer tout par le contenu de `worker.js` → **Déployer**.
 3. **Liaison** : dans le Worker → *Paramètres → Liaisons → Ajouter → Base de données D1* →
