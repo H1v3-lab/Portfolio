@@ -7,10 +7,8 @@
 <meta name="description" content="Writeups CTF de Dominique-Savio SAKOI (Dmod) : web, crypto, forensique, reverse.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=8692080140">
+<link rel="stylesheet" href="assets/css/fonts.css?v=62df30ac5a">
+<link rel="stylesheet" href="assets/css/style.css?v=3c82bbe05a">
 <style>
 /* Writeups page: top bar + list of CTFs (each with its writeups) + markdown reader */
 main{margin-left:0}
@@ -82,53 +80,6 @@ section{padding-block:40px 80px}
   <footer>© 2026 Dmod · Dominique-Savio SAKOI</footer>
 </main>
 <script src="assets/vendor/marked.min.js"></script>
-<script>
-/* Writeups are listed in writeups/index.json. A writeup is either a local Markdown
-   file ("file") rendered here, or an external link ("url") opened in a new tab.
-   Routes: #<ctf-slug> scrolls to that CTF, #<ctf-slug>/<file-name> opens a writeup. */
-const L={fr:{back:"Retour aux CTF",lead:"Mes solutions de challenges CTF, compétition par compétition.",all:"Tous les writeups",soon:"Writeups à venir pour cette compétition.",every:"Tout",err:"Impossible de charger ce writeup."},
-         en:{back:"Back to CTFs",lead:"My CTF challenge solutions, competition by competition.",all:"All writeups",soon:"Writeups for this competition are coming soon.",every:"All",err:"Could not load this writeup."}};
-let lang="fr";try{lang=localStorage.getItem("lang")||"fr"}catch(e){}
-document.documentElement.lang=lang;
-const t=k=>L[lang][k]||L.fr[k];
-document.querySelectorAll("[data-l]").forEach(e=>e.textContent=t(e.dataset.l));
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const trophy='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg>';
-let data={ctfs:[]},cat="all";
-
-function renderList(){
-  const cats=[...new Set(data.ctfs.flatMap(c=>c.writeups.map(w=>(w.category||"misc").toLowerCase())))].sort();
-  const f=document.getElementById("filters");f.innerHTML="";
-  if(cats.length>1)["all",...cats].forEach(c=>{const b=document.createElement("button");b.type="button";b.textContent=c==="all"?t("every"):c;b.className=c===cat?"on":"";b.onclick=()=>{cat=c;renderList()};f.appendChild(b)});
-  document.getElementById("ctfs").innerHTML=data.ctfs.map(c=>{
-    const ws=c.writeups.filter(w=>cat==="all"||(w.category||"misc").toLowerCase()===cat);
-    if(cat!=="all"&&!ws.length)return"";
-    const logo=c.logo?`<img src="${esc(c.logo)}" alt="">`:esc(c.name.slice(0,2));
-    const light=c.logo&&!/ecowas|brctf|boroctf/.test(c.logo)?" on-light":"";
-    const items=ws.map(w=>{const href=w.url?esc(w.url):`#${esc(c.slug)}/${esc(w.file.split("/").pop())}`;
-      return `<li><a href="${href}"${w.url?' target="_blank" rel="noopener"':""}><span class="wcat ${esc((w.category||"misc").toLowerCase())}">${esc(w.category||"misc")}</span><b>${esc(w.title)}</b>${w.difficulty?`<span class="wdiff">${esc(w.difficulty)}</span>`:""}</a></li>`}).join("");
-    const tier=c.tier?` tier-${esc(c.tier)}`:"";
-    return `<article class="wctf${tier}" id="${esc(c.slug)}"><div class="wctf-h"><span class="ctf-logo${light}">${logo}</span><div><h2>${esc(c.name)}</h2><p>${esc(c.team||"")}</p></div><span class="score${c.tier?"":" muted"}">${c.tier?trophy:""}${esc(c.result||"")}</span></div>${items?`<ul class="wlist">${items}</ul>`:`<p class="wempty">${t("soon")}</p>`}</article>`}).join("");
-}
-async function open(slug,name){
-  const c=data.ctfs.find(x=>x.slug===slug),w=c&&c.writeups.find(x=>x.file&&x.file.split("/").pop()===name);
-  const md=document.getElementById("md");
-  document.getElementById("list").hidden=true;document.getElementById("read").hidden=false;scrollTo(0,0);
-  if(!w){md.innerHTML=`<p class="err">${t("err")}</p>`;return}
-  document.title=w.title+" — Writeups — Dmod";
-  try{const r=await fetch(w.file);if(!r.ok)throw 0;md.innerHTML=marked.parse(await r.text())}
-  catch(e){md.innerHTML=`<p class="err">${t("err")}</p>`}
-}
-function route(){
-  const h=decodeURIComponent(location.hash.slice(1)),[slug,file]=h.split("/");
-  if(file){open(slug,file);return}
-  document.title="Writeups — Dmod";
-  document.getElementById("read").hidden=true;document.getElementById("list").hidden=false;
-  if(slug){const el=document.getElementById(slug);if(el)el.scrollIntoView({block:"start"})}
-}
-document.getElementById("back").onclick=()=>{const s=location.hash.slice(1).split("/")[0];location.hash=s||""};
-addEventListener("hashchange",route);
-fetch("writeups/index.json").then(r=>r.json()).then(d=>{data=d;renderList();route()}).catch(()=>{document.getElementById("ctfs").innerHTML=`<p class="err">${t("err")}</p>`});
-</script>
+<script src="assets/js/writeups.js?v=f74abbcbef"></script>
 </body>
 </html>
