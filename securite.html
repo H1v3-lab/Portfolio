@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/fonts.css?v=62df30ac5a">
-<link rel="stylesheet" href="assets/css/style.css?v=41ca2dfeb5">
+<link rel="stylesheet" href="assets/css/style.css?v=7e02299edc">
 <link rel="stylesheet" href="assets/css/fx.css?v=e0eb9da457">
 <noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
 </head>
@@ -41,6 +41,7 @@
     <div class="eyebrow">Explore</div>
     <a href="index.html#about" data-page="about"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="t"><span data-i18n="n_about">À propos</span><span>About</span></span></a>
     <a href="competences.html" data-page="skills"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span><span class="t"><span data-i18n="n_skills">Compétences</span><span>Skills</span></span></a>
+    <a href="uses.html" data-page="uses"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="t"><span>Uses</span><span data-i18n="n_uses_s">Mes outils</span></span></a>
     <div class="eyebrow">Work</div>
     <a href="projets.html" data-page="projects"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 15l2-2-2-2M13 15h3"/></svg></span><span class="t"><span data-i18n="n_projects">Projets</span><span>Projects</span></span></a>
     <a href="ctf.html" data-page="ctf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span class="t"><span>CTF</span><span>Capture flag</span></span></a>
@@ -48,12 +49,14 @@
     <div class="eyebrow">Journey</div>
     <a href="formation.html" data-page="education"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="t"><span data-i18n="n_edu">Formation</span><span>Education</span></span></a>
     <a href="experience.html" data-page="experience"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg></span><span class="t"><span data-i18n="n_exp">Expérience</span><span>Experience</span></span></a>
+    <a href="evenements.html" data-page="events"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="t"><span data-i18n="n_events">Événements</span><span>Talks</span></span></a>
     <a href="https://blog.sakoi-cyber.me" data-page="blog"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span class="t"><span>Blog</span><span>Articles</span></span></a>
     <a href="contact.html" data-page="contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="t"><span>Contact</span><span>Contact</span></span></a>
   </nav>
   <div class="box controls">
     <div class="eyebrow">Controls</div>
     <button class="lang" id="lang" type="button" aria-label="Switch language">EN</button>
+    <button class="term-btn" type="button" data-term aria-label="Terminal" title="Terminal (~)">&gt;_</button>
   </div>
 </aside>
 
@@ -115,7 +118,9 @@
 </div>
 
 <script src="assets/js/securite.js?v=47220c69aa"></script>
-<script src="assets/js/main.js?v=fe7c84cf19"></script>
+<script src="assets/js/ctf.js?v=654365e65e"></script>
+<script src="assets/js/main.js?v=0fa6fa793c"></script>
+<script src="assets/js/term.js?v=9eff64d221"></script>
 <script src="assets/js/fx.js?v=25e62ecb9e"></script>
 <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js"}}</script>
 <script type="module" src="assets/js/models.js?v=5c285642ea"></script>

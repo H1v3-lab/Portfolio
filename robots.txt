@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Les sauvegardes n'ont rien à faire dans un moteur de recherche.
+Disallow: /0_0-backup/
 
 Sitemap: https://sakoi-cyber.me/sitemap.xml
