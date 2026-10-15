@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/fonts.css?v=62df30ac5a">
-<link rel="stylesheet" href="assets/css/style.css?v=7e02299edc">
+<link rel="stylesheet" href="assets/css/style.css?v=ba51e8e18e">
 <link rel="stylesheet" href="assets/css/fx.css?v=e0eb9da457">
 <noscript><style>.loader{display:none}html.loading body{overflow:auto}.reveal .card,.reveal .tl,.reveal .term,.reveal .acc-item,.reveal{opacity:1;transform:none}</style></noscript>
 </head>
@@ -78,7 +78,8 @@
       <li class="card fl" data-n="5"><span class="fl-n">05</span><div><b data-i18n="fl_f5">Assistant IA</b><p data-i18n="fl_f5_h">L&#x27;assistant garde un secret. Les IA ont la fâcheuse tendance à obéir un peu trop.</p></div><span class="fl-st" aria-hidden="true">?</span></li>
       <li class="card fl" data-n="6"><span class="fl-n">06</span><div><b data-i18n="fl_f6">Terminal</b><p data-i18n="fl_f6_h">Appuie sur ~ (ou le bouton &gt;_). Ce qui commence par un point se cache… et ROT13 n&#x27;a jamais été du chiffrement.</p></div><span class="fl-st" aria-hidden="true">?</span></li>
     </ol>
-    <div class="card fl-win" id="fl-win" hidden><span class="kicker" data-i18n="fl_win_k">Bravo</span><p data-i18n="fl_win">Tu as trouvé les six flags. Écris-moi « 0_0 6/6 » avec ton pseudo : je t'ajoute au tableau d'honneur, et on parle sécurité autour d'un café (virtuel).</p><a class="btn sm" href="mailto:contact@sakoi-cyber.me?subject=0_0%206%2F6">contact@sakoi-cyber.me</a></div>
+    <div class="card fl-win" id="fl-win" hidden><span class="kicker" data-i18n="fl_win_k">Bravo</span><p data-i18n="fl_win">Tu as trouvé les six flags ! Inscris ton pseudo pour entrer au classement.</p><button class="btn sm solid" type="button" id="fl-show" data-i18n="fl_show">Voir mon score</button></div>
+    <div class="card fl-board-card"><div class="fl-top"><span class="kicker" data-i18n="fl_board">Classement</span><span class="fl-players" id="fl-players"></span></div><div id="fl-board"><p class="fl-msg" data-i18n="fl_board_load">Chargement du classement…</p></div><p class="fine" data-i18n="fl_pts">Points : 750 pour les flags + un bonus vitesse de 2 250 qui diminue de moitié toutes les 30 minutes, chronométré par le serveur entre ton premier et ton dernier flag. Seuls ton pseudo, ton score et ton temps sont enregistrés — aucune adresse IP, aucun cookie.</p></div>
     <p class="fine"><span data-i18n="fl_rules">Règles : pas d'attaque contre l'infrastructure (GitHub, Cloudflare), pas de force brute. Tout se trouve avec un navigateur et un peu de curiosité. Astuce : le terminal (touche ~) accepte aussi la commande flag.</span> <button class="fl-reset" type="button" id="fl-reset" data-i18n="fl_reset">Réinitialiser</button></p>
   </section>
   <footer>© 2026 Dmod · Dominique-Savio SAKOI — <span data-i18n="rights">tous droits réservés.</span> · <a class="sec-link" href="securite.html" data-i18n="sec_crumb">Sécurité de ce site</a></footer>
@@ -99,10 +100,10 @@
   </form>
 </div>
 
-<script src="assets/js/ctf.js?v=654365e65e"></script>
-<script src="assets/js/main.js?v=0fa6fa793c"></script>
-<script src="assets/js/term.js?v=9eff64d221"></script>
-<script src="assets/js/flag.js?v=b2f6825bf0"></script>
+<script src="assets/js/ctf.js?v=29af1b2ee4"></script>
+<script src="assets/js/main.js?v=132817f8a2"></script>
+<script src="assets/js/term.js?v=576d40a3ff"></script>
+<script src="assets/js/flag.js?v=a5d07717d6"></script>
 <script src="assets/js/fx.js?v=25e62ecb9e"></script>
 <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js"}}</script>
 <script type="module" src="assets/js/models.js?v=5c285642ea"></script>
