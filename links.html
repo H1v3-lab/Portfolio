@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liens — Dmod</title>
+<meta name="description" content="Tous les liens de Dominique-Savio SAKOI (Dmod) : portfolio, blog, CV, contact, CTF. Chez moi, sans pistage.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Liens — Dmod">
+<meta property="og:description" content="Portfolio, blog, CV, contact, mini-CTF — tous les liens de Dmod, sans pistage.">
+<meta property="og:url" content="https://sakoi-cyber.me/links.html">
+<meta property="og:image" content="https://sakoi-cyber.me/assets/img/og.png">
+<link rel="canonical" href="https://sakoi-cyber.me/links.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f4f6'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23050506'%3E0_0%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/fonts.css?v=62df30ac5a">
+<style>
+:root{--bg:#000;--panel:#070708;--panel-2:#0c0c0e;--line:#1c1c20;--line-2:#2a2a30;--fg:#f5f5f7;--muted:#9a9aa3;--dim:#5e5e67;--ok:#7ee2a8;
+  --display:"Inter Tight",ui-sans-serif,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;background:var(--bg);color:var(--fg);font-family:var(--display);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;gap:4px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:1px solid var(--fg);outline-offset:3px;border-radius:10px}
+.grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:34px 34px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 32%,#000 20%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 32%,#000 20%,transparent 100%)}
+.wrap{width:min(560px,100%);display:flex;flex-direction:column;align-items:center;text-align:center}
+/* 0_0 logo */
+.logo{--w:44px;--h:64px;--b:8px;display:flex;align-items:flex-end;gap:7px;margin-bottom:22px}
+.eye{position:relative;width:var(--w);height:var(--h);border:var(--b) solid var(--fg);border-radius:999px;transition:transform .09s ease-in}
+.eye.blink{transform:scaleY(.08)}
+.pupil{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--fg);transition:transform .18s ease-out}
+.mouth{width:38px;height:var(--b);background:var(--fg);border-radius:1px}
+.wrap:hover .mouth{animation:smile .6s ease}
+@keyframes smile{50%{transform:scaleX(1.25)}}
+h1{font-size:30px;font-weight:700;letter-spacing:-.03em;margin:0}
+.sub{margin:6px 0 2px;color:var(--muted);font-size:15px}
+.loc{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:28px}
+.links{width:100%;display:flex;flex-direction:column;gap:12px}
+.lnk{display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px;border:1px solid var(--line);border-radius:16px;
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));transition:border-color .2s,transform .2s,background .2s}
+.lnk:hover{border-color:var(--c,var(--muted));transform:translateY(-2px)}
+.lnk .ic{width:42px;height:42px;flex:none;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:11px;background:var(--bg);color:var(--c,var(--fg))}
+.lnk .ic svg{width:20px;height:20px}
+.lnk .t{flex:1;text-align:left;min-width:0}
+.lnk .t b{display:block;font-size:16px;font-weight:600}
+.lnk .t span{font-size:13px;color:var(--muted)}
+.lnk .go{color:var(--dim);transition:transform .2s,color .2s}
+.lnk:hover .go{color:var(--fg);transform:translateX(3px)}
+.lnk .go svg{width:18px;height:18px}
+.foot{margin-top:30px;font-family:var(--mono);font-size:12px;color:var(--dim);line-height:1.7}
+.foot a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.foot b{color:var(--ok);font-weight:400}
+@media (max-width:480px){.lnk{padding:14px 15px;gap:13px}.lnk .ic{width:38px;height:38px}}
+@media (prefers-reduced-motion:reduce){.lnk,.lnk .go{transition:none}.wrap:hover .mouth{animation:none}}
+</style>
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="wrap">
+  <div class="logo" id="logo" role="img" aria-label="Logo Dmod 0_0"><span class="eye"><span class="pupil"></span></span><span class="mouth"></span><span class="eye"><span class="pupil"></span></span></div>
+  <h1>Dmod</h1>
+  <p class="sub">Dominique-Savio SAKOI · Junior Security Engineer</p>
+  <p class="loc">Lomé, Togo · pentest · CTF · vie privée</p>
+
+  <nav class="links" aria-label="Mes liens">
+    <a class="lnk" href="https://sakoi-cyber.me" style="--c:#7ee2a8">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18M3.5 9h17M3.5 15h17"/></svg></span>
+      <span class="t"><b>Portfolio</b><span>Mon parcours, mes projets, Hydra</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="lnk" href="https://blog.sakoi-cyber.me" style="--c:#a78bfa">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span>
+      <span class="t"><b>Blog</b><span>Writeups, analyses de malware, vie privée</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="lnk" href="https://www.linkedin.com/in/dominique-savio-sakoi-b607b333a" style="--c:#60a5fa">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+      <span class="t"><b>LinkedIn</b><span>Mon profil professionnel</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+    </a>
+    <a class="lnk" href="https://github.com/H1v3-lab" style="--c:#f5f5f7">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.3-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.3-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.82 1.19 1.85 1.19 3.11 0 4.43-2.7 5.4-5.28 5.68.42.36.79 1.08.79 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></span>
+      <span class="t"><b>GitHub</b><span>Mon code et mes projets open source</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+    </a>
+    <a class="lnk" href="mailto:contact@sakoi-cyber.me" style="--c:#7ee2a8">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7l9 6.5L21 7"/></svg></span>
+      <span class="t"><b>Email</b><span>contact@sakoi-cyber.me</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="lnk" href="https://sakoi-cyber.me/CV_Dominique-Savio_SAKOI_FR.pdf" style="--c:#fbbf24" download>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span>
+      <span class="t"><b>Mon CV</b><span>Télécharger (FR · PDF)</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span>
+    </a>
+    <a class="lnk" href="https://sakoi-cyber.me/flag.html" style="--c:#f87171">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span>
+      <span class="t"><b>Mini-CTF</b><span>Six flags cachés sur le site — à toi de jouer</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="lnk" href="https://sakoi-cyber.me/securite.html" style="--c:#7ee2a8">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <span class="t"><b>Sécurité du site</b><span>Les protections, vérifiées en direct</span></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </nav>
+
+  <p class="foot"><b>0_0</b> · Page hébergée chez moi, <b>sans pistage ni cookie</b>.<br>© 2026 Dmod · <a href="https://sakoi-cyber.me">sakoi-cyber.me</a></p>
+</div>
+<script src="assets/js/links.js?v=e237591a65"></script>
+</body>
+</html>
