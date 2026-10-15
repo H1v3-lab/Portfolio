@@ -76,6 +76,7 @@
   open <page>       ouvrir une page (ex. open hydra, open uses)
   neofetch          fiche système
   contact           me joindre
+  cv                télécharger mon CV
   flag <DMOD{...}>  valider un flag du mini-CTF
   lang [fr|en]      changer de langue
   history, clear, date, echo, pwd, exit`,en:
@@ -87,6 +88,7 @@
   open <page>       open a page (e.g. open hydra, open uses)
   neofetch          system card
   contact           get in touch
+  cv                download my CV
   flag <DMOD{...}>  submit a mini-CTF flag
   lang [fr|en]      switch language
   history, clear, date, echo, pwd, exit`})),
@@ -118,6 +120,7 @@
       if(n===CTF.total)print(t({fr:"🏁 Tous les flags ! Passe sur /flag.html pour la suite.",en:"🏁 All flags! Head to /flag.html for what's next."}),"ok")},
     sudo:()=>print(t({fr:"dmod n'appartient pas au fichier sudoers. Cet incident sera signalé. 0_0",en:"dmod is not in the sudoers file. This incident will be reported. 0_0"}),"err"),
     rm:()=>print(t({fr:"Bien essayé. Ce site est en lecture seule — et versionné sur GitHub.",en:"Nice try. This site is read-only — and versioned on GitHub."}),"err"),
+    cv:()=>{const u="CV_Dominique-Savio_SAKOI_"+(L()==="en"?"EN":"FR")+".pdf";print("→ "+u,"ok");setTimeout(()=>{location.href=u},350)},
     exit:close,quit:close,
     hydra:()=>C.cat(["projets/hydra.txt"]),
     uname:()=>print("dmod-sh 1.0 sakoi-cyber.me static x86_64 GNU/Cloudflare"),

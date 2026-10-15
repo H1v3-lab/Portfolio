@@ -548,7 +548,7 @@ main > section.page-sec{padding-top:28px;min-height:60vh}
 .soc-go{position:absolute;top:16px;right:16px;width:16px;height:16px;color:var(--dim);transition:transform .2s,color .2s}
 .soc:hover{transform:translateY(-3px)}
 .soc:hover .soc-go{transform:translate(2px,-2px);color:var(--fg)}
-.soc.soc-mail .soc-logo path{fill:#ea4335}.soc.soc-mail:hover{border-color:rgba(234,67,53,.6);box-shadow:0 18px 40px -22px rgba(234,67,53,.8)}
+.soc.soc-mail .soc-logo path{fill:none}.soc.soc-mail:hover{border-color:rgba(126,226,168,.6);box-shadow:0 18px 40px -22px rgba(126,226,168,.8)}
 .soc.li .soc-logo path{fill:#0a66c2}.soc.li:hover{border-color:rgba(10,102,194,.7);box-shadow:0 18px 40px -22px rgba(10,102,194,.9)}
 .soc.gh .soc-logo path{fill:#fff}.soc.gh:hover{border-color:rgba(255,255,255,.45);box-shadow:0 18px 40px -22px rgba(255,255,255,.5)}
 .loc{display:flex;align-items:center;gap:10px;margin:0 0 26px;color:var(--muted);font-size:15px}
@@ -734,3 +734,6 @@ html.has-cursor .term-in{cursor:text!important}
   .rail .box{padding:12px}.brand b{margin-top:6px}.lang,.term-btn{margin-top:8px}
 }
 @media (min-width:1101px) and (max-height:760px){.rail .brand{display:none}}
+
+.head-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+@media (max-width:620px){.head-btns{justify-content:flex-start}}
