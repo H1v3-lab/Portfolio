@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>404 — Dmod</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/fonts.css?v=62df30ac5a">
 <style>
 :root{--bg:#000;--fg:#f5f5f7;--muted:#9a9aa3;--line:#1c1c20;--line-2:#2a2a30;--ok:#7ee2a8;color-scheme:dark}
 *{box-sizing:border-box}
@@ -32,10 +30,6 @@ a:hover{background:#d8d8dc}
 bash: cd: /cette-page: No such file or directory</pre>
   <a href="/" id="home">cd ~ (retour à l'accueil)</a>
 </main>
-<script>
-// GitHub Pages serves this page for any missing path. When the site is published as a
-// project site (user.github.io/Portfolio/), the home page lives under the repo folder.
-if(/^\/portfolio(\/|$)/i.test(location.pathname))document.getElementById("home").href="/"+location.pathname.split("/")[1]+"/";
-</script>
+<script src="/assets/js/404.js?v=dc71c97b95"></script>
 </body>
 </html>
