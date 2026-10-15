@@ -145,6 +145,7 @@
   }
 
   document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"&&ov&&!ov.hidden&&!document.querySelector(".ctf-ov")){close();return}
     if(!["~","`","²"].includes(e.key)||e.ctrlKey||e.metaKey)return;
     const el=e.target;if(el.closest&&el.closest("input,textarea,select,[contenteditable]"))return;
     e.preventDefault();ov&&!ov.hidden?close():open()});
