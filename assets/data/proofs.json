@@ -1,0 +1,8 @@
+{
+  "key_fingerprint": "7A1E7DFF5B9C126533A5EF2FB73CAA6CDE272EE6",
+  "proofs": [
+    { "id": "github", "label": "GitHub", "handle": "H1v3-lab", "url": "https://github.com/H1v3-lab", "file": "proofs/github.asc", "signed": false },
+    { "id": "domain", "label": "Domaine", "handle": "sakoi-cyber.me", "url": "https://sakoi-cyber.me", "file": "proofs/domain.asc", "signed": false },
+    { "id": "blog", "label": "Blog", "handle": "blog.sakoi-cyber.me", "url": "https://blog.sakoi-cyber.me", "file": "proofs/blog.asc", "signed": false }
+  ]
+}

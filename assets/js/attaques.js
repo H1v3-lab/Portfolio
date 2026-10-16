@@ -3,7 +3,9 @@
 (function () {
   "use strict";
   var API = "/api/honeypot/stats";
+  var ATT_API = "/api/honeypot/attackers";
   var POLL = 10000;
+  var ATT_POLL = 45000;
   var SERVER = { lat: 6.13, lon: 1.22, name: "Lomé" };   // the honeypot's home
   var $ = function (id) { return document.getElementById(id); };
   var lang = function () { return document.documentElement.lang === "en" ? "en" : "fr"; };
@@ -32,12 +34,20 @@
       total:"Attaques",ips:"IP uniques",countries:"Pays",last24:"Dernières 24 h",
       live:"En direct",ports:"Ports visés",creds:"Identifiants essayés",countries_t:"Pays d'origine",ipst:"IP les plus actives",feed:"Flux en direct",
       waiting:"Honeypot en cours de déploiement — les attaques apparaîtront ici dès le premier scan.",
-      offline:"Dashboard temporairement indisponible.",attempts:"tentative(s)",ago:"il y a",now:"à l'instant" },
+      offline:"Dashboard temporairement indisponible.",attempts:"tentative(s)",ago:"il y a",now:"à l'instant",
+      dossiers:"Dossiers — threat intel",dossiers_sub:"Chaque IP enrichie : réseau (ASN), nœud Tor, réputation, services visés, identifiants. Clique une IP pour l'ouvrir.",
+      d_empty:"Les dossiers apparaîtront dès les premières attaques enrichies.",
+      d_network:"Réseau",d_first:"Première vue",d_last:"Dernière vue",d_events:"Volume",d_services:"Services visés",d_creds:"Identifiants",d_rep:"Réputation",
+      d_tor:"Nœud Tor",d_abuse:"AbuseIPDB",d_reports:"signalements",d_none:"aucune donnée externe",d_enriching:"enrichissement en cours…" },
     en:{ lead:"A honeypot listens live to the internet's most-scanned ports. Here are the attacks it receives — IP, country, attempted credentials — in real time. Nothing is simulated.",
       total:"Attacks",ips:"Unique IPs",countries:"Countries",last24:"Last 24 h",
       live:"Live",ports:"Targeted ports",creds:"Attempted credentials",countries_t:"Source countries",ipst:"Most active IPs",feed:"Live feed",
       waiting:"Honeypot being deployed — attacks will show up here on the first scan.",
-      offline:"Dashboard temporarily unavailable.",attempts:"attempt(s)",ago:"",now:"just now" }
+      offline:"Dashboard temporarily unavailable.",attempts:"attempt(s)",ago:"",now:"just now",
+      dossiers:"Dossiers — threat intel",dossiers_sub:"Every IP enriched: network (ASN), Tor node, reputation, targeted services, credentials. Click an IP to open it.",
+      d_empty:"Dossiers will appear as soon as the first attacks are enriched.",
+      d_network:"Network",d_first:"First seen",d_last:"Last seen",d_events:"Volume",d_services:"Targeted services",d_creds:"Credentials",d_rep:"Reputation",
+      d_tor:"Tor node",d_abuse:"AbuseIPDB",d_reports:"reports",d_none:"no external data",d_enriching:"enriching…" }
   };
   var tr = function (k) { return T[lang()][k]; };
 
@@ -155,10 +165,11 @@
     // top IPs
     var host = $("hp-ips"); host.textContent = "";
     (d.topIps || []).forEach(function (r) {
-      var row = el("div", "hp-ip");
+      var row = el("div", "hp-ip clickable");
       row.appendChild(el("span", "hp-ipf", flag(r.country)));
       row.appendChild(el("span", "hp-ipa", r.ip));
       row.appendChild(el("span", "hp-ipn", r.n + " " + tr("attempts")));
+      row.addEventListener("click", function () { openDossier(r.ip); });
       host.appendChild(row);
     });
     if (!(d.topIps || []).length) host.appendChild(el("p", "hp-empty", "—"));
@@ -169,7 +180,9 @@
       row.appendChild(el("span", "hp-et", ago(e.ts)));
       row.appendChild(el("span", "hp-ef", flag(e.country)));
       row.appendChild(el("span", "hp-ep", (e.proto || "tcp") + ":" + (e.port || "?")));
-      row.appendChild(el("span", "hp-ei", e.ip));
+      var ipEl = el("span", "hp-ei clickable", e.ip);
+      ipEl.addEventListener("click", function () { openDossier(e.ip); });
+      row.appendChild(ipEl);
       var detail = e.cred || e.payload || e.path || "";
       if (detail) row.appendChild(el("span", "hp-ed", detail));
       feed.appendChild(row);
@@ -189,6 +202,73 @@
       var b = el("span", "hp-sb"); b.style.height = Math.max(3, Math.round(v / max * 100)) + "%";
       b.title = v; host.appendChild(b);
     });
+  }
+
+  /* ---------------- dossiers (threat intel) ---------------- */
+  var dossierIps = {};  // ip -> card element, for click-to-open
+  function repTone(score) { return score == null ? "" : score >= 50 ? "ko" : score >= 10 ? "warn" : "ok"; }
+  function gnTone(cls) { return cls === "malicious" ? "ko" : cls === "benign" ? "ok" : "warn"; }
+
+  function renderDossiers(list) {
+    var host = $("hp-dossiers"); if (!host) return;
+    host.textContent = ""; dossierIps = {};
+    if (!list || !list.length) { host.appendChild(el("p", "hp-empty", tr("d_empty"))); return; }
+    list.forEach(function (a) {
+      var card = el("div", "card hp-dossier"); card.id = "dos-" + a.ip.replace(/[^a-zA-Z0-9]/g, "_");
+      dossierIps[a.ip] = card;
+      var head = el("div", "hp-dos-head");
+      head.appendChild(el("span", "hp-dos-flag", flag(a.country)));
+      head.appendChild(el("span", "hp-dos-ip", a.ip));
+      var badges = el("span", "hp-dos-badges");
+      var ic = a.intel || {};
+      if (ic.tor) badges.appendChild(el("span", "hp-badge tor", "TOR"));
+      if (ic.abuse_score != null) { var ab = el("span", "hp-badge " + repTone(ic.abuse_score), "abuse " + ic.abuse_score); badges.appendChild(ab); }
+      if (ic.gn_class) badges.appendChild(el("span", "hp-badge " + gnTone(ic.gn_class), ic.gn_class));
+      head.appendChild(badges);
+      card.appendChild(head);
+
+      var grid = el("div", "hp-dos-grid");
+      function kv(k, v) { if (v == null || v === "") return; var r = el("div", "hp-dos-kv"); r.appendChild(el("span", "hp-dos-k", k)); r.appendChild(el("span", "hp-dos-v", v)); grid.appendChild(r); }
+      kv(tr("d_network"), [ic.asn, ic.as_org].filter(Boolean).join(" · ") || (ic.isp || null));
+      kv("Prefix", ic.prefix);
+      kv("RIR", ic.rir ? ic.rir.toUpperCase() : null);
+      kv(tr("d_events"), String(a.events) + " · " + flag(a.country) + " " + (a.country || "??"));
+      kv(tr("d_first"), ago(a.first));
+      kv(tr("d_last"), ago(a.last));
+      if (ic.usage) kv("Usage", ic.usage);
+      if (ic.abuse_score != null) kv(tr("d_abuse"), ic.abuse_score + "/100 · " + (ic.abuse_reports || 0) + " " + tr("d_reports"));
+      card.appendChild(grid);
+
+      if (a.services && a.services.length) {
+        card.appendChild(el("div", "hp-dos-sub", tr("d_services")));
+        var sv = el("div", "hp-dos-chips");
+        a.services.forEach(function (s) { sv.appendChild(el("span", "hp-chip", (s.proto || "tcp") + ":" + (s.port || "?") + " ×" + s.n)); });
+        card.appendChild(sv);
+      }
+      if (a.creds && a.creds.length) {
+        card.appendChild(el("div", "hp-dos-sub", tr("d_creds")));
+        var cr = el("div", "hp-dos-chips");
+        a.creds.forEach(function (c) { cr.appendChild(el("span", "hp-chip cred", c.cred + " ×" + c.n)); });
+        card.appendChild(cr);
+      }
+      if (!ic.asn && !ic.as_org && !ic.isp && ic.abuse_score == null && !ic.gn_class && !ic.tor)
+        card.appendChild(el("p", "hp-dos-none", tr("d_none")));
+      host.appendChild(card);
+    });
+  }
+  function openDossier(ip) {
+    var card = dossierIps[ip]; if (!card) return;
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash");
+  }
+
+  async function pollAttackers() {
+    try {
+      var r = await fetch(ATT_API, { cache: "no-store" });
+      if ((r.headers.get("content-type") || "").indexOf("json") < 0) throw new Error("x");
+      var d = await r.json();
+      renderDossiers(d.attackers || []);
+    } catch (e) { /* keep whatever is shown; dossiers are best-effort */ }
   }
 
   function emptyState() {
@@ -213,5 +293,6 @@
     document.querySelectorAll("[data-t]").forEach(function (n) { var v = T[lang()][n.dataset.t]; if (v) n.textContent = v; });
   }
   resize(); emptyState(); labels(); loop(); poll(); setInterval(poll, POLL);
-  document.getElementById("lang") && document.getElementById("lang").addEventListener("click", function () { setTimeout(function () { labels(); poll(); }, 0); });
+  pollAttackers(); setInterval(pollAttackers, ATT_POLL);
+  document.getElementById("lang") && document.getElementById("lang").addEventListener("click", function () { setTimeout(function () { labels(); poll(); pollAttackers(); }, 0); });
 })();

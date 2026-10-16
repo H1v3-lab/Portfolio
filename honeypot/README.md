@@ -87,6 +87,31 @@ En général, les premiers scans SSH arrivent **en quelques minutes** sur une IP
 `https://sakoi-cyber.me/attaques.html` : le globe, les compteurs et le flux se remplissent dès les
 premiers événements (la page interroge `/stats` toutes les 10 s).
 
+## 4. Threat intel — les « dossiers » par attaquant (optionnel mais recommandé)
+
+La page affiche aussi un **dossier CTI par IP** (réseau/ASN, nœud Tor, réputation, services visés,
+identifiants). L'enrichissement se fait côté Worker, en cache dans D1. Pour l'activer :
+
+1. **Tables d'enrichissement** : Worker → D1 `honeypot` → console → coller `schema-intel.sql`
+   (une ligne) → **Exécuter**. Crée `intel`, `torexits`, `meta` sans toucher à `events`.
+2. **Redéployer** `worker.js` (il expose maintenant `GET /api/honeypot/attackers`).
+3. C'est tout : l'**ASN / propriétaire réseau** (Team Cymru via DNS-over-HTTPS) et le **flag Tor**
+   (liste publique des nœuds de sortie, rafraîchie ~2×/jour) fonctionnent **sans aucune clé**.
+
+### Réputation (facultatif — ajoute des clés API gratuites)
+
+Pour afficher un score de réputation, ajoute l'un de ces secrets au Worker
+(*Paramètres → Variables et secrets → Secret*) :
+
+- `ABUSEIPDB_KEY` — compte gratuit sur abuseipdb.com (1 000 requêtes/jour) : score de confiance
+  d'abus, nombre de signalements, type d'usage, FAI.
+- `GREYNOISE_KEY` — compte communauté gratuit sur greynoise.io : classification benign / malicious.
+
+Sans ces clés, les dossiers restent complets (réseau, Tor, pays, services, identifiants, volume,
+première/dernière vue) : seule la ligne « réputation » est masquée. L'enrichissement est **budgété**
+(quelques IP par requête) et **mis en cache une semaine** par IP, pour rester largement dans les
+quotas gratuits.
+
 ## Sécurité & éthique
 
 - L'agent est **100 % passif** : il journalise, il ne lance rien. Aucune donnée de l'attaquant n'est exécutée.
