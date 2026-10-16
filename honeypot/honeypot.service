@@ -1,0 +1,29 @@
+[Unit]
+Description=Dmod honeypot agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Runs as a dedicated unprivileged user; binding ports <1024 is granted by the capability below.
+User=honeypot
+Group=honeypot
+WorkingDirectory=/opt/honeypot
+EnvironmentFile=/opt/honeypot/honeypot.env
+ExecStart=/usr/bin/python3 /opt/honeypot/agent.py
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+# Hardening: the agent is exposed to the internet, so lock it down.
+ProtectSystem=strict
+ReadWritePaths=/opt/honeypot
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target
