@@ -20,6 +20,7 @@
       ["Talks & événements", "Talks & events", "evenements.html", "nav"],
       ["Contact", "Contact", "contact.html", "nav"],
       ["Sécurité du site", "Site security", "securite.html", "nav"],
+      ["Dashboard de preuve", "Proof dashboard", "dashboard.html", "nav"],
       ["Identité vérifiable", "Verifiable identity", "identite.html", "nav"],
       ["Labo crypto (WASM)", "Crypto lab (WASM)", "labo.html", "nav"],
       ["Scanner de sécurité", "Security scanner", "scan.html", "nav"],

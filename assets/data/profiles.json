@@ -1,0 +1,9 @@
+{
+  "note": "Édite ce fichier pour tenir à jour tes stats de plateformes (rang, points, liens). GitHub est live via /api/stats.",
+  "platforms": [
+    { "id": "tryhackme", "label": "TryHackMe", "url": "https://tryhackme.com/", "handle": "", "rank": "", "points": "", "accent": "#c11b17" },
+    { "id": "rootme", "label": "Root-Me", "url": "https://www.root-me.org/", "handle": "", "rank": "", "points": "", "accent": "#e00611" },
+    { "id": "htb", "label": "Hack The Box", "url": "https://www.hackthebox.com/", "handle": "", "rank": "", "points": "", "accent": "#9fef00" }
+  ],
+  "writeups": { "count": null, "url": "writeups.html" }
+}
