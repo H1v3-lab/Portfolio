@@ -1091,3 +1091,31 @@ code.lab-v{font-family:var(--mono);font-size:12.5px;color:var(--ok)}
 .rep-tl li::before{content:"";position:absolute;left:-7px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--bg)}
 .rep-tl-d{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--ok);margin-right:8px;min-width:48px}
 @media (max-width:640px){.rep-summary{grid-template-columns:repeat(2,1fr)}}
+
+/* OpenAPI docs */
+.api-title{margin:0 0 8px}
+.api-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.api-ver{font-family:var(--mono);font-size:11px;color:var(--ok);border:1px solid rgba(126,226,168,.4);border-radius:999px;padding:2px 9px}
+.api-srv{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.api-idesc{color:var(--muted);font-size:13.5px;line-height:1.6;margin:0}
+.api-tag{margin:22px 0}
+.api-tagn{font-size:16px;margin:0 0 3px}
+.api-tagd{color:var(--muted);font-size:13px;margin:0 0 10px}
+.api-op{border:1px solid var(--line-2);border-radius:10px;margin-bottom:9px;background:var(--panel-2);overflow:hidden}
+.api-op.get{border-left:3px solid #60a5fa}.api-op.post{border-left:3px solid #f5c451}
+.api-op>summary{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:12px 15px;cursor:pointer;list-style:none}
+.api-op>summary::-webkit-details-marker{display:none}
+.api-m{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:6px}
+.api-m.get{background:rgba(96,165,250,.16);color:#60a5fa}
+.api-m.post{background:rgba(245,196,81,.16);color:#f5c451}
+.api-path{font-family:var(--mono);font-size:13px;color:var(--fg)}
+.api-sum{font-size:12.5px;color:var(--muted);flex:1;min-width:140px}
+.api-body{padding:4px 15px 15px;border-top:1px solid var(--line)}
+.api-desc{color:var(--muted);font-size:13px;line-height:1.6;margin:10px 0}
+.api-h{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin:12px 0 6px}
+.api-param{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;padding:4px 0;font-size:13px}
+.api-pn{font-family:var(--mono);font-size:12.5px;color:var(--ok)}
+.api-pin{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.api-pd{color:var(--muted);font-size:12.5px}
+.api-json{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-family:var(--mono);font-size:12px;color:var(--fg);overflow:auto;white-space:pre-wrap;word-break:break-word;margin:0}
+.api-err{color:#f87171;font-size:13.5px}
