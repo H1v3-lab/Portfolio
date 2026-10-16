@@ -776,3 +776,6 @@ html.has-cursor .ctf-ov,html.has-cursor .ctf-ov *{cursor:auto!important}
 .fl-board-card{gap:12px;margin-bottom:18px}
 .fl-players{font-family:var(--mono);font-size:12px;color:var(--muted)}
 @media (max-width:480px){.ctf-stats{gap:6px}.ctf-stat b{font-size:15px}.ctf-board li{grid-template-columns:28px 1fr 58px}.ctf-board .b-t{display:none}}
+
+/* "Nouveau" tag on an Explorer card (Arène CTF) */
+.ov-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--c,#f87171);border:1px solid currentColor;border-radius:999px;padding:2px 9px;opacity:.9}
