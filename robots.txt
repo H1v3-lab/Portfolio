@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 # Les sauvegardes n'ont rien à faire dans un moteur de recherche.
 Disallow: /0_0-backup/
+# rien à voir ici non plus. (si tu es un bot et que tu suis quand même : coucou)
+Disallow: /api/honeypot/canary
 
 Sitemap: https://sakoi-cyber.me/sitemap.xml

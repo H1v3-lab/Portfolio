@@ -207,6 +207,24 @@ async function attackers(env) {
   return pub({ generated: now(), attackers: out }, INTEL_CACHE_S);
 }
 
+/* Canary token: an invisible link / robots-disallowed path. A real visitor never follows it;
+   a crawler or scraper that ignores robots.txt does, and gets logged as a caught bot. */
+const GIF = "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+async function canary(req, env) {
+  try {
+    const url = new URL(req.url);
+    const ip = req.headers.get("cf-connecting-ip") || "0.0.0.0";
+    const country = (req.headers.get("cf-ipcountry") || "??").slice(0, 2);
+    const ua = clip(req.headers.get("user-agent"), MAX_PAYLOAD);
+    const src = clip(url.searchParams.get("s") || url.pathname, 64);
+    if (isIp(ip))
+      await env.DB.prepare("INSERT INTO events (ts, ip, country, proto, port, cred, payload, path, ua) VALUES (?,?,?,?,?,?,?,?,?)")
+        .bind(now(), ip, country, "canary", 0, null, "canary", src, ua).run();
+  } catch (e) { /* best-effort */ }
+  const bytes = Uint8Array.from(atob(GIF), c => c.charCodeAt(0));
+  return new Response(bytes, { status: 200, headers: { "content-type": "image/gif", "cache-control": "no-store", "x-robots-tag": "noindex" } });
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), path = url.pathname.replace(/\/+$/, "");
@@ -216,6 +234,7 @@ export default {
       if (req.method === "POST" && path === "/api/honeypot/ingest") return await ingest(req, env);
       if (req.method === "GET" && path === "/api/honeypot/stats") return await stats(env);
       if (req.method === "GET" && path === "/api/honeypot/attackers") return await attackers(env);
+      if (req.method === "GET" && path === "/api/honeypot/canary") return await canary(req, env);
       return json({ error: "not_found" }, 404);
     } catch (e) { return json({ error: "server_error", detail: String(e).slice(0, 120) }, 500); }
   },
