@@ -26,7 +26,17 @@
     ".bash_history":()=>"nmap -sC -sV sakoi-cyber.me\ncurl -sI https://sakoi-cyber.me\ncat /robots.txt\nvim .flag\nrot13 --help",
     ".flag":()=>"QZBQ{q0gs1y35_4e3_a0g_u1qq3a}"
   };
-  const DIRS={"~":HOME,"~/projets":PROJ};
+  const WRITEUPS={
+    "README.txt":()=>t({fr:"Mes write-ups de CTF et d'investigation. Les complets sont sur le blog : open blog.",en:"My CTF and investigation write-ups. Full ones are on the blog: open blog."}),
+    "clickfix-romulus.md":()=>t({fr:"ClickFix / Romulus — analyse d'un malware diffusé par fausse page « vérification humaine ». Chaîne : ClickFix → PowerShell → stealer. IOC et kill-chain MITRE sur le blog.",en:"ClickFix / Romulus — analysis of malware spread via a fake “human verification” page. Chain: ClickFix → PowerShell → stealer. IOCs and MITRE kill-chain on the blog."}),
+    "jwt-confusion.md":()=>t({fr:"JWT alg-confusion — forcer un serveur RS256 à vérifier en HS256 avec la clé publique comme secret. Démo jouable : open labo.",en:"JWT alg-confusion — forcing an RS256 server to verify as HS256 using the public key as secret. Playable demo: open labo."})
+  };
+  const SSH={
+    "authorized_keys":()=>t({fr:"# Bien essayé. Aucune clé ajoutée ici. 0_0",en:"# Nice try. No keys added here. 0_0"}),
+    "known_hosts":()=>"sakoi-cyber.me ssh-ed25519 AAAA…(portfolio)\nctf.sakoi-cyber.me ssh-ed25519 AAAA…(arena)\nblog.sakoi-cyber.me ssh-ed25519 AAAA…(blog)",
+    "config":()=>"Host sakoi\n  HostName sakoi-cyber.me\n  User dmod\n  IdentityFile ~/.ssh/id_ed25519\n  # PGP: 7A1E 7DFF 5B9C 1265 33A5 EF2F B73C AA6C DE27 2EE6"
+  };
+  const DIRS={"~":HOME,"~/projets":PROJ,"~/writeups":WRITEUPS,"~/.ssh":SSH};
   const PAGES={accueil:"index.html",home:"index.html",about:"index.html#about",competences:"competences.html",skills:"competences.html",
     projets:"projets.html",projects:"projets.html",hydra:"hydra.html",ctf:"ctf.html",writeups:"writeups.html",certifications:"certifications.html",certs:"certifications.html",
     formation:"formation.html",education:"formation.html",experience:"experience.html",evenements:"evenements.html",events:"evenements.html",talks:"evenements.html",
@@ -49,6 +59,10 @@
   const ps1=()=>`dmod@sakoi-cyber:${cwd}$`;
   function prompt(){ps.textContent=ps1();ov.querySelector(".term-title").textContent="dmod@sakoi-cyber: "+cwd}
   function print(text,cls){const d=document.createElement("div");d.className="tl-"+(cls||"o");d.textContent=text;out.appendChild(d);out.scrollTop=out.scrollHeight}
+  let busy=false,pending=null;
+  function emit(it){const [txt,cls]=Array.isArray(it)?it:[it];print(txt,cls)}
+  function flush(){if(pending){while(pending.i<pending.lines.length)emit(pending.lines[pending.i++]);pending=null;busy=false}}
+  function seq(lines,gap){flush();pending={lines,i:0};busy=true;const step=()=>{if(!pending)return;if(pending.i>=pending.lines.length){pending=null;busy=false;return}emit(pending.lines[pending.i++]);setTimeout(step,gap||120)};step()}
   function banner(){
     print("  ___    ___\n / _ \\  / _ \\\n| | | || | | |\n| |_| || |_| |\n \\___/  \\___/ ______","art");
     print(t({fr:"dmod-sh 1.0 — tape « help » pour la liste des commandes, « exit » ou Échap pour quitter.",en:"dmod-sh 1.0 — type “help” for the list of commands, “exit” or Esc to quit."}),"dim");
@@ -74,6 +88,9 @@
   cd <dossier>      changer de dossier (ex. cd projets)
   cat <fichier>     afficher un fichier (ex. cat about.txt)
   open <page>       ouvrir une page (ex. open hydra, open uses)
+  nmap sakoi        scanner mes projets (vus comme des services)
+  exploit <cible>   lancer une démo (ex. exploit hydra)
+  git log           l'historique de ma carrière
   neofetch          fiche système
   contact           me joindre
   cv                télécharger mon CV
@@ -86,6 +103,9 @@
   cd <dir>          change directory (e.g. cd projets)
   cat <file>        print a file (e.g. cat about.txt)
   open <page>       open a page (e.g. open hydra, open uses)
+  nmap sakoi        scan my projects (seen as services)
+  exploit <target>  run a demo (e.g. exploit hydra)
+  git log           my career history
   neofetch          system card
   contact           get in touch
   cv                download my CV
@@ -97,7 +117,7 @@
     pwd:()=>print(cwd.replace("~","/home/dmod")),
     ls:a=>{const all=a.includes("-a")||a.includes("-la")||a.includes("-al");const p=a.filter(x=>!x.startsWith("-"))[0];
       const d=p?resolve(p):cwd;if(!d){print(`ls: ${p}: `+t({fr:"aucun fichier ou dossier de ce nom",en:"no such file or directory"}),"err");return}
-      let names=Object.keys(DIRS[d]);if(d==="~")names=["projets/",...names];if(!all)names=names.filter(n=>!n.startsWith("."));
+      let names=Object.keys(DIRS[d]);if(d==="~"){const subs=Object.keys(DIRS).filter(k=>k.startsWith("~/")).map(k=>k.slice(2)+"/");names=[...subs,...names]}if(!all)names=names.filter(n=>!n.startsWith("."));
       print((all?"./  ../  ":"")+names.join("  "))},
     cd:a=>{const d=resolve(a[0]||"~");if(!d){print(`cd: ${a[0]}: `+t({fr:"aucun dossier de ce nom",en:"no such directory"}),"err");return}cwd=d;prompt()},
     cat:a=>{if(!a[0]){print("cat: "+t({fr:"quel fichier ? (ex. cat about.txt)",en:"which file? (e.g. cat about.txt)"}),"err");return}
@@ -125,12 +145,62 @@
     hydra:()=>C.cat(["projets/hydra.txt"]),
     uname:()=>print("dmod-sh 1.0 sakoi-cyber.me static x86_64 GNU/Cloudflare"),
     vim:()=>print(t({fr:"Pour quitter vim : … personne ne sait. Utilise plutôt cat.",en:"How to exit vim: … nobody knows. Use cat instead."}),"dim"),
-    nmap:()=>print("PORT    STATE  SERVICE\n443/tcp open   https   (Cloudflare)\n80/tcp  open   http    → 301 https\n"+t({fr:"Tu scannes mon site ? Lis plutôt /.well-known/security.txt 😉",en:"Scanning my site? Read /.well-known/security.txt instead 😉"})),
+    nmap:a=>{const tgt=(a.filter(x=>!x.startsWith("-"))[0]||"").toLowerCase();
+      if(tgt&&!/sak|projet|project|dmod|me$|self/.test(tgt)){print("PORT    STATE  SERVICE\n443/tcp open   https   (Cloudflare)\n80/tcp  open   http    → 301 https\n"+t({fr:"Pointe-le sur mes services : nmap sakoi",en:"Point it at my services: nmap sakoi"}),"dim");return}
+      const rows=[
+        "22/tcp    open  hydra       Neuro-Sentinel — IDS blue-team (IA)",
+        "80/tcp    open  portfolio   sakoi-cyber.me",
+        "443/tcp   open  arena       ctf.sakoi-cyber.me — CTF jeopardy",
+        "1337/tcp  open  honeypot    "+t({fr:"attaques en direct",en:"live attacks"}),
+        "4433/tcp  open  labo        "+t({fr:"boîte à outils crypto WASM",en:"WASM crypto toolkit"}),
+        "8443/tcp  open  identity    PGP / Ed25519 proofs",
+        "9050/tcp  open  blog        blog.sakoi-cyber.me"];
+      seq([["$ nmap -sV -Pn sakoi-cyber.me","cmd"],
+        ["Starting dmap 2.0 ( https://sakoi-cyber.me )","dim"],
+        [t({fr:"Scan des services de Dmod…",en:"Scanning Dmod's services…"}),"dim"],
+        "Nmap scan report for sakoi-cyber.me",
+        [t({fr:"Hôte actif (latence 0.00s — statique sur l'edge).",en:"Host is up (0.00s latency — static on the edge)."}),"dim"],
+        "PORT      STATE SERVICE     VERSION",
+        ...rows,
+        ["Service detection performed. 7 services up.","dim"],
+        [t({fr:"→ astuce : « exploit hydra », ou open arena / labo / identite",en:"→ tip: exploit hydra, or open arena / labo / identite"}),"ok"]],90)},
+    exploit:a=>{const tgt=(a[0]||"").toLowerCase();
+      const known={hydra:"Neuro-Sentinel",arena:"CTF Arena",honeypot:"Honeypot",labo:"WASM Labo",identity:"PGP identity",identite:"PGP identity"};
+      if(!tgt){print(t({fr:"exploit <service> — ex. exploit hydra (cibles : "+Object.keys(known).join(", ")+")",en:"exploit <service> — e.g. exploit hydra (targets: "+Object.keys(known).join(", ")+")"}),"err");return}
+      if(!known[tgt]){print("exploit: "+t({fr:"cible inconnue. Fais d'abord « nmap sakoi ».",en:"unknown target. Run “nmap sakoi” first."}),"err");return}
+      const name=known[tgt];
+      seq([["$ exploit "+tgt,"cmd"],
+        ["[*] "+t({fr:"Module : demo/portfolio/"+tgt,en:"Module: demo/portfolio/"+tgt}),"dim"],
+        ["[*] "+t({fr:"Démarrage du handler… (démo, 100% fictif)",en:"Starting handler… (demo, 100% fictional)"}),"dim"],
+        ["[*] "+t({fr:"Cible : "+name,en:"Target: "+name})],
+        ["[*] "+t({fr:"Envoi de la charge utile…",en:"Sending payload…"}),"dim"],
+        ["[*] "+t({fr:"Étape envoyée (4242 octets)",en:"Stage sent (4242 bytes)"}),"dim"],
+        ["[+] "+t({fr:"Session 1 ouverte 🎯",en:"Session 1 opened 🎯"}),"ok"],
+        ["meterpreter > sysinfo","cmd"],
+        [(tgt==="hydra"&&kb("hydra"))?kb("hydra"):t({fr:name+" — projet de Dmod. Détails : open "+tgt,en:name+" — Dmod's project. Details: open "+tgt})],
+        ["meterpreter > "+t({fr:"astuce : c'est une démo. Le vrai contenu est sur « open "+tgt+" »",en:"tip: this is a demo. The real thing is at “open "+tgt+"”"}),"dim"]],100)},
+    git:a=>{const sub=(a[0]||"").toLowerCase();
+      if(sub==="status"){print("On branch career\nYour branch is ahead of 'school' by 1337 commits.\n\n"+t({fr:"Rien à valider — carrière propre, arbre de travail en cours.",en:"nothing to commit — clean career, working tree in progress."}),"dim");return}
+      if(sub==="blame"){print(t({fr:"git blame : toujours la veille au soir avant le rendu.",en:"git blame: always the night before the deadline."}),"dim");return}
+      if(sub&&sub!=="log"){print("git: '"+sub+"' "+t({fr:"n'est pas une commande git ici. Essaie : git log",en:"is not a git command here. Try: git log"}),"err");return}
+      const oneline=a.includes("--oneline");
+      const commits=[
+        ["b1oodl0","2026-02","feat(ai): BloodLogic — hackathon AI4YOUTH 2026"],
+        ["5ent1ne","2026-01","feat(aviation): SENTINEL-AVSEC — cybersurveillance aéroportuaire IA (ANAC)"],
+        ["c7far3na","2025-11","feat(ctf): "+t({fr:"capitaine de l'équipe Smile 0_0",en:"captain of team Smile 0_0"})],
+        ["k0ud1pay","2025-07","feat(startup): KoudiPay — "+t({fr:"co-fondateur, responsable cybersécurité",en:"co-founder, head of cybersecurity"})],
+        ["hydr4000","2025-03","feat(blue): Hydra Neuro-Sentinel — IDS "+t({fr:"piloté par IA",en:"AI-driven"})],
+        ["c3rt1fff","2024-12","chore(certs): CAPT · Fortinet NSE · Cisco"],
+        ["l1c3nc3","2024-09","init: "+t({fr:"Licence pro Cybersécurité — Lomé",en:"BSc Cybersecurity — Lomé"})]];
+      if(oneline){print(commits.map(c=>c[0]+" "+c[2]).join("\n"));return}
+      const auth="Dominique-Savio SAKOI <contact@sakoi-cyber.me>";
+      print(commits.map((c,i)=>"commit "+c[0]+"f"+i+"a9c"+(i?"":" (HEAD -> career, origin/main)")+"\nAuthor: "+auth+"\nDate:   "+c[1]+"\n\n    "+c[2]).join("\n\n"))},
+    nc:()=>print(t({fr:"Pas de réseau dans ce shell (et pas de reverse shell non plus 😉).",en:"No network in this shell (and no reverse shell either 😉)."}),"dim"),
     curl:a=>print(t({fr:"Pas de réseau dans ce shell. Essaie depuis ton vrai terminal : curl -sI https://sakoi-cyber.me",en:"No network in this shell. Try from your real terminal: curl -sI https://sakoi-cyber.me"}),"dim")
   };
   C.ll=a=>C.ls(["-a",...a]);C["cd.."]=()=>C.cd([".."]);C.cls=C.clear;C.aide=C.help;C["?"]=C.help;
 
-  function run(line){const s=line.trim();print(ps1()+" "+s,"cmd");if(!s)return;
+  function run(line){flush();const s=line.trim();print(ps1()+" "+s,"cmd");if(!s)return;
     hist.push(s);hi=hist.length;
     const [c,...a]=s.split(/\s+/);const f=C[c.toLowerCase()];
     if(f)f(a);else print(`${c}: `+t({fr:"commande introuvable — tape help",en:"command not found — type help"}),"err")}
