@@ -20,6 +20,7 @@
       ["Talks & événements", "Talks & events", "evenements.html", "nav"],
       ["Contact", "Contact", "contact.html", "nav"],
       ["Sécurité du site", "Site security", "securite.html", "nav"],
+      ["Labo crypto (WASM)", "Crypto lab (WASM)", "labo.html", "nav"],
       ["Scanner de sécurité", "Security scanner", "scan.html", "nav"],
       ["Secure Drop — message chiffré", "Secure Drop — encrypted message", "securedrop.html", "nav"],
       ["Statut des services", "Service status", "status.html", "nav"],
