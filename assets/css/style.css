@@ -879,3 +879,33 @@ html.has-cursor .ctf-ov,html.has-cursor .ctf-ov *{cursor:auto!important}
 .st-row.up .st-state{color:var(--ok)}.st-row.down .st-state{color:#f87171}
 .st-ms{font-family:var(--mono);font-size:12.5px;color:var(--dim);min-width:56px;text-align:right}
 @media (max-width:560px){.sc-val{display:none}.st-state{display:none}}
+
+/* Command palette (Ctrl/Cmd-K) */
+html.cmdk-open{overflow:hidden}
+.cmdk{position:fixed;inset:0;z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding:14vh 16px 16px;background:rgba(0,0,0,.62);backdrop-filter:blur(4px)}
+.cmdk[hidden]{display:none}
+.cmdk-box{width:min(620px,100%);background:var(--panel-2);border:1px solid var(--line-2);border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.6);overflow:hidden;animation:cmdk-in .14s ease}
+@keyframes cmdk-in{from{transform:translateY(-8px);opacity:0}to{transform:none;opacity:1}}
+.cmdk-in{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cmdk-pr{font-family:var(--mono);color:var(--ok);font-size:14px}
+.cmdk-in input{flex:1;background:none;border:0;outline:0;color:var(--fg);font-family:var(--display);font-size:16px}
+.cmdk-list{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}
+.cmdk-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;cursor:pointer}
+.cmdk-item.on{background:rgba(126,226,168,.12)}
+.cmdk-ic{width:22px;text-align:center;font-family:var(--mono);color:var(--dim);font-size:13px}
+.cmdk-item.on .cmdk-ic{color:var(--ok)}
+.cmdk-lab{flex:1;font-weight:600;font-size:14.5px;color:var(--fg)}
+.cmdk-sub{font-family:var(--mono);font-size:11px;color:var(--dim);text-transform:lowercase}
+.cmdk-empty{padding:18px 12px;text-align:center;color:var(--muted);font-size:14px}
+.cmdk-foot{display:flex;gap:16px;padding:10px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+/* Easter egg: Matrix rain + CRT mode */
+.matrix-rain{position:fixed;inset:0;z-index:8800;pointer-events:none;opacity:.9}
+html.crt body::after{content:"";position:fixed;inset:0;z-index:8850;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.22) 3px,rgba(0,0,0,0) 4px);mix-blend-mode:multiply;animation:crt-flick .14s steps(2) infinite}
+html.crt{--fg:#c9ffe0}
+@keyframes crt-flick{0%{opacity:.85}100%{opacity:1}}
+.egg-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);z-index:9100;background:var(--panel-2);border:1px solid var(--ok);color:var(--ok);font-family:var(--mono);font-size:13px;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
+.egg-toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.matrix-rain{display:none}html.crt body::after{animation:none}}
+.cmdk-btn{margin:0 0 0 6px;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--bg);color:var(--muted);border:1px solid var(--line-2);border-radius:999px;height:34px;padding:0 10px;cursor:pointer}
+.cmdk-btn:hover{color:var(--ok);border-color:var(--ok)}

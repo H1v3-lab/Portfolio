@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "meta": {
+    "canonical": "https://sakoi-cyber.me/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-10-16",
+    "language": "fr"
+  },
+  "basics": {
+    "name": "Dominique-Savio SAKOI",
+    "label": "Étudiant & consultant en cybersécurité — pentest, SOC, durcissement",
+    "image": "https://sakoi-cyber.me/assets/img/avatar.png",
+    "email": "contact@sakoi-cyber.me",
+    "url": "https://sakoi-cyber.me",
+    "summary": "Étudiant en licence professionnelle Cybersécurité à Lomé (Togo) et consultant indépendant. Pentest web et interne, durcissement système et Active Directory, défense réseau/UTM, analyse de menaces. Je construis des outils défensifs, une plateforme CTF et un honeypot public, documentés sur mon blog.",
+    "location": {
+      "city": "Lomé",
+      "countryCode": "TG",
+      "region": "Maritime"
+    },
+    "profiles": [
+      { "network": "GitHub", "username": "H1v3-lab", "url": "https://github.com/H1v3-lab" },
+      { "network": "LinkedIn", "username": "dominique-savio-sakoi", "url": "https://www.linkedin.com/in/dominique-savio-sakoi-b607b333a" },
+      { "network": "Blog", "username": "Dmod", "url": "https://blog.sakoi-cyber.me" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Consultant cybersécurité indépendant",
+      "position": "Consultant cybersécurité",
+      "location": "Lomé, Togo",
+      "startDate": "2023-12",
+      "summary": "Missions ponctuelles de sécurité offensive et défensive pour des structures locales : durcissement d'infrastructure, défense réseau et administration sécurisée d'Active Directory.",
+      "highlights": [
+        "Infrastructure & durcissement système (juin — juillet 2025)",
+        "Défense réseau & UTM (avril — mai 2025)",
+        "Sécurité & administration Active Directory (décembre 2023 — janvier 2024)"
+      ]
+    },
+    {
+      "name": "MiabeInnovation",
+      "position": "Agent cybersécurité",
+      "location": "Lomé, Togo",
+      "summary": "Agent cybersécurité au sein de l'équipe technique."
+    },
+    {
+      "name": "KoudiPay",
+      "position": "Sécurité applicative",
+      "location": "Lomé, Togo",
+      "summary": "KoudiPay agrège les paiements Mobile Money (Flooz, Mixx by Yas) pour permettre aux PME togolaises d'encaisser en ligne."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Licence professionnelle Cybersécurité",
+      "area": "Cybersécurité",
+      "studyType": "Licence professionnelle",
+      "courses": [
+        "Tests de sécurité",
+        "Investigation numérique",
+        "Sécurité réseau",
+        "Active Directory",
+        "Défense périmétrique"
+      ]
+    }
+  ],
+  "certificates": [
+    { "name": "Networking Essentials", "issuer": "Cisco Networking Academy" },
+    { "name": "NDG Linux Essentials", "issuer": "Cisco Networking Academy / NDG" },
+    { "name": "TryHackMe", "issuer": "TryHackMe" },
+    { "name": "Root-Me", "issuer": "Root-Me" },
+    { "name": "picoCTF · pwn.college", "issuer": "picoCTF / pwn.college" }
+  ],
+  "skills": [
+    { "name": "Sécurité offensive", "keywords": ["Pentest web", "Pentest interne", "Active Directory", "Exploitation", "CTF"] },
+    { "name": "Sécurité défensive", "keywords": ["SOC", "Durcissement système", "UTM / pare-feu", "Honeypot", "Analyse de menaces"] },
+    { "name": "Systèmes & réseau", "keywords": ["Linux", "Windows", "Active Directory", "TCP/IP", "DNS/TLS"] },
+    { "name": "Outils & dev", "keywords": ["Python", "Bash", "JavaScript", "Cloudflare Workers", "Git"] }
+  ],
+  "projects": [
+    {
+      "name": "Hydra — Neuro-Sentinel",
+      "description": "Système de détection de menaces documenté en série sur le blog.",
+      "url": "https://sakoi-cyber.me/hydra.html",
+      "keywords": ["détection", "IA", "blue team"]
+    },
+    {
+      "name": "Arène CTF",
+      "description": "Plateforme CTF jeopardy maison (challenges web/crypto/forensics).",
+      "url": "https://ctf.sakoi-cyber.me",
+      "keywords": ["CTF", "Cloudflare Workers", "D1"]
+    },
+    {
+      "name": "Honeypot public",
+      "description": "Dashboard des attaques en direct alimenté par un honeypot sur VPS.",
+      "url": "https://sakoi-cyber.me/attaques.html",
+      "keywords": ["honeypot", "threat intel", "SSH/HTTP"]
+    },
+    {
+      "name": "Outils de sécurité",
+      "description": "Secure Drop (messagerie PGP de bout en bout), scanner d'en-têtes HTTP/DNS, page de statut.",
+      "url": "https://sakoi-cyber.me/securedrop.html",
+      "keywords": ["PGP", "en-têtes HTTP", "DNS"]
+    }
+  ],
+  "languages": [
+    { "language": "Français", "fluency": "Langue maternelle" },
+    { "language": "Anglais", "fluency": "Professionnel" }
+  ]
+}
