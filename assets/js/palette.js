@@ -21,6 +21,7 @@
       ["Contact", "Contact", "contact.html", "nav"],
       ["Sécurité du site", "Site security", "securite.html", "nav"],
       ["Jailbreake l'IA (VAULT)", "Jailbreak the AI (VAULT)", "redteam.html", "nav"],
+      ["Lab éphémère (IaC)", "Ephemeral lab (IaC)", "lab.html", "nav"],
       ["/pwn — exploite le site", "/pwn — hack the site", "pwn.html", "nav"],
       ["Dissection Romulus (malware)", "Romulus dissection (malware)", "romulus.html", "nav"],
       ["API publique (OpenAPI)", "Public API (OpenAPI)", "api-docs.html", "nav"],

@@ -1,0 +1,20 @@
+#cloud-config
+# Ephemeral lab bootstrap: install Docker, run a vulnerable target + a browser shell,
+# then schedule a self-terminating power-off at TTL (the instance is set to terminate on
+# shutdown, so this disposes of everything with no external cleanup).
+
+package_update: true
+packages:
+  - docker
+
+runcmd:
+  - systemctl enable --now docker
+  # Deliberately vulnerable target (attack it from the web shell or your own tools).
+  - [ docker, run, -d, --restart, "no", --name, target, -p, "3000:3000", "${target_image}" ]
+  # Browser-based shell (ttyd), writable, on the host network so it can reach the target.
+  - [ docker, run, -d, --restart, "no", --name, shell, --network, host, "tsl0922/ttyd:latest", ttyd, -W, -p, "7681", bash ]
+  # Self-destruct: power off at TTL; the instance is configured to terminate on shutdown.
+  - [ bash, -c, "echo 'Ephemeral lab — self-destructs in ${ttl_minutes} min' > /etc/motd" ]
+  - [ bash, -c, "shutdown -h +${ttl_minutes} 'sakoi ephemeral lab TTL reached'" ]
+
+final_message: "Sakoi ephemeral lab ready. Self-destructs in ${ttl_minutes} minutes."
