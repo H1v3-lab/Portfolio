@@ -1,0 +1,85 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "sakoi-cyber.me — API publique",
+    "version": "1.0.0",
+    "description": "Les endpoints publics qui alimentent le portfolio : mini-CTF, honeypot (attaques en direct + threat intel), outils de sécurité et statistiques. Tous servis par des Cloudflare Workers sur le même domaine. Lecture seule sauf mention contraire ; aucun pistage de visiteur.",
+    "contact": { "name": "Dmod", "url": "https://sakoi-cyber.me/contact.html", "email": "contact@sakoi-cyber.me" },
+    "license": { "name": "Usage démonstratif" }
+  },
+  "servers": [{ "url": "https://sakoi-cyber.me", "description": "Production" }],
+  "tags": [
+    { "name": "CTF", "description": "Mini-CTF caché : validation de flags et classement." },
+    { "name": "Honeypot", "description": "Attaques reçues en direct par le honeypot + enrichissement threat intel." },
+    { "name": "Outils", "description": "Outils de sécurité publics (scanner d'en-têtes, statut)." },
+    { "name": "Stats", "description": "Signaux agrégés du dashboard de preuve." }
+  ],
+  "paths": {
+    "/api/ctf/flag": {
+      "post": {
+        "tags": ["CTF"], "summary": "Soumettre un flag",
+        "description": "Valide un flag du mini-CTF et l'horodate avec l'horloge serveur (c'est de là que vient le score).",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": {
+          "type": "object", "properties": { "sid": { "type": ["string", "null"], "description": "Identifiant de session (null au premier appel)." }, "flag": { "type": "string", "example": "DMOD{...}" } }, "required": ["flag"] } } } },
+        "responses": { "200": { "description": "Résultat de validation", "content": { "application/json": { "schema": {
+          "type": "object", "properties": { "ok": { "type": "boolean" }, "sid": { "type": "string" }, "n": { "type": "integer" }, "found": { "type": "array", "items": { "type": "integer" } }, "complete": { "type": "boolean" }, "seconds": { "type": "integer" } } } } } } }
+      }
+    },
+    "/api/ctf/finish": {
+      "post": {
+        "tags": ["CTF"], "summary": "Enregistrer son score au classement",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": {
+          "type": "object", "properties": { "sid": { "type": "string" }, "pseudo": { "type": "string", "minLength": 2, "maxLength": 20 } }, "required": ["sid", "pseudo"] } } } },
+        "responses": { "200": { "description": "Rang obtenu" }, "409": { "description": "Pseudo déjà pris" } }
+      }
+    },
+    "/api/ctf/leaderboard": {
+      "get": {
+        "tags": ["CTF"], "summary": "Classement du mini-CTF",
+        "responses": { "200": { "description": "Top joueurs", "content": { "application/json": { "example": {
+          "leaderboard": [{ "pseudo": "neo", "seconds": 742, "score": 2410 }], "players": 37 } } } } }
+      }
+    },
+    "/api/honeypot/stats": {
+      "get": {
+        "tags": ["Honeypot"], "summary": "Statistiques agrégées des attaques",
+        "description": "Compteurs, top IP / pays / ports / identifiants, flux récent, points pour le globe et timeline 24 h.",
+        "responses": { "200": { "description": "Statistiques", "content": { "application/json": { "example": {
+          "generated": 1770000000, "totals": { "total": 1284, "ips": 213, "countries": 41, "last24": 96, "ips24": 22 },
+          "topCountries": [{ "country": "CN", "n": 311 }], "topPorts": [{ "proto": "ssh", "port": 22, "n": 540 }] } } } } }
+      }
+    },
+    "/api/honeypot/attackers": {
+      "get": {
+        "tags": ["Honeypot"], "summary": "Dossiers threat intel par attaquant",
+        "description": "Top IP attaquantes enrichies : ASN / propriétaire réseau (Team Cymru), nœud Tor, réputation (AbuseIPDB / GreyNoise), services visés, identifiants, première/dernière vue.",
+        "responses": { "200": { "description": "Dossiers", "content": { "application/json": { "example": {
+          "generated": 1770000000, "attackers": [{ "ip": "203.0.113.7", "country": "RU", "events": 88, "intel": { "asn": "AS12345", "as_org": "EXAMPLE-AS", "tor": 0, "abuse_score": 72 } }] } } } } }
+      }
+    },
+    "/api/tools/scan": {
+      "get": {
+        "tags": ["Outils"], "summary": "Scanner d'en-têtes HTTP + DNS",
+        "parameters": [{ "name": "url", "in": "query", "required": true, "schema": { "type": "string" }, "example": "example.com", "description": "Hôte ou URL à analyser (une garde anti-SSRF bloque les adresses privées)." }],
+        "responses": { "200": { "description": "Note et détails", "content": { "application/json": { "example": {
+          "host": "example.com", "grade": "A", "score": 85, "checks": [{ "id": "hsts", "ok": true }] } } } }, "400": { "description": "Adresse invalide ou bloquée" } }
+      }
+    },
+    "/api/tools/status": {
+      "get": {
+        "tags": ["Outils"], "summary": "Statut des services",
+        "responses": { "200": { "description": "Disponibilité", "content": { "application/json": { "example": {
+          "all_up": true, "up": 7, "total": 7, "services": [{ "name": "portfolio", "up": true, "ms": 42 }], "generated": 1770000000 } } } } }
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "tags": ["Stats"], "summary": "Signaux du dashboard de preuve",
+        "description": "Agrégats GitHub publics : dépôts, étoiles, abonnés, top langages, heatmap d'activité 90 jours et activité récente.",
+        "responses": { "200": { "description": "Stats", "content": { "application/json": { "example": {
+          "user": { "repos": 24, "stars": 31, "followers": 48, "created": "2023" }, "languages": [{ "name": "Python", "n": 9 }],
+          "activity": { "total": 412, "streak": 7 } } } } } }
+      }
+    }
+  }
+}

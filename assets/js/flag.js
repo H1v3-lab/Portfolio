@@ -8,7 +8,9 @@
     document.getElementById("fl-bar").style.width=(n/CTF.total*100)+"%";
     document.querySelectorAll(".fl").forEach(li=>{const ok=got.includes(+li.dataset.n);li.classList.toggle("got",ok);li.querySelector(".fl-st").textContent=ok?"✓":"?"});
     document.getElementById("fl-win").hidden=n<CTF.total}
+  const EN=()=>(typeof lang!=="undefined"&&lang==="en");
   form.addEventListener("submit",async e=>{e.preventDefault();const r=await CTF.check(inp.value);
+    if(r.secret){msg.className="fl-msg ok";msg.textContent=EN()?"🕵️ SECRET flag found — hidden by steganography in a site image!":"🕵️ Flag SECRET trouvé — caché par stéganographie dans une image du site !";inp.value="";render();return}
     msg.className="fl-msg "+(r.n?"ok":"ko");msg.textContent=r.n?tr(r.fresh?"fl_ok":"fl_dup",r.n):tr("fl_bad");
     if(r.n)inp.value="";render()});
   document.getElementById("fl-reset").addEventListener("click",()=>{CTF.reset();msg.textContent=""});

@@ -135,6 +135,7 @@
     clear:()=>{out.textContent=""},
     lang:a=>{const l=a[0]||(L()==="fr"?"en":"fr");if(l!==L()&&(l==="fr"||l==="en"))document.getElementById("lang").click();print("lang="+L(),"ok")},
     flag:async a=>{if(!window.CTF){print("CTF offline","err");return}const r=await CTF.check(a.join(" "));
+      if(r.secret){print(t({fr:"🕵️ Flag SECRET trouvé — caché par stéganographie dans une image du site. Chapeau.",en:"🕵️ SECRET flag found — hidden by steganography in a site image. Hats off."}),"ok");return}
       if(!r.n){print(t({fr:"✕ Flag invalide. Format : DMOD{...}",en:"✕ Invalid flag. Format: DMOD{...}"}),"err");return}
       const n=CTF.found().length;print((r.fresh?"✓ ":"• ")+t({fr:`Flag ${r.n} ${r.fresh?"validé":"déjà trouvé"} — ${n}/${CTF.total}`,en:`Flag ${r.n} ${r.fresh?"accepted":"already found"} — ${n}/${CTF.total}`}),"ok");
       if(n===CTF.total)print(t({fr:"🏁 Tous les flags ! Passe sur /flag.html pour la suite.",en:"🏁 All flags! Head to /flag.html for what's next."}),"ok")},

@@ -10,6 +10,9 @@
     "11def4318bfe6f94bc337091289df4b4e5b604b5fa7835786c39f1d355c88a44",
     "ed9f5348d27f5f953015a5f69c4d1addc328fc7c31ee8101f1c7f6b18fa86e6a"];
   const POINTS=[50,100,100,150,150,200],BONUS=2250,HALF=1800;   // same rules as the server
+  // Bonus "secret" flag #7, hidden by steganography in an image. Not part of the scored six;
+  // only its hash lives here, and it never touches the server.
+  const SECRET="e4b75cc12a0e6428dc2c92cf98212559bd6238da62330791e5676c74996f0e02";
   const KEY="dmod_ctf";
   const L=()=>(typeof lang!=="undefined"&&lang==="en")?"en":"fr";
   const tr=o=>o[L()];
@@ -37,7 +40,9 @@
 
   /* returns {n: flag number 1-6 or 0, fresh: first time found} */
   async function check(input){const f=String(input||"").trim();if(!/^DMOD\{.+\}$/.test(f)||!crypto.subtle)return{n:0};
-    const i=H.indexOf(await sha(f));if(i<0)return{n:0};
+    const hsh=await sha(f);
+    if(hsh===SECRET){const fresh=!st.secret;if(fresh){st.secret=f;save(st);confetti(document.body)}dispatchEvent(new CustomEvent("ctf:update"));return{n:0,secret:true,fresh}}
+    const i=H.indexOf(hsh);if(i<0)return{n:0};
     const n=i+1,fresh=!st.flags[n];
     if(fresh){st.flags[n]=f;st.t[n]=Math.floor(Date.now()/1000);save(st)}
     dispatchEvent(new CustomEvent("ctf:update"));
@@ -130,7 +135,7 @@
   addEventListener("keydown",e=>{if(e.key==="Escape"&&ov)close()});
 
   window.CTF={total:H.length,found,check,celebrate,format:fmt,api,
-    state:()=>st,
+    state:()=>st,secretFound:()=>!!st.secret,
     reset(){st={flags:{},t:{}};save(st);dispatchEvent(new CustomEvent("ctf:update"))}};
 
   /* flag 3 — for those who open the devtools */
