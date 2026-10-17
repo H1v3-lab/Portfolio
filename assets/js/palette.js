@@ -20,6 +20,7 @@
       ["Talks & événements", "Talks & events", "evenements.html", "nav"],
       ["Contact", "Contact", "contact.html", "nav"],
       ["Sécurité du site", "Site security", "securite.html", "nav"],
+      ["Dissection Romulus (malware)", "Romulus dissection (malware)", "romulus.html", "nav"],
       ["API publique (OpenAPI)", "Public API (OpenAPI)", "api-docs.html", "nav"],
       ["Rapport de pentest (démo)", "Pentest report (demo)", "rapport.html", "nav"],
       ["Dashboard de preuve", "Proof dashboard", "dashboard.html", "nav"],
