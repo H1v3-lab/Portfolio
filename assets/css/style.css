@@ -1236,3 +1236,22 @@ code.lab-v{font-family:var(--mono);font-size:12.5px;color:var(--ok)}
 .pwn-rem>summary::-webkit-details-marker{display:none}
 .pwn-rem>summary::before{content:"🛡 ";}
 .pwn-remp{color:var(--muted);font-size:13px;line-height:1.6;margin:8px 0 0}
+
+/* AI red-team challenge */
+.rt-solved{background:rgba(126,226,168,.1);border:1px solid var(--ok);color:var(--ok);border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:14px;font-weight:600}
+.rt-chat{padding:0;overflow:hidden;display:flex;flex-direction:column;max-height:62vh}
+.rt-log{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-height:220px}
+.rt-log:empty::before{content:"VAULT 0_0";font-family:var(--mono);color:var(--dim);font-size:13px}
+.rt-msg{display:flex;flex-direction:column;gap:3px;max-width:88%}
+.rt-msg.user{align-self:flex-end;align-items:flex-end}
+.rt-who{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+.rt-txt{padding:9px 13px;border-radius:12px;font-size:13.5px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.rt-msg.user .rt-txt{background:var(--ok);color:var(--bg);border-bottom-right-radius:4px}
+.rt-msg.assistant .rt-txt{background:var(--panel-2);border:1px solid var(--line-2);color:var(--fg);border-bottom-left-radius:4px}
+.rt-form{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
+.rt-in{flex:1;background:var(--bg);border:1px solid var(--line-2);border-radius:10px;color:var(--fg);font-family:var(--display);font-size:14px;padding:10px 13px}
+.rt-in:focus{outline:0;border-color:var(--ok)}
+.rt-actions{margin:12px 0}
+.rt-rules{padding:16px 18px;margin-top:4px}
+.rt-rlist{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.rt-rlist li{font-size:13px;color:var(--muted);line-height:1.55}
